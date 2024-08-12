@@ -149,7 +149,7 @@ LOAD x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x19b6
+.text           0x00000000     0x199e
  *(.vectors)
  .vectors       0x00000000       0x54 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -294,25 +294,25 @@ LOAD x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5
                 0x0000150a       0x20 ./Src/LED_Program.o
                 0x0000150a                HLED_voidToggleLED
  .text.HSSD_voidDisplayNumber
-                0x0000152a       0xda ./Src/SSD_Program.o
+                0x0000152a       0xc2 ./Src/SSD_Program.o
                 0x0000152a                HSSD_voidDisplayNumber
  .text.HSSD_voidDisplayNumberAscending
-                0x00001604      0x1ac ./Src/SSD_Program.o
-                0x00001604                HSSD_voidDisplayNumberAscending
+                0x000015ec      0x1ac ./Src/SSD_Program.o
+                0x000015ec                HSSD_voidDisplayNumberAscending
  .text.HSSD_voidDisplayNumberDescending
-                0x000017b0      0x194 ./Src/SSD_Program.o
-                0x000017b0                HSSD_voidDisplayNumberDescending
- .text.libgcc   0x00001944        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001944        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00001944       0x38 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001944                __prologue_saves__
- .text.libgcc   0x0000197c       0x36 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x0000197c                __epilogue_restores__
-                0x000019b2                . = ALIGN (0x2)
+                0x00001798      0x194 ./Src/SSD_Program.o
+                0x00001798                HSSD_voidDisplayNumberDescending
+ .text.libgcc   0x0000192c        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000192c        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000192c       0x38 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x0000192c                __prologue_saves__
+ .text.libgcc   0x00001964       0x36 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001964                __epilogue_restores__
+                0x0000199a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000019b2        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000019b2                exit
-                0x000019b2                _exit
+ .fini9         0x0000199a        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000199a                exit
+                0x0000199a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -331,11 +331,11 @@ LOAD x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000019b2        0x4 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000199a        0x4 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000019b6                _etext = .
+                0x0000199e                _etext = .
 
-.data           0x00800060      0x11c load address 0x000019b6
+.data           0x00800060      0x11c load address 0x0000199e
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -366,9 +366,9 @@ LOAD x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5
  *(.data*)
  *(.rodata)
  *(.rodata*)
- .rodata.C.0.1345
+ .rodata.C.0.1341
                 0x00800168        0xa ./Src/SSD_Program.o
- .rodata.C.1.1374
+ .rodata.C.1.1370
                 0x00800172        0xa ./Src/SSD_Program.o
  *(.gnu.linkonce.d*)
                 0x0080017c                . = ALIGN (0x2)
@@ -404,8 +404,8 @@ LOAD x:/tools/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5
  *(.bss*)
  *(COMMON)
                 0x0080017c                PROVIDE (__bss_end, .)
-                0x000019b6                __data_load_start = LOADADDR (.data)
-                0x00001ad2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000199e                __data_load_start = LOADADDR (.data)
+                0x00001aba                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080017c        0x0
                 0x0080017c                PROVIDE (__noinit_start, .)
