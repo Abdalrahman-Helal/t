@@ -3,31 +3,31 @@ TrafficLightSystem.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000199e  00000000  00000000  00000074  2**1
+  0 .text         00001c2e  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000011c  00800060  0000199e  00001a12  2**0
+  1 .data         0000012a  00800060  00001c2e  00001ca2  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .stab         00000fe4  00000000  00000000  00001b30  2**2
+  2 .stab         00001218  00000000  00000000  00001dcc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  3 .stabstr      00000b83  00000000  00000000  00002b14  2**0
+  3 .stabstr      00000bdd  00000000  00000000  00002fe4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_aranges 00000180  00000000  00000000  00003697  2**0
+  4 .debug_aranges 00000180  00000000  00000000  00003bc1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_pubnames 000001d3  00000000  00000000  00003817  2**0
+  5 .debug_pubnames 000001d3  00000000  00000000  00003d41  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000200f  00000000  00000000  000039ea  2**0
+  6 .debug_info   0000200f  00000000  00000000  00003f14  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001170  00000000  00000000  000059f9  2**0
+  7 .debug_abbrev 00001170  00000000  00000000  00005f23  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001001  00000000  00000000  00006b69  2**0
+  8 .debug_line   00001001  00000000  00000000  00007093  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001a0  00000000  00000000  00007b6c  2**2
+  9 .debug_frame  000001a0  00000000  00000000  00008094  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000002c1  00000000  00000000  00007d0c  2**0
+ 10 .debug_str    000002c1  00000000  00000000  00008234  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000008ae  00000000  00000000  00007fcd  2**0
+ 11 .debug_loc    000008ae  00000000  00000000  000084f5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000050  00000000  00000000  0000887b  2**0
+ 12 .debug_ranges 00000050  00000000  00000000  00008da3  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -67,8 +67,8 @@ Disassembly of section .text:
       60:	11 e0       	ldi	r17, 0x01	; 1
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	ee e9       	ldi	r30, 0x9E	; 158
-      68:	f9 e1       	ldi	r31, 0x19	; 25
+      66:	ee e2       	ldi	r30, 0x2E	; 46
+      68:	fc e1       	ldi	r31, 0x1C	; 28
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
 0000006c <.do_copy_data_loop>:
@@ -76,11 +76,11 @@ Disassembly of section .text:
       6e:	0d 92       	st	X+, r0
 
 00000070 <.do_copy_data_start>:
-      70:	ac 37       	cpi	r26, 0x7C	; 124
+      70:	aa 38       	cpi	r26, 0x8A	; 138
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
       76:	0e 94 63 06 	call	0xcc6	; 0xcc6 <main>
-      7a:	0c 94 cd 0c 	jmp	0x199a	; 0x199a <_exit>
+      7a:	0c 94 15 0e 	jmp	0x1c2a	; 0x1c2a <_exit>
 
 0000007e <__bad_interrupt>:
       7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -132,7 +132,7 @@ Disassembly of section .text:
       dc:	b0 e0       	ldi	r27, 0x00	; 0
       de:	e3 e7       	ldi	r30, 0x73	; 115
       e0:	f0 e0       	ldi	r31, 0x00	; 0
-      e2:	0c 94 96 0c 	jmp	0x192c	; 0x192c <__prologue_saves__>
+      e2:	0c 94 de 0d 	jmp	0x1bbc	; 0x1bbc <__prologue_saves__>
       e6:	dc 01       	movw	r26, r24
       e8:	2b 01       	movw	r4, r22
       ea:	fa 01       	movw	r30, r20
@@ -457,14 +457,14 @@ Disassembly of section .text:
      368:	cd b7       	in	r28, 0x3d	; 61
      36a:	de b7       	in	r29, 0x3e	; 62
      36c:	e2 e1       	ldi	r30, 0x12	; 18
-     36e:	0c 94 b2 0c 	jmp	0x1964	; 0x1964 <__epilogue_restores__>
+     36e:	0c 94 fa 0d 	jmp	0x1bf4	; 0x1bf4 <__epilogue_restores__>
 
 00000372 <__subsf3>:
      372:	a0 e2       	ldi	r26, 0x20	; 32
      374:	b0 e0       	ldi	r27, 0x00	; 0
      376:	ef eb       	ldi	r30, 0xBF	; 191
      378:	f1 e0       	ldi	r31, 0x01	; 1
-     37a:	0c 94 a2 0c 	jmp	0x1944	; 0x1944 <__prologue_saves__+0x18>
+     37a:	0c 94 ea 0d 	jmp	0x1bd4	; 0x1bd4 <__prologue_saves__+0x18>
      37e:	69 83       	std	Y+1, r22	; 0x01
      380:	7a 83       	std	Y+2, r23	; 0x02
      382:	8b 83       	std	Y+3, r24	; 0x03
@@ -502,14 +502,14 @@ Disassembly of section .text:
      3c8:	0e 94 bd 04 	call	0x97a	; 0x97a <__pack_f>
      3cc:	a0 96       	adiw	r28, 0x20	; 32
      3ce:	e6 e0       	ldi	r30, 0x06	; 6
-     3d0:	0c 94 be 0c 	jmp	0x197c	; 0x197c <__epilogue_restores__+0x18>
+     3d0:	0c 94 06 0e 	jmp	0x1c0c	; 0x1c0c <__epilogue_restores__+0x18>
 
 000003d4 <__addsf3>:
      3d4:	a0 e2       	ldi	r26, 0x20	; 32
      3d6:	b0 e0       	ldi	r27, 0x00	; 0
      3d8:	e0 ef       	ldi	r30, 0xF0	; 240
      3da:	f1 e0       	ldi	r31, 0x01	; 1
-     3dc:	0c 94 a2 0c 	jmp	0x1944	; 0x1944 <__prologue_saves__+0x18>
+     3dc:	0c 94 ea 0d 	jmp	0x1bd4	; 0x1bd4 <__prologue_saves__+0x18>
      3e0:	69 83       	std	Y+1, r22	; 0x01
      3e2:	7a 83       	std	Y+2, r23	; 0x02
      3e4:	8b 83       	std	Y+3, r24	; 0x03
@@ -543,14 +543,14 @@ Disassembly of section .text:
      422:	0e 94 bd 04 	call	0x97a	; 0x97a <__pack_f>
      426:	a0 96       	adiw	r28, 0x20	; 32
      428:	e6 e0       	ldi	r30, 0x06	; 6
-     42a:	0c 94 be 0c 	jmp	0x197c	; 0x197c <__epilogue_restores__+0x18>
+     42a:	0c 94 06 0e 	jmp	0x1c0c	; 0x1c0c <__epilogue_restores__+0x18>
 
 0000042e <__mulsf3>:
      42e:	a0 e2       	ldi	r26, 0x20	; 32
      430:	b0 e0       	ldi	r27, 0x00	; 0
      432:	ed e1       	ldi	r30, 0x1D	; 29
      434:	f2 e0       	ldi	r31, 0x02	; 2
-     436:	0c 94 96 0c 	jmp	0x192c	; 0x192c <__prologue_saves__>
+     436:	0c 94 de 0d 	jmp	0x1bbc	; 0x1bbc <__prologue_saves__>
      43a:	69 83       	std	Y+1, r22	; 0x01
      43c:	7a 83       	std	Y+2, r23	; 0x02
      43e:	8b 83       	std	Y+3, r24	; 0x03
@@ -790,14 +790,14 @@ Disassembly of section .text:
      616:	0e 94 bd 04 	call	0x97a	; 0x97a <__pack_f>
      61a:	a0 96       	adiw	r28, 0x20	; 32
      61c:	e2 e1       	ldi	r30, 0x12	; 18
-     61e:	0c 94 b2 0c 	jmp	0x1964	; 0x1964 <__epilogue_restores__>
+     61e:	0c 94 fa 0d 	jmp	0x1bf4	; 0x1bf4 <__epilogue_restores__>
 
 00000622 <__gtsf2>:
      622:	a8 e1       	ldi	r26, 0x18	; 24
      624:	b0 e0       	ldi	r27, 0x00	; 0
      626:	e7 e1       	ldi	r30, 0x17	; 23
      628:	f3 e0       	ldi	r31, 0x03	; 3
-     62a:	0c 94 a2 0c 	jmp	0x1944	; 0x1944 <__prologue_saves__+0x18>
+     62a:	0c 94 ea 0d 	jmp	0x1bd4	; 0x1bd4 <__prologue_saves__+0x18>
      62e:	69 83       	std	Y+1, r22	; 0x01
      630:	7a 83       	std	Y+2, r23	; 0x02
      632:	8b 83       	std	Y+3, r24	; 0x03
@@ -835,14 +835,14 @@ Disassembly of section .text:
      678:	8f ef       	ldi	r24, 0xFF	; 255
      67a:	68 96       	adiw	r28, 0x18	; 24
      67c:	e6 e0       	ldi	r30, 0x06	; 6
-     67e:	0c 94 be 0c 	jmp	0x197c	; 0x197c <__epilogue_restores__+0x18>
+     67e:	0c 94 06 0e 	jmp	0x1c0c	; 0x1c0c <__epilogue_restores__+0x18>
 
 00000682 <__gesf2>:
      682:	a8 e1       	ldi	r26, 0x18	; 24
      684:	b0 e0       	ldi	r27, 0x00	; 0
      686:	e7 e4       	ldi	r30, 0x47	; 71
      688:	f3 e0       	ldi	r31, 0x03	; 3
-     68a:	0c 94 a2 0c 	jmp	0x1944	; 0x1944 <__prologue_saves__+0x18>
+     68a:	0c 94 ea 0d 	jmp	0x1bd4	; 0x1bd4 <__prologue_saves__+0x18>
      68e:	69 83       	std	Y+1, r22	; 0x01
      690:	7a 83       	std	Y+2, r23	; 0x02
      692:	8b 83       	std	Y+3, r24	; 0x03
@@ -880,14 +880,14 @@ Disassembly of section .text:
      6d8:	8f ef       	ldi	r24, 0xFF	; 255
      6da:	68 96       	adiw	r28, 0x18	; 24
      6dc:	e6 e0       	ldi	r30, 0x06	; 6
-     6de:	0c 94 be 0c 	jmp	0x197c	; 0x197c <__epilogue_restores__+0x18>
+     6de:	0c 94 06 0e 	jmp	0x1c0c	; 0x1c0c <__epilogue_restores__+0x18>
 
 000006e2 <__ltsf2>:
      6e2:	a8 e1       	ldi	r26, 0x18	; 24
      6e4:	b0 e0       	ldi	r27, 0x00	; 0
      6e6:	e7 e7       	ldi	r30, 0x77	; 119
      6e8:	f3 e0       	ldi	r31, 0x03	; 3
-     6ea:	0c 94 a2 0c 	jmp	0x1944	; 0x1944 <__prologue_saves__+0x18>
+     6ea:	0c 94 ea 0d 	jmp	0x1bd4	; 0x1bd4 <__prologue_saves__+0x18>
      6ee:	69 83       	std	Y+1, r22	; 0x01
      6f0:	7a 83       	std	Y+2, r23	; 0x02
      6f2:	8b 83       	std	Y+3, r24	; 0x03
@@ -925,14 +925,14 @@ Disassembly of section .text:
      738:	81 e0       	ldi	r24, 0x01	; 1
      73a:	68 96       	adiw	r28, 0x18	; 24
      73c:	e6 e0       	ldi	r30, 0x06	; 6
-     73e:	0c 94 be 0c 	jmp	0x197c	; 0x197c <__epilogue_restores__+0x18>
+     73e:	0c 94 06 0e 	jmp	0x1c0c	; 0x1c0c <__epilogue_restores__+0x18>
 
 00000742 <__fixsfsi>:
      742:	ac e0       	ldi	r26, 0x0C	; 12
      744:	b0 e0       	ldi	r27, 0x00	; 0
      746:	e7 ea       	ldi	r30, 0xA7	; 167
      748:	f3 e0       	ldi	r31, 0x03	; 3
-     74a:	0c 94 a6 0c 	jmp	0x194c	; 0x194c <__prologue_saves__+0x20>
+     74a:	0c 94 ee 0d 	jmp	0x1bdc	; 0x1bdc <__prologue_saves__+0x20>
      74e:	69 83       	std	Y+1, r22	; 0x01
      750:	7a 83       	std	Y+2, r23	; 0x02
      752:	8b 83       	std	Y+3, r24	; 0x03
@@ -1008,14 +1008,14 @@ Disassembly of section .text:
      7e0:	ca 01       	movw	r24, r20
      7e2:	2c 96       	adiw	r28, 0x0c	; 12
      7e4:	e2 e0       	ldi	r30, 0x02	; 2
-     7e6:	0c 94 c2 0c 	jmp	0x1984	; 0x1984 <__epilogue_restores__+0x20>
+     7e6:	0c 94 0a 0e 	jmp	0x1c14	; 0x1c14 <__epilogue_restores__+0x20>
 
 000007ea <__floatunsisf>:
      7ea:	a8 e0       	ldi	r26, 0x08	; 8
      7ec:	b0 e0       	ldi	r27, 0x00	; 0
      7ee:	eb ef       	ldi	r30, 0xFB	; 251
      7f0:	f3 e0       	ldi	r31, 0x03	; 3
-     7f2:	0c 94 9e 0c 	jmp	0x193c	; 0x193c <__prologue_saves__+0x10>
+     7f2:	0c 94 e6 0d 	jmp	0x1bcc	; 0x1bcc <__prologue_saves__+0x10>
      7f6:	7b 01       	movw	r14, r22
      7f8:	8c 01       	movw	r16, r24
      7fa:	61 15       	cp	r22, r1
@@ -1127,7 +1127,7 @@ Disassembly of section .text:
      8d0:	0e 94 bd 04 	call	0x97a	; 0x97a <__pack_f>
      8d4:	28 96       	adiw	r28, 0x08	; 8
      8d6:	ea e0       	ldi	r30, 0x0A	; 10
-     8d8:	0c 94 ba 0c 	jmp	0x1974	; 0x1974 <__epilogue_restores__+0x10>
+     8d8:	0c 94 02 0e 	jmp	0x1c04	; 0x1c04 <__epilogue_restores__+0x10>
 
 000008dc <__clzsi2>:
      8dc:	ef 92       	push	r14
@@ -1639,9 +1639,9 @@ Disassembly of section .text:
      cc4:	08 95       	ret
 
 00000cc6 <main>:
-#include "../Include/HAL/LED/LED_Interface.h"
 
-#define F_CPU 8000000UL
+
+#define F_CPU 12000000UL
 
 int main(void)
 {
@@ -1649,2065 +1649,2486 @@ int main(void)
      cc8:	cf 93       	push	r28
      cca:	cd b7       	in	r28, 0x3d	; 61
      ccc:	de b7       	in	r29, 0x3e	; 62
+     cce:	e5 97       	sbiw	r28, 0x35	; 53
+     cd0:	0f b6       	in	r0, 0x3f	; 63
+     cd2:	f8 94       	cli
+     cd4:	de bf       	out	0x3e, r29	; 62
+     cd6:	0f be       	out	0x3f, r0	; 63
+     cd8:	cd bf       	out	0x3d, r28	; 61
+	// Configure PORTA as Output for SSD1
 	MDIO_voidSetPortDirection(DIO_PORTA,0xFF);
-     cce:	80 e0       	ldi	r24, 0x00	; 0
-     cd0:	6f ef       	ldi	r22, 0xFF	; 255
-     cd2:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
+     cda:	80 e0       	ldi	r24, 0x00	; 0
+     cdc:	6f ef       	ldi	r22, 0xFF	; 255
+     cde:	0e 94 43 0b 	call	0x1686	; 0x1686 <MDIO_voidSetPortDirection>
+
+	// Configure PORTB as Output for SSD2
+	MDIO_voidSetPortDirection(DIO_PORTB,0xFF);
+     ce2:	81 e0       	ldi	r24, 0x01	; 1
+     ce4:	6f ef       	ldi	r22, 0xFF	; 255
+     ce6:	0e 94 43 0b 	call	0x1686	; 0x1686 <MDIO_voidSetPortDirection>
+
+//	//Configure PORTC as Output for LEDs(Green,Yellow ,Red)
+	MDIO_voidSetPortDirection(DIO_PORTC,0x07);
+     cea:	82 e0       	ldi	r24, 0x02	; 2
+     cec:	67 e0       	ldi	r22, 0x07	; 7
+     cee:	0e 94 43 0b 	call	0x1686	; 0x1686 <MDIO_voidSetPortDirection>
+
+	u8 SSD_Arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
+     cf2:	ce 01       	movw	r24, r28
+     cf4:	4f 96       	adiw	r24, 0x1f	; 31
+     cf6:	9d a7       	std	Y+45, r25	; 0x2d
+     cf8:	8c a7       	std	Y+44, r24	; 0x2c
+     cfa:	eb e6       	ldi	r30, 0x6B	; 107
+     cfc:	f1 e0       	ldi	r31, 0x01	; 1
+     cfe:	ff a7       	std	Y+47, r31	; 0x2f
+     d00:	ee a7       	std	Y+46, r30	; 0x2e
+     d02:	fa e0       	ldi	r31, 0x0A	; 10
+     d04:	f8 ab       	std	Y+48, r31	; 0x30
+     d06:	ee a5       	ldd	r30, Y+46	; 0x2e
+     d08:	ff a5       	ldd	r31, Y+47	; 0x2f
+     d0a:	00 80       	ld	r0, Z
+     d0c:	8e a5       	ldd	r24, Y+46	; 0x2e
+     d0e:	9f a5       	ldd	r25, Y+47	; 0x2f
+     d10:	01 96       	adiw	r24, 0x01	; 1
+     d12:	9f a7       	std	Y+47, r25	; 0x2f
+     d14:	8e a7       	std	Y+46, r24	; 0x2e
+     d16:	ec a5       	ldd	r30, Y+44	; 0x2c
+     d18:	fd a5       	ldd	r31, Y+45	; 0x2d
+     d1a:	00 82       	st	Z, r0
+     d1c:	8c a5       	ldd	r24, Y+44	; 0x2c
+     d1e:	9d a5       	ldd	r25, Y+45	; 0x2d
+     d20:	01 96       	adiw	r24, 0x01	; 1
+     d22:	9d a7       	std	Y+45, r25	; 0x2d
+     d24:	8c a7       	std	Y+44, r24	; 0x2c
+     d26:	98 a9       	ldd	r25, Y+48	; 0x30
+     d28:	91 50       	subi	r25, 0x01	; 1
+     d2a:	98 ab       	std	Y+48, r25	; 0x30
+     d2c:	e8 a9       	ldd	r30, Y+48	; 0x30
+     d2e:	ee 23       	and	r30, r30
+     d30:	51 f7       	brne	.-44     	; 0xd06 <main+0x40>
+	u8 LED_Arr[3]={GREEN,YELLOW ,RED};
+     d32:	ce 01       	movw	r24, r28
+     d34:	89 96       	adiw	r24, 0x29	; 41
+     d36:	9a ab       	std	Y+50, r25	; 0x32
+     d38:	89 ab       	std	Y+49, r24	; 0x31
+     d3a:	e8 e6       	ldi	r30, 0x68	; 104
+     d3c:	f1 e0       	ldi	r31, 0x01	; 1
+     d3e:	fc ab       	std	Y+52, r31	; 0x34
+     d40:	eb ab       	std	Y+51, r30	; 0x33
+     d42:	f3 e0       	ldi	r31, 0x03	; 3
+     d44:	fd ab       	std	Y+53, r31	; 0x35
+     d46:	eb a9       	ldd	r30, Y+51	; 0x33
+     d48:	fc a9       	ldd	r31, Y+52	; 0x34
+     d4a:	00 80       	ld	r0, Z
+     d4c:	8b a9       	ldd	r24, Y+51	; 0x33
+     d4e:	9c a9       	ldd	r25, Y+52	; 0x34
+     d50:	01 96       	adiw	r24, 0x01	; 1
+     d52:	9c ab       	std	Y+52, r25	; 0x34
+     d54:	8b ab       	std	Y+51, r24	; 0x33
+     d56:	e9 a9       	ldd	r30, Y+49	; 0x31
+     d58:	fa a9       	ldd	r31, Y+50	; 0x32
+     d5a:	00 82       	st	Z, r0
+     d5c:	89 a9       	ldd	r24, Y+49	; 0x31
+     d5e:	9a a9       	ldd	r25, Y+50	; 0x32
+     d60:	01 96       	adiw	r24, 0x01	; 1
+     d62:	9a ab       	std	Y+50, r25	; 0x32
+     d64:	89 ab       	std	Y+49, r24	; 0x31
+     d66:	9d a9       	ldd	r25, Y+53	; 0x35
+     d68:	91 50       	subi	r25, 0x01	; 1
+     d6a:	9d ab       	std	Y+53, r25	; 0x35
+     d6c:	ed a9       	ldd	r30, Y+53	; 0x35
+     d6e:	ee 23       	and	r30, r30
+     d70:	51 f7       	brne	.-44     	; 0xd46 <main+0x80>
+	u8 i=3;
+     d72:	83 e0       	ldi	r24, 0x03	; 3
+     d74:	8e 8f       	std	Y+30, r24	; 0x1e
+	u8 j=0;
+     d76:	1d 8e       	std	Y+29, r1	; 0x1d
 	while(1)
 	{
-		HSSD_voidDisplayNumber(DIO_PORTA,ONE);
-     cd6:	80 e0       	ldi	r24, 0x00	; 0
-     cd8:	69 e7       	ldi	r22, 0x79	; 121
-     cda:	0e 94 95 0a 	call	0x152a	; 0x152a <HSSD_voidDisplayNumber>
-     cde:	fb cf       	rjmp	.-10     	; 0xcd6 <main+0x10>
-
-00000ce0 <MDIO_voidSetPinDirection>:
-
-
-// MDIO_voidSetPinDirection(DIO_PORTA, PIN0, DIO_OUTPUT);
-
-void MDIO_voidSetPinDirection(DIO_PORT_e A_portID, DIO_PIN_e A_pinID, DIO_DIRECTION_e A_pinDirection)
-{
-     ce0:	df 93       	push	r29
-     ce2:	cf 93       	push	r28
-     ce4:	cd b7       	in	r28, 0x3d	; 61
-     ce6:	de b7       	in	r29, 0x3e	; 62
-     ce8:	2d 97       	sbiw	r28, 0x0d	; 13
-     cea:	0f b6       	in	r0, 0x3f	; 63
-     cec:	f8 94       	cli
-     cee:	de bf       	out	0x3e, r29	; 62
-     cf0:	0f be       	out	0x3f, r0	; 63
-     cf2:	cd bf       	out	0x3d, r28	; 61
-     cf4:	89 83       	std	Y+1, r24	; 0x01
-     cf6:	6a 83       	std	Y+2, r22	; 0x02
-     cf8:	4b 83       	std	Y+3, r20	; 0x03
-	// Input Validation
-	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) && (A_pinDirection <= DIO_OUTPUT) )
-     cfa:	89 81       	ldd	r24, Y+1	; 0x01
-     cfc:	84 30       	cpi	r24, 0x04	; 4
-     cfe:	08 f0       	brcs	.+2      	; 0xd02 <MDIO_voidSetPinDirection+0x22>
-     d00:	09 c1       	rjmp	.+530    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-     d02:	8a 81       	ldd	r24, Y+2	; 0x02
-     d04:	88 30       	cpi	r24, 0x08	; 8
-     d06:	08 f0       	brcs	.+2      	; 0xd0a <MDIO_voidSetPinDirection+0x2a>
-     d08:	05 c1       	rjmp	.+522    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-     d0a:	8b 81       	ldd	r24, Y+3	; 0x03
-     d0c:	82 30       	cpi	r24, 0x02	; 2
-     d0e:	08 f0       	brcs	.+2      	; 0xd12 <MDIO_voidSetPinDirection+0x32>
-     d10:	01 c1       	rjmp	.+514    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-	{
-		switch (A_portID)
-     d12:	89 81       	ldd	r24, Y+1	; 0x01
-     d14:	28 2f       	mov	r18, r24
-     d16:	30 e0       	ldi	r19, 0x00	; 0
-     d18:	3d 87       	std	Y+13, r19	; 0x0d
-     d1a:	2c 87       	std	Y+12, r18	; 0x0c
-     d1c:	8c 85       	ldd	r24, Y+12	; 0x0c
-     d1e:	9d 85       	ldd	r25, Y+13	; 0x0d
-     d20:	81 30       	cpi	r24, 0x01	; 1
-     d22:	91 05       	cpc	r25, r1
-     d24:	09 f4       	brne	.+2      	; 0xd28 <MDIO_voidSetPinDirection+0x48>
-     d26:	4f c0       	rjmp	.+158    	; 0xdc6 <MDIO_voidSetPinDirection+0xe6>
-     d28:	2c 85       	ldd	r18, Y+12	; 0x0c
-     d2a:	3d 85       	ldd	r19, Y+13	; 0x0d
-     d2c:	22 30       	cpi	r18, 0x02	; 2
-     d2e:	31 05       	cpc	r19, r1
-     d30:	2c f4       	brge	.+10     	; 0xd3c <MDIO_voidSetPinDirection+0x5c>
-     d32:	8c 85       	ldd	r24, Y+12	; 0x0c
-     d34:	9d 85       	ldd	r25, Y+13	; 0x0d
-     d36:	00 97       	sbiw	r24, 0x00	; 0
-     d38:	71 f0       	breq	.+28     	; 0xd56 <MDIO_voidSetPinDirection+0x76>
-     d3a:	ec c0       	rjmp	.+472    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-     d3c:	2c 85       	ldd	r18, Y+12	; 0x0c
-     d3e:	3d 85       	ldd	r19, Y+13	; 0x0d
-     d40:	22 30       	cpi	r18, 0x02	; 2
-     d42:	31 05       	cpc	r19, r1
-     d44:	09 f4       	brne	.+2      	; 0xd48 <MDIO_voidSetPinDirection+0x68>
-     d46:	77 c0       	rjmp	.+238    	; 0xe36 <MDIO_voidSetPinDirection+0x156>
-     d48:	8c 85       	ldd	r24, Y+12	; 0x0c
-     d4a:	9d 85       	ldd	r25, Y+13	; 0x0d
-     d4c:	83 30       	cpi	r24, 0x03	; 3
-     d4e:	91 05       	cpc	r25, r1
-     d50:	09 f4       	brne	.+2      	; 0xd54 <MDIO_voidSetPinDirection+0x74>
-     d52:	a9 c0       	rjmp	.+338    	; 0xea6 <MDIO_voidSetPinDirection+0x1c6>
-     d54:	df c0       	rjmp	.+446    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
+		for(j=0; j<3;j++)
+     d78:	1d 8e       	std	Y+29, r1	; 0x1d
+     d7a:	34 c1       	rjmp	.+616    	; 0xfe4 <main+0x31e>
 		{
-		case DIO_PORTA:
-			switch (A_pinDirection)
-     d56:	8b 81       	ldd	r24, Y+3	; 0x03
-     d58:	28 2f       	mov	r18, r24
-     d5a:	30 e0       	ldi	r19, 0x00	; 0
-     d5c:	3b 87       	std	Y+11, r19	; 0x0b
-     d5e:	2a 87       	std	Y+10, r18	; 0x0a
-     d60:	8a 85       	ldd	r24, Y+10	; 0x0a
-     d62:	9b 85       	ldd	r25, Y+11	; 0x0b
-     d64:	00 97       	sbiw	r24, 0x00	; 0
-     d66:	31 f0       	breq	.+12     	; 0xd74 <MDIO_voidSetPinDirection+0x94>
-     d68:	2a 85       	ldd	r18, Y+10	; 0x0a
-     d6a:	3b 85       	ldd	r19, Y+11	; 0x0b
-     d6c:	21 30       	cpi	r18, 0x01	; 1
-     d6e:	31 05       	cpc	r19, r1
-     d70:	b1 f0       	breq	.+44     	; 0xd9e <MDIO_voidSetPinDirection+0xbe>
-     d72:	d0 c0       	rjmp	.+416    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
+			HLED_voidTurnLEDOn(DIO_PORTC,LED_Arr[j]);
+     d7c:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     d7e:	28 2f       	mov	r18, r24
+     d80:	30 e0       	ldi	r19, 0x00	; 0
+     d82:	ce 01       	movw	r24, r28
+     d84:	89 96       	adiw	r24, 0x29	; 41
+     d86:	fc 01       	movw	r30, r24
+     d88:	e2 0f       	add	r30, r18
+     d8a:	f3 1f       	adc	r31, r19
+     d8c:	90 81       	ld	r25, Z
+     d8e:	82 e0       	ldi	r24, 0x02	; 2
+     d90:	69 2f       	mov	r22, r25
+     d92:	0e 94 ea 0b 	call	0x17d4	; 0x17d4 <HLED_voidTurnLEDOn>
+
+			if(j==0 || j==2)
+     d96:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     d98:	88 23       	and	r24, r24
+     d9a:	21 f0       	breq	.+8      	; 0xda4 <main+0xde>
+     d9c:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     d9e:	82 30       	cpi	r24, 0x02	; 2
+     da0:	09 f0       	breq	.+2      	; 0xda4 <main+0xde>
+     da2:	87 c0       	rjmp	.+270    	; 0xeb2 <main+0x1ec>
 			{
-			case DIO_INPUT:
-				CLR_BIT(DDRA_REG,A_pinID);
-     d74:	aa e3       	ldi	r26, 0x3A	; 58
-     d76:	b0 e0       	ldi	r27, 0x00	; 0
-     d78:	ea e3       	ldi	r30, 0x3A	; 58
-     d7a:	f0 e0       	ldi	r31, 0x00	; 0
-     d7c:	80 81       	ld	r24, Z
-     d7e:	48 2f       	mov	r20, r24
-     d80:	8a 81       	ldd	r24, Y+2	; 0x02
-     d82:	28 2f       	mov	r18, r24
-     d84:	30 e0       	ldi	r19, 0x00	; 0
-     d86:	81 e0       	ldi	r24, 0x01	; 1
-     d88:	90 e0       	ldi	r25, 0x00	; 0
-     d8a:	02 2e       	mov	r0, r18
-     d8c:	02 c0       	rjmp	.+4      	; 0xd92 <MDIO_voidSetPinDirection+0xb2>
-     d8e:	88 0f       	add	r24, r24
-     d90:	99 1f       	adc	r25, r25
-     d92:	0a 94       	dec	r0
-     d94:	e2 f7       	brpl	.-8      	; 0xd8e <MDIO_voidSetPinDirection+0xae>
-     d96:	80 95       	com	r24
-     d98:	84 23       	and	r24, r20
-     d9a:	8c 93       	st	X, r24
-     d9c:	bb c0       	rjmp	.+374    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			case DIO_OUTPUT:
-				SET_BIT(DDRA_REG,A_pinID);
-     d9e:	aa e3       	ldi	r26, 0x3A	; 58
-     da0:	b0 e0       	ldi	r27, 0x00	; 0
-     da2:	ea e3       	ldi	r30, 0x3A	; 58
-     da4:	f0 e0       	ldi	r31, 0x00	; 0
-     da6:	80 81       	ld	r24, Z
-     da8:	48 2f       	mov	r20, r24
-     daa:	8a 81       	ldd	r24, Y+2	; 0x02
-     dac:	28 2f       	mov	r18, r24
-     dae:	30 e0       	ldi	r19, 0x00	; 0
-     db0:	81 e0       	ldi	r24, 0x01	; 1
-     db2:	90 e0       	ldi	r25, 0x00	; 0
-     db4:	02 2e       	mov	r0, r18
-     db6:	02 c0       	rjmp	.+4      	; 0xdbc <MDIO_voidSetPinDirection+0xdc>
-     db8:	88 0f       	add	r24, r24
-     dba:	99 1f       	adc	r25, r25
-     dbc:	0a 94       	dec	r0
-     dbe:	e2 f7       	brpl	.-8      	; 0xdb8 <MDIO_voidSetPinDirection+0xd8>
-     dc0:	84 2b       	or	r24, r20
-     dc2:	8c 93       	st	X, r24
-     dc4:	a7 c0       	rjmp	.+334    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			}
-			break;
-		case DIO_PORTB:
-			switch (A_pinDirection)
-     dc6:	8b 81       	ldd	r24, Y+3	; 0x03
-     dc8:	28 2f       	mov	r18, r24
-     dca:	30 e0       	ldi	r19, 0x00	; 0
-     dcc:	39 87       	std	Y+9, r19	; 0x09
-     dce:	28 87       	std	Y+8, r18	; 0x08
-     dd0:	88 85       	ldd	r24, Y+8	; 0x08
-     dd2:	99 85       	ldd	r25, Y+9	; 0x09
-     dd4:	00 97       	sbiw	r24, 0x00	; 0
-     dd6:	31 f0       	breq	.+12     	; 0xde4 <MDIO_voidSetPinDirection+0x104>
-     dd8:	28 85       	ldd	r18, Y+8	; 0x08
-     dda:	39 85       	ldd	r19, Y+9	; 0x09
-     ddc:	21 30       	cpi	r18, 0x01	; 1
-     dde:	31 05       	cpc	r19, r1
-     de0:	b1 f0       	breq	.+44     	; 0xe0e <MDIO_voidSetPinDirection+0x12e>
-     de2:	98 c0       	rjmp	.+304    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-			{
-			case DIO_INPUT:
-				CLR_BIT(DDRB_REG,A_pinID);
-     de4:	a7 e3       	ldi	r26, 0x37	; 55
-     de6:	b0 e0       	ldi	r27, 0x00	; 0
-     de8:	e7 e3       	ldi	r30, 0x37	; 55
-     dea:	f0 e0       	ldi	r31, 0x00	; 0
-     dec:	80 81       	ld	r24, Z
-     dee:	48 2f       	mov	r20, r24
-     df0:	8a 81       	ldd	r24, Y+2	; 0x02
-     df2:	28 2f       	mov	r18, r24
-     df4:	30 e0       	ldi	r19, 0x00	; 0
-     df6:	81 e0       	ldi	r24, 0x01	; 1
-     df8:	90 e0       	ldi	r25, 0x00	; 0
-     dfa:	02 2e       	mov	r0, r18
-     dfc:	02 c0       	rjmp	.+4      	; 0xe02 <MDIO_voidSetPinDirection+0x122>
-     dfe:	88 0f       	add	r24, r24
-     e00:	99 1f       	adc	r25, r25
-     e02:	0a 94       	dec	r0
-     e04:	e2 f7       	brpl	.-8      	; 0xdfe <MDIO_voidSetPinDirection+0x11e>
-     e06:	80 95       	com	r24
-     e08:	84 23       	and	r24, r20
-     e0a:	8c 93       	st	X, r24
-     e0c:	83 c0       	rjmp	.+262    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			case DIO_OUTPUT:
-				SET_BIT(DDRB_REG,A_pinID);
-     e0e:	a7 e3       	ldi	r26, 0x37	; 55
-     e10:	b0 e0       	ldi	r27, 0x00	; 0
-     e12:	e7 e3       	ldi	r30, 0x37	; 55
-     e14:	f0 e0       	ldi	r31, 0x00	; 0
-     e16:	80 81       	ld	r24, Z
-     e18:	48 2f       	mov	r20, r24
-     e1a:	8a 81       	ldd	r24, Y+2	; 0x02
-     e1c:	28 2f       	mov	r18, r24
-     e1e:	30 e0       	ldi	r19, 0x00	; 0
-     e20:	81 e0       	ldi	r24, 0x01	; 1
-     e22:	90 e0       	ldi	r25, 0x00	; 0
-     e24:	02 2e       	mov	r0, r18
-     e26:	02 c0       	rjmp	.+4      	; 0xe2c <MDIO_voidSetPinDirection+0x14c>
-     e28:	88 0f       	add	r24, r24
-     e2a:	99 1f       	adc	r25, r25
-     e2c:	0a 94       	dec	r0
-     e2e:	e2 f7       	brpl	.-8      	; 0xe28 <MDIO_voidSetPinDirection+0x148>
-     e30:	84 2b       	or	r24, r20
-     e32:	8c 93       	st	X, r24
-     e34:	6f c0       	rjmp	.+222    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			}
-			break;
-		case DIO_PORTC:
-			switch (A_pinDirection)
-     e36:	8b 81       	ldd	r24, Y+3	; 0x03
-     e38:	28 2f       	mov	r18, r24
-     e3a:	30 e0       	ldi	r19, 0x00	; 0
-     e3c:	3f 83       	std	Y+7, r19	; 0x07
-     e3e:	2e 83       	std	Y+6, r18	; 0x06
-     e40:	8e 81       	ldd	r24, Y+6	; 0x06
-     e42:	9f 81       	ldd	r25, Y+7	; 0x07
-     e44:	00 97       	sbiw	r24, 0x00	; 0
-     e46:	31 f0       	breq	.+12     	; 0xe54 <MDIO_voidSetPinDirection+0x174>
-     e48:	2e 81       	ldd	r18, Y+6	; 0x06
-     e4a:	3f 81       	ldd	r19, Y+7	; 0x07
-     e4c:	21 30       	cpi	r18, 0x01	; 1
-     e4e:	31 05       	cpc	r19, r1
-     e50:	b1 f0       	breq	.+44     	; 0xe7e <MDIO_voidSetPinDirection+0x19e>
-     e52:	60 c0       	rjmp	.+192    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-			{
-			case DIO_INPUT:
-				CLR_BIT(DDRC_REG,A_pinID);
-     e54:	a4 e3       	ldi	r26, 0x34	; 52
-     e56:	b0 e0       	ldi	r27, 0x00	; 0
-     e58:	e4 e3       	ldi	r30, 0x34	; 52
-     e5a:	f0 e0       	ldi	r31, 0x00	; 0
-     e5c:	80 81       	ld	r24, Z
-     e5e:	48 2f       	mov	r20, r24
-     e60:	8a 81       	ldd	r24, Y+2	; 0x02
-     e62:	28 2f       	mov	r18, r24
-     e64:	30 e0       	ldi	r19, 0x00	; 0
-     e66:	81 e0       	ldi	r24, 0x01	; 1
-     e68:	90 e0       	ldi	r25, 0x00	; 0
-     e6a:	02 2e       	mov	r0, r18
-     e6c:	02 c0       	rjmp	.+4      	; 0xe72 <MDIO_voidSetPinDirection+0x192>
-     e6e:	88 0f       	add	r24, r24
-     e70:	99 1f       	adc	r25, r25
-     e72:	0a 94       	dec	r0
-     e74:	e2 f7       	brpl	.-8      	; 0xe6e <MDIO_voidSetPinDirection+0x18e>
-     e76:	80 95       	com	r24
-     e78:	84 23       	and	r24, r20
-     e7a:	8c 93       	st	X, r24
-     e7c:	4b c0       	rjmp	.+150    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			case DIO_OUTPUT:
-				SET_BIT(DDRC_REG,A_pinID);
-     e7e:	a4 e3       	ldi	r26, 0x34	; 52
-     e80:	b0 e0       	ldi	r27, 0x00	; 0
-     e82:	e4 e3       	ldi	r30, 0x34	; 52
-     e84:	f0 e0       	ldi	r31, 0x00	; 0
-     e86:	80 81       	ld	r24, Z
-     e88:	48 2f       	mov	r20, r24
-     e8a:	8a 81       	ldd	r24, Y+2	; 0x02
-     e8c:	28 2f       	mov	r18, r24
-     e8e:	30 e0       	ldi	r19, 0x00	; 0
-     e90:	81 e0       	ldi	r24, 0x01	; 1
-     e92:	90 e0       	ldi	r25, 0x00	; 0
-     e94:	02 2e       	mov	r0, r18
-     e96:	02 c0       	rjmp	.+4      	; 0xe9c <MDIO_voidSetPinDirection+0x1bc>
-     e98:	88 0f       	add	r24, r24
-     e9a:	99 1f       	adc	r25, r25
-     e9c:	0a 94       	dec	r0
-     e9e:	e2 f7       	brpl	.-8      	; 0xe98 <MDIO_voidSetPinDirection+0x1b8>
-     ea0:	84 2b       	or	r24, r20
-     ea2:	8c 93       	st	X, r24
-     ea4:	37 c0       	rjmp	.+110    	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			}
-			break;
-		case DIO_PORTD:
-			switch (A_pinDirection)
-     ea6:	8b 81       	ldd	r24, Y+3	; 0x03
-     ea8:	28 2f       	mov	r18, r24
-     eaa:	30 e0       	ldi	r19, 0x00	; 0
-     eac:	3d 83       	std	Y+5, r19	; 0x05
-     eae:	2c 83       	std	Y+4, r18	; 0x04
-     eb0:	8c 81       	ldd	r24, Y+4	; 0x04
-     eb2:	9d 81       	ldd	r25, Y+5	; 0x05
-     eb4:	00 97       	sbiw	r24, 0x00	; 0
-     eb6:	31 f0       	breq	.+12     	; 0xec4 <MDIO_voidSetPinDirection+0x1e4>
-     eb8:	2c 81       	ldd	r18, Y+4	; 0x04
-     eba:	3d 81       	ldd	r19, Y+5	; 0x05
-     ebc:	21 30       	cpi	r18, 0x01	; 1
-     ebe:	31 05       	cpc	r19, r1
-     ec0:	b1 f0       	breq	.+44     	; 0xeee <MDIO_voidSetPinDirection+0x20e>
-     ec2:	28 c0       	rjmp	.+80     	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-			{
-			case DIO_INPUT:
-				CLR_BIT(DDRD_REG,A_pinID);
-     ec4:	a1 e3       	ldi	r26, 0x31	; 49
-     ec6:	b0 e0       	ldi	r27, 0x00	; 0
-     ec8:	e1 e3       	ldi	r30, 0x31	; 49
-     eca:	f0 e0       	ldi	r31, 0x00	; 0
-     ecc:	80 81       	ld	r24, Z
-     ece:	48 2f       	mov	r20, r24
-     ed0:	8a 81       	ldd	r24, Y+2	; 0x02
-     ed2:	28 2f       	mov	r18, r24
-     ed4:	30 e0       	ldi	r19, 0x00	; 0
-     ed6:	81 e0       	ldi	r24, 0x01	; 1
-     ed8:	90 e0       	ldi	r25, 0x00	; 0
-     eda:	02 2e       	mov	r0, r18
-     edc:	02 c0       	rjmp	.+4      	; 0xee2 <MDIO_voidSetPinDirection+0x202>
-     ede:	88 0f       	add	r24, r24
-     ee0:	99 1f       	adc	r25, r25
-     ee2:	0a 94       	dec	r0
-     ee4:	e2 f7       	brpl	.-8      	; 0xede <MDIO_voidSetPinDirection+0x1fe>
-     ee6:	80 95       	com	r24
-     ee8:	84 23       	and	r24, r20
-     eea:	8c 93       	st	X, r24
-     eec:	13 c0       	rjmp	.+38     	; 0xf14 <MDIO_voidSetPinDirection+0x234>
-				break;
-			case DIO_OUTPUT:
-				SET_BIT(DDRD_REG,A_pinID);
-     eee:	a1 e3       	ldi	r26, 0x31	; 49
-     ef0:	b0 e0       	ldi	r27, 0x00	; 0
-     ef2:	e1 e3       	ldi	r30, 0x31	; 49
-     ef4:	f0 e0       	ldi	r31, 0x00	; 0
-     ef6:	80 81       	ld	r24, Z
-     ef8:	48 2f       	mov	r20, r24
-     efa:	8a 81       	ldd	r24, Y+2	; 0x02
-     efc:	28 2f       	mov	r18, r24
-     efe:	30 e0       	ldi	r19, 0x00	; 0
-     f00:	81 e0       	ldi	r24, 0x01	; 1
-     f02:	90 e0       	ldi	r25, 0x00	; 0
-     f04:	02 2e       	mov	r0, r18
-     f06:	02 c0       	rjmp	.+4      	; 0xf0c <MDIO_voidSetPinDirection+0x22c>
-     f08:	88 0f       	add	r24, r24
-     f0a:	99 1f       	adc	r25, r25
-     f0c:	0a 94       	dec	r0
-     f0e:	e2 f7       	brpl	.-8      	; 0xf08 <MDIO_voidSetPinDirection+0x228>
-     f10:	84 2b       	or	r24, r20
-     f12:	8c 93       	st	X, r24
-	}
-	else
-	{
-		// Do Nothing
-	}
-}
-     f14:	2d 96       	adiw	r28, 0x0d	; 13
-     f16:	0f b6       	in	r0, 0x3f	; 63
-     f18:	f8 94       	cli
-     f1a:	de bf       	out	0x3e, r29	; 62
-     f1c:	0f be       	out	0x3f, r0	; 63
-     f1e:	cd bf       	out	0x3d, r28	; 61
-     f20:	cf 91       	pop	r28
-     f22:	df 91       	pop	r29
-     f24:	08 95       	ret
-
-00000f26 <MDIO_voidSetPinValue>:
-
-
-void MDIO_voidSetPinValue(DIO_PORT_e A_portID, DIO_PIN_e A_pinID, DIO_VALUE_e A_pinValue)
-{
-     f26:	df 93       	push	r29
-     f28:	cf 93       	push	r28
-     f2a:	cd b7       	in	r28, 0x3d	; 61
-     f2c:	de b7       	in	r29, 0x3e	; 62
-     f2e:	2d 97       	sbiw	r28, 0x0d	; 13
-     f30:	0f b6       	in	r0, 0x3f	; 63
-     f32:	f8 94       	cli
-     f34:	de bf       	out	0x3e, r29	; 62
-     f36:	0f be       	out	0x3f, r0	; 63
-     f38:	cd bf       	out	0x3d, r28	; 61
-     f3a:	89 83       	std	Y+1, r24	; 0x01
-     f3c:	6a 83       	std	Y+2, r22	; 0x02
-     f3e:	4b 83       	std	Y+3, r20	; 0x03
-	// Input Validation
-	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) && (A_pinValue <= DIO_SET) )
-     f40:	89 81       	ldd	r24, Y+1	; 0x01
-     f42:	84 30       	cpi	r24, 0x04	; 4
-     f44:	08 f0       	brcs	.+2      	; 0xf48 <MDIO_voidSetPinValue+0x22>
-     f46:	09 c1       	rjmp	.+530    	; 0x115a <MDIO_voidSetPinValue+0x234>
-     f48:	8a 81       	ldd	r24, Y+2	; 0x02
-     f4a:	88 30       	cpi	r24, 0x08	; 8
-     f4c:	08 f0       	brcs	.+2      	; 0xf50 <MDIO_voidSetPinValue+0x2a>
-     f4e:	05 c1       	rjmp	.+522    	; 0x115a <MDIO_voidSetPinValue+0x234>
-     f50:	8b 81       	ldd	r24, Y+3	; 0x03
-     f52:	82 30       	cpi	r24, 0x02	; 2
-     f54:	08 f0       	brcs	.+2      	; 0xf58 <MDIO_voidSetPinValue+0x32>
-     f56:	01 c1       	rjmp	.+514    	; 0x115a <MDIO_voidSetPinValue+0x234>
-	{
-		switch (A_portID)
-     f58:	89 81       	ldd	r24, Y+1	; 0x01
-     f5a:	28 2f       	mov	r18, r24
-     f5c:	30 e0       	ldi	r19, 0x00	; 0
-     f5e:	3d 87       	std	Y+13, r19	; 0x0d
-     f60:	2c 87       	std	Y+12, r18	; 0x0c
-     f62:	8c 85       	ldd	r24, Y+12	; 0x0c
-     f64:	9d 85       	ldd	r25, Y+13	; 0x0d
-     f66:	81 30       	cpi	r24, 0x01	; 1
-     f68:	91 05       	cpc	r25, r1
-     f6a:	09 f4       	brne	.+2      	; 0xf6e <MDIO_voidSetPinValue+0x48>
-     f6c:	4f c0       	rjmp	.+158    	; 0x100c <MDIO_voidSetPinValue+0xe6>
-     f6e:	2c 85       	ldd	r18, Y+12	; 0x0c
-     f70:	3d 85       	ldd	r19, Y+13	; 0x0d
-     f72:	22 30       	cpi	r18, 0x02	; 2
-     f74:	31 05       	cpc	r19, r1
-     f76:	2c f4       	brge	.+10     	; 0xf82 <MDIO_voidSetPinValue+0x5c>
-     f78:	8c 85       	ldd	r24, Y+12	; 0x0c
-     f7a:	9d 85       	ldd	r25, Y+13	; 0x0d
-     f7c:	00 97       	sbiw	r24, 0x00	; 0
-     f7e:	71 f0       	breq	.+28     	; 0xf9c <MDIO_voidSetPinValue+0x76>
-     f80:	ec c0       	rjmp	.+472    	; 0x115a <MDIO_voidSetPinValue+0x234>
-     f82:	2c 85       	ldd	r18, Y+12	; 0x0c
-     f84:	3d 85       	ldd	r19, Y+13	; 0x0d
-     f86:	22 30       	cpi	r18, 0x02	; 2
-     f88:	31 05       	cpc	r19, r1
-     f8a:	09 f4       	brne	.+2      	; 0xf8e <MDIO_voidSetPinValue+0x68>
-     f8c:	77 c0       	rjmp	.+238    	; 0x107c <MDIO_voidSetPinValue+0x156>
-     f8e:	8c 85       	ldd	r24, Y+12	; 0x0c
-     f90:	9d 85       	ldd	r25, Y+13	; 0x0d
-     f92:	83 30       	cpi	r24, 0x03	; 3
-     f94:	91 05       	cpc	r25, r1
-     f96:	09 f4       	brne	.+2      	; 0xf9a <MDIO_voidSetPinValue+0x74>
-     f98:	a9 c0       	rjmp	.+338    	; 0x10ec <MDIO_voidSetPinValue+0x1c6>
-     f9a:	df c0       	rjmp	.+446    	; 0x115a <MDIO_voidSetPinValue+0x234>
-		{
-		case DIO_PORTA:
-			switch (A_pinValue)
-     f9c:	8b 81       	ldd	r24, Y+3	; 0x03
-     f9e:	28 2f       	mov	r18, r24
-     fa0:	30 e0       	ldi	r19, 0x00	; 0
-     fa2:	3b 87       	std	Y+11, r19	; 0x0b
-     fa4:	2a 87       	std	Y+10, r18	; 0x0a
-     fa6:	8a 85       	ldd	r24, Y+10	; 0x0a
-     fa8:	9b 85       	ldd	r25, Y+11	; 0x0b
-     faa:	00 97       	sbiw	r24, 0x00	; 0
-     fac:	31 f0       	breq	.+12     	; 0xfba <MDIO_voidSetPinValue+0x94>
-     fae:	2a 85       	ldd	r18, Y+10	; 0x0a
-     fb0:	3b 85       	ldd	r19, Y+11	; 0x0b
-     fb2:	21 30       	cpi	r18, 0x01	; 1
-     fb4:	31 05       	cpc	r19, r1
-     fb6:	b1 f0       	breq	.+44     	; 0xfe4 <MDIO_voidSetPinValue+0xbe>
-     fb8:	d0 c0       	rjmp	.+416    	; 0x115a <MDIO_voidSetPinValue+0x234>
-			{
-			case DIO_RESET:
-				CLR_BIT(PORTA_REG,A_pinID);
-     fba:	ab e3       	ldi	r26, 0x3B	; 59
-     fbc:	b0 e0       	ldi	r27, 0x00	; 0
-     fbe:	eb e3       	ldi	r30, 0x3B	; 59
-     fc0:	f0 e0       	ldi	r31, 0x00	; 0
-     fc2:	80 81       	ld	r24, Z
-     fc4:	48 2f       	mov	r20, r24
-     fc6:	8a 81       	ldd	r24, Y+2	; 0x02
-     fc8:	28 2f       	mov	r18, r24
-     fca:	30 e0       	ldi	r19, 0x00	; 0
-     fcc:	81 e0       	ldi	r24, 0x01	; 1
-     fce:	90 e0       	ldi	r25, 0x00	; 0
-     fd0:	02 2e       	mov	r0, r18
-     fd2:	02 c0       	rjmp	.+4      	; 0xfd8 <MDIO_voidSetPinValue+0xb2>
-     fd4:	88 0f       	add	r24, r24
-     fd6:	99 1f       	adc	r25, r25
-     fd8:	0a 94       	dec	r0
-     fda:	e2 f7       	brpl	.-8      	; 0xfd4 <MDIO_voidSetPinValue+0xae>
-     fdc:	80 95       	com	r24
-     fde:	84 23       	and	r24, r20
-     fe0:	8c 93       	st	X, r24
-     fe2:	bb c0       	rjmp	.+374    	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			case DIO_SET:
-				SET_BIT(PORTA_REG,A_pinID);
-     fe4:	ab e3       	ldi	r26, 0x3B	; 59
-     fe6:	b0 e0       	ldi	r27, 0x00	; 0
-     fe8:	eb e3       	ldi	r30, 0x3B	; 59
-     fea:	f0 e0       	ldi	r31, 0x00	; 0
-     fec:	80 81       	ld	r24, Z
-     fee:	48 2f       	mov	r20, r24
-     ff0:	8a 81       	ldd	r24, Y+2	; 0x02
-     ff2:	28 2f       	mov	r18, r24
-     ff4:	30 e0       	ldi	r19, 0x00	; 0
-     ff6:	81 e0       	ldi	r24, 0x01	; 1
-     ff8:	90 e0       	ldi	r25, 0x00	; 0
-     ffa:	02 2e       	mov	r0, r18
-     ffc:	02 c0       	rjmp	.+4      	; 0x1002 <MDIO_voidSetPinValue+0xdc>
-     ffe:	88 0f       	add	r24, r24
-    1000:	99 1f       	adc	r25, r25
-    1002:	0a 94       	dec	r0
-    1004:	e2 f7       	brpl	.-8      	; 0xffe <MDIO_voidSetPinValue+0xd8>
-    1006:	84 2b       	or	r24, r20
-    1008:	8c 93       	st	X, r24
-    100a:	a7 c0       	rjmp	.+334    	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			}
-			break;
-		case DIO_PORTB:
-			switch (A_pinValue)
-    100c:	8b 81       	ldd	r24, Y+3	; 0x03
-    100e:	28 2f       	mov	r18, r24
-    1010:	30 e0       	ldi	r19, 0x00	; 0
-    1012:	39 87       	std	Y+9, r19	; 0x09
-    1014:	28 87       	std	Y+8, r18	; 0x08
-    1016:	88 85       	ldd	r24, Y+8	; 0x08
-    1018:	99 85       	ldd	r25, Y+9	; 0x09
-    101a:	00 97       	sbiw	r24, 0x00	; 0
-    101c:	31 f0       	breq	.+12     	; 0x102a <MDIO_voidSetPinValue+0x104>
-    101e:	28 85       	ldd	r18, Y+8	; 0x08
-    1020:	39 85       	ldd	r19, Y+9	; 0x09
-    1022:	21 30       	cpi	r18, 0x01	; 1
-    1024:	31 05       	cpc	r19, r1
-    1026:	b1 f0       	breq	.+44     	; 0x1054 <MDIO_voidSetPinValue+0x12e>
-    1028:	98 c0       	rjmp	.+304    	; 0x115a <MDIO_voidSetPinValue+0x234>
-			{
-			case DIO_RESET:
-				CLR_BIT(PORTB_REG,A_pinID);
-    102a:	a8 e3       	ldi	r26, 0x38	; 56
-    102c:	b0 e0       	ldi	r27, 0x00	; 0
-    102e:	e8 e3       	ldi	r30, 0x38	; 56
-    1030:	f0 e0       	ldi	r31, 0x00	; 0
-    1032:	80 81       	ld	r24, Z
-    1034:	48 2f       	mov	r20, r24
-    1036:	8a 81       	ldd	r24, Y+2	; 0x02
-    1038:	28 2f       	mov	r18, r24
-    103a:	30 e0       	ldi	r19, 0x00	; 0
-    103c:	81 e0       	ldi	r24, 0x01	; 1
-    103e:	90 e0       	ldi	r25, 0x00	; 0
-    1040:	02 2e       	mov	r0, r18
-    1042:	02 c0       	rjmp	.+4      	; 0x1048 <MDIO_voidSetPinValue+0x122>
-    1044:	88 0f       	add	r24, r24
-    1046:	99 1f       	adc	r25, r25
-    1048:	0a 94       	dec	r0
-    104a:	e2 f7       	brpl	.-8      	; 0x1044 <MDIO_voidSetPinValue+0x11e>
-    104c:	80 95       	com	r24
-    104e:	84 23       	and	r24, r20
-    1050:	8c 93       	st	X, r24
-    1052:	83 c0       	rjmp	.+262    	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			case DIO_SET:
-				SET_BIT(PORTB_REG,A_pinID);
-    1054:	a8 e3       	ldi	r26, 0x38	; 56
-    1056:	b0 e0       	ldi	r27, 0x00	; 0
-    1058:	e8 e3       	ldi	r30, 0x38	; 56
-    105a:	f0 e0       	ldi	r31, 0x00	; 0
-    105c:	80 81       	ld	r24, Z
-    105e:	48 2f       	mov	r20, r24
-    1060:	8a 81       	ldd	r24, Y+2	; 0x02
-    1062:	28 2f       	mov	r18, r24
-    1064:	30 e0       	ldi	r19, 0x00	; 0
-    1066:	81 e0       	ldi	r24, 0x01	; 1
-    1068:	90 e0       	ldi	r25, 0x00	; 0
-    106a:	02 2e       	mov	r0, r18
-    106c:	02 c0       	rjmp	.+4      	; 0x1072 <MDIO_voidSetPinValue+0x14c>
-    106e:	88 0f       	add	r24, r24
-    1070:	99 1f       	adc	r25, r25
-    1072:	0a 94       	dec	r0
-    1074:	e2 f7       	brpl	.-8      	; 0x106e <MDIO_voidSetPinValue+0x148>
-    1076:	84 2b       	or	r24, r20
-    1078:	8c 93       	st	X, r24
-    107a:	6f c0       	rjmp	.+222    	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			}
-			break;
-		case DIO_PORTC:
-			switch (A_pinValue)
-    107c:	8b 81       	ldd	r24, Y+3	; 0x03
-    107e:	28 2f       	mov	r18, r24
-    1080:	30 e0       	ldi	r19, 0x00	; 0
-    1082:	3f 83       	std	Y+7, r19	; 0x07
-    1084:	2e 83       	std	Y+6, r18	; 0x06
-    1086:	8e 81       	ldd	r24, Y+6	; 0x06
-    1088:	9f 81       	ldd	r25, Y+7	; 0x07
-    108a:	00 97       	sbiw	r24, 0x00	; 0
-    108c:	31 f0       	breq	.+12     	; 0x109a <MDIO_voidSetPinValue+0x174>
-    108e:	2e 81       	ldd	r18, Y+6	; 0x06
-    1090:	3f 81       	ldd	r19, Y+7	; 0x07
-    1092:	21 30       	cpi	r18, 0x01	; 1
-    1094:	31 05       	cpc	r19, r1
-    1096:	b1 f0       	breq	.+44     	; 0x10c4 <MDIO_voidSetPinValue+0x19e>
-    1098:	60 c0       	rjmp	.+192    	; 0x115a <MDIO_voidSetPinValue+0x234>
-			{
-			case DIO_RESET:
-				CLR_BIT(PORTC_REG,A_pinID);
-    109a:	a5 e3       	ldi	r26, 0x35	; 53
-    109c:	b0 e0       	ldi	r27, 0x00	; 0
-    109e:	e5 e3       	ldi	r30, 0x35	; 53
-    10a0:	f0 e0       	ldi	r31, 0x00	; 0
-    10a2:	80 81       	ld	r24, Z
-    10a4:	48 2f       	mov	r20, r24
-    10a6:	8a 81       	ldd	r24, Y+2	; 0x02
-    10a8:	28 2f       	mov	r18, r24
-    10aa:	30 e0       	ldi	r19, 0x00	; 0
-    10ac:	81 e0       	ldi	r24, 0x01	; 1
-    10ae:	90 e0       	ldi	r25, 0x00	; 0
-    10b0:	02 2e       	mov	r0, r18
-    10b2:	02 c0       	rjmp	.+4      	; 0x10b8 <MDIO_voidSetPinValue+0x192>
-    10b4:	88 0f       	add	r24, r24
-    10b6:	99 1f       	adc	r25, r25
-    10b8:	0a 94       	dec	r0
-    10ba:	e2 f7       	brpl	.-8      	; 0x10b4 <MDIO_voidSetPinValue+0x18e>
-    10bc:	80 95       	com	r24
-    10be:	84 23       	and	r24, r20
-    10c0:	8c 93       	st	X, r24
-    10c2:	4b c0       	rjmp	.+150    	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			case DIO_SET:
-				SET_BIT(PORTC_REG,A_pinID);
-    10c4:	a5 e3       	ldi	r26, 0x35	; 53
-    10c6:	b0 e0       	ldi	r27, 0x00	; 0
-    10c8:	e5 e3       	ldi	r30, 0x35	; 53
-    10ca:	f0 e0       	ldi	r31, 0x00	; 0
-    10cc:	80 81       	ld	r24, Z
-    10ce:	48 2f       	mov	r20, r24
-    10d0:	8a 81       	ldd	r24, Y+2	; 0x02
-    10d2:	28 2f       	mov	r18, r24
-    10d4:	30 e0       	ldi	r19, 0x00	; 0
-    10d6:	81 e0       	ldi	r24, 0x01	; 1
-    10d8:	90 e0       	ldi	r25, 0x00	; 0
-    10da:	02 2e       	mov	r0, r18
-    10dc:	02 c0       	rjmp	.+4      	; 0x10e2 <MDIO_voidSetPinValue+0x1bc>
-    10de:	88 0f       	add	r24, r24
-    10e0:	99 1f       	adc	r25, r25
-    10e2:	0a 94       	dec	r0
-    10e4:	e2 f7       	brpl	.-8      	; 0x10de <MDIO_voidSetPinValue+0x1b8>
-    10e6:	84 2b       	or	r24, r20
-    10e8:	8c 93       	st	X, r24
-    10ea:	37 c0       	rjmp	.+110    	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			}
-			break;
-		case DIO_PORTD:
-			switch (A_pinValue)
-    10ec:	8b 81       	ldd	r24, Y+3	; 0x03
-    10ee:	28 2f       	mov	r18, r24
-    10f0:	30 e0       	ldi	r19, 0x00	; 0
-    10f2:	3d 83       	std	Y+5, r19	; 0x05
-    10f4:	2c 83       	std	Y+4, r18	; 0x04
-    10f6:	8c 81       	ldd	r24, Y+4	; 0x04
-    10f8:	9d 81       	ldd	r25, Y+5	; 0x05
-    10fa:	00 97       	sbiw	r24, 0x00	; 0
-    10fc:	31 f0       	breq	.+12     	; 0x110a <MDIO_voidSetPinValue+0x1e4>
-    10fe:	2c 81       	ldd	r18, Y+4	; 0x04
-    1100:	3d 81       	ldd	r19, Y+5	; 0x05
-    1102:	21 30       	cpi	r18, 0x01	; 1
-    1104:	31 05       	cpc	r19, r1
-    1106:	b1 f0       	breq	.+44     	; 0x1134 <MDIO_voidSetPinValue+0x20e>
-    1108:	28 c0       	rjmp	.+80     	; 0x115a <MDIO_voidSetPinValue+0x234>
-			{
-			case DIO_RESET:
-				CLR_BIT(PORTD_REG,A_pinID);
-    110a:	a2 e3       	ldi	r26, 0x32	; 50
-    110c:	b0 e0       	ldi	r27, 0x00	; 0
-    110e:	e2 e3       	ldi	r30, 0x32	; 50
-    1110:	f0 e0       	ldi	r31, 0x00	; 0
-    1112:	80 81       	ld	r24, Z
-    1114:	48 2f       	mov	r20, r24
-    1116:	8a 81       	ldd	r24, Y+2	; 0x02
-    1118:	28 2f       	mov	r18, r24
-    111a:	30 e0       	ldi	r19, 0x00	; 0
-    111c:	81 e0       	ldi	r24, 0x01	; 1
-    111e:	90 e0       	ldi	r25, 0x00	; 0
-    1120:	02 2e       	mov	r0, r18
-    1122:	02 c0       	rjmp	.+4      	; 0x1128 <MDIO_voidSetPinValue+0x202>
-    1124:	88 0f       	add	r24, r24
-    1126:	99 1f       	adc	r25, r25
-    1128:	0a 94       	dec	r0
-    112a:	e2 f7       	brpl	.-8      	; 0x1124 <MDIO_voidSetPinValue+0x1fe>
-    112c:	80 95       	com	r24
-    112e:	84 23       	and	r24, r20
-    1130:	8c 93       	st	X, r24
-    1132:	13 c0       	rjmp	.+38     	; 0x115a <MDIO_voidSetPinValue+0x234>
-				break;
-			case DIO_SET:
-				SET_BIT(PORTD_REG,A_pinID);
-    1134:	a2 e3       	ldi	r26, 0x32	; 50
-    1136:	b0 e0       	ldi	r27, 0x00	; 0
-    1138:	e2 e3       	ldi	r30, 0x32	; 50
-    113a:	f0 e0       	ldi	r31, 0x00	; 0
-    113c:	80 81       	ld	r24, Z
-    113e:	48 2f       	mov	r20, r24
-    1140:	8a 81       	ldd	r24, Y+2	; 0x02
-    1142:	28 2f       	mov	r18, r24
-    1144:	30 e0       	ldi	r19, 0x00	; 0
-    1146:	81 e0       	ldi	r24, 0x01	; 1
-    1148:	90 e0       	ldi	r25, 0x00	; 0
-    114a:	02 2e       	mov	r0, r18
-    114c:	02 c0       	rjmp	.+4      	; 0x1152 <MDIO_voidSetPinValue+0x22c>
-    114e:	88 0f       	add	r24, r24
-    1150:	99 1f       	adc	r25, r25
-    1152:	0a 94       	dec	r0
-    1154:	e2 f7       	brpl	.-8      	; 0x114e <MDIO_voidSetPinValue+0x228>
-    1156:	84 2b       	or	r24, r20
-    1158:	8c 93       	st	X, r24
-	}
-	else
-	{
-		// Do Nothing
-	}
-}
-    115a:	2d 96       	adiw	r28, 0x0d	; 13
-    115c:	0f b6       	in	r0, 0x3f	; 63
-    115e:	f8 94       	cli
-    1160:	de bf       	out	0x3e, r29	; 62
-    1162:	0f be       	out	0x3f, r0	; 63
-    1164:	cd bf       	out	0x3d, r28	; 61
-    1166:	cf 91       	pop	r28
-    1168:	df 91       	pop	r29
-    116a:	08 95       	ret
-
-0000116c <MDIO_getPinValue>:
-
-
-
-
-DIO_VALUE_e MDIO_getPinValue(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
-{
-    116c:	df 93       	push	r29
-    116e:	cf 93       	push	r28
-    1170:	00 d0       	rcall	.+0      	; 0x1172 <MDIO_getPinValue+0x6>
-    1172:	00 d0       	rcall	.+0      	; 0x1174 <MDIO_getPinValue+0x8>
-    1174:	0f 92       	push	r0
-    1176:	cd b7       	in	r28, 0x3d	; 61
-    1178:	de b7       	in	r29, 0x3e	; 62
-    117a:	8a 83       	std	Y+2, r24	; 0x02
-    117c:	6b 83       	std	Y+3, r22	; 0x03
-	DIO_VALUE_e local_PinValue;
-
-	// Input Validation
-	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) )
-    117e:	8a 81       	ldd	r24, Y+2	; 0x02
-    1180:	84 30       	cpi	r24, 0x04	; 4
-    1182:	08 f0       	brcs	.+2      	; 0x1186 <MDIO_getPinValue+0x1a>
-    1184:	6b c0       	rjmp	.+214    	; 0x125c <MDIO_getPinValue+0xf0>
-    1186:	8b 81       	ldd	r24, Y+3	; 0x03
-    1188:	88 30       	cpi	r24, 0x08	; 8
-    118a:	08 f0       	brcs	.+2      	; 0x118e <MDIO_getPinValue+0x22>
-    118c:	67 c0       	rjmp	.+206    	; 0x125c <MDIO_getPinValue+0xf0>
-	{
-		switch (A_portID)
-    118e:	8a 81       	ldd	r24, Y+2	; 0x02
-    1190:	28 2f       	mov	r18, r24
-    1192:	30 e0       	ldi	r19, 0x00	; 0
-    1194:	3d 83       	std	Y+5, r19	; 0x05
-    1196:	2c 83       	std	Y+4, r18	; 0x04
-    1198:	4c 81       	ldd	r20, Y+4	; 0x04
-    119a:	5d 81       	ldd	r21, Y+5	; 0x05
-    119c:	41 30       	cpi	r20, 0x01	; 1
-    119e:	51 05       	cpc	r21, r1
-    11a0:	41 f1       	breq	.+80     	; 0x11f2 <MDIO_getPinValue+0x86>
-    11a2:	8c 81       	ldd	r24, Y+4	; 0x04
-    11a4:	9d 81       	ldd	r25, Y+5	; 0x05
-    11a6:	82 30       	cpi	r24, 0x02	; 2
-    11a8:	91 05       	cpc	r25, r1
-    11aa:	34 f4       	brge	.+12     	; 0x11b8 <MDIO_getPinValue+0x4c>
-    11ac:	2c 81       	ldd	r18, Y+4	; 0x04
-    11ae:	3d 81       	ldd	r19, Y+5	; 0x05
-    11b0:	21 15       	cp	r18, r1
-    11b2:	31 05       	cpc	r19, r1
-    11b4:	61 f0       	breq	.+24     	; 0x11ce <MDIO_getPinValue+0x62>
-    11b6:	52 c0       	rjmp	.+164    	; 0x125c <MDIO_getPinValue+0xf0>
-    11b8:	4c 81       	ldd	r20, Y+4	; 0x04
-    11ba:	5d 81       	ldd	r21, Y+5	; 0x05
-    11bc:	42 30       	cpi	r20, 0x02	; 2
-    11be:	51 05       	cpc	r21, r1
-    11c0:	51 f1       	breq	.+84     	; 0x1216 <MDIO_getPinValue+0xaa>
-    11c2:	8c 81       	ldd	r24, Y+4	; 0x04
-    11c4:	9d 81       	ldd	r25, Y+5	; 0x05
-    11c6:	83 30       	cpi	r24, 0x03	; 3
-    11c8:	91 05       	cpc	r25, r1
-    11ca:	b9 f1       	breq	.+110    	; 0x123a <MDIO_getPinValue+0xce>
-    11cc:	47 c0       	rjmp	.+142    	; 0x125c <MDIO_getPinValue+0xf0>
-		{
-		case DIO_PORTA:
-			local_PinValue = GET_BIT(PINA_REG,A_pinID);
-    11ce:	e9 e3       	ldi	r30, 0x39	; 57
-    11d0:	f0 e0       	ldi	r31, 0x00	; 0
-    11d2:	80 81       	ld	r24, Z
-    11d4:	28 2f       	mov	r18, r24
-    11d6:	30 e0       	ldi	r19, 0x00	; 0
-    11d8:	8b 81       	ldd	r24, Y+3	; 0x03
-    11da:	88 2f       	mov	r24, r24
-    11dc:	90 e0       	ldi	r25, 0x00	; 0
-    11de:	a9 01       	movw	r20, r18
-    11e0:	02 c0       	rjmp	.+4      	; 0x11e6 <MDIO_getPinValue+0x7a>
-    11e2:	55 95       	asr	r21
-    11e4:	47 95       	ror	r20
-    11e6:	8a 95       	dec	r24
-    11e8:	e2 f7       	brpl	.-8      	; 0x11e2 <MDIO_getPinValue+0x76>
-    11ea:	ca 01       	movw	r24, r20
-    11ec:	81 70       	andi	r24, 0x01	; 1
-    11ee:	89 83       	std	Y+1, r24	; 0x01
-    11f0:	35 c0       	rjmp	.+106    	; 0x125c <MDIO_getPinValue+0xf0>
-			break;
-		case DIO_PORTB:
-			local_PinValue = GET_BIT(PINB_REG,A_pinID);
-    11f2:	e6 e3       	ldi	r30, 0x36	; 54
-    11f4:	f0 e0       	ldi	r31, 0x00	; 0
-    11f6:	80 81       	ld	r24, Z
-    11f8:	28 2f       	mov	r18, r24
-    11fa:	30 e0       	ldi	r19, 0x00	; 0
-    11fc:	8b 81       	ldd	r24, Y+3	; 0x03
-    11fe:	88 2f       	mov	r24, r24
-    1200:	90 e0       	ldi	r25, 0x00	; 0
-    1202:	a9 01       	movw	r20, r18
-    1204:	02 c0       	rjmp	.+4      	; 0x120a <MDIO_getPinValue+0x9e>
-    1206:	55 95       	asr	r21
-    1208:	47 95       	ror	r20
-    120a:	8a 95       	dec	r24
-    120c:	e2 f7       	brpl	.-8      	; 0x1206 <MDIO_getPinValue+0x9a>
-    120e:	ca 01       	movw	r24, r20
-    1210:	81 70       	andi	r24, 0x01	; 1
-    1212:	89 83       	std	Y+1, r24	; 0x01
-    1214:	23 c0       	rjmp	.+70     	; 0x125c <MDIO_getPinValue+0xf0>
-			break;
-		case DIO_PORTC:
-			local_PinValue = GET_BIT(PINC_REG,A_pinID);
-    1216:	e3 e3       	ldi	r30, 0x33	; 51
-    1218:	f0 e0       	ldi	r31, 0x00	; 0
-    121a:	80 81       	ld	r24, Z
-    121c:	28 2f       	mov	r18, r24
-    121e:	30 e0       	ldi	r19, 0x00	; 0
-    1220:	8b 81       	ldd	r24, Y+3	; 0x03
-    1222:	88 2f       	mov	r24, r24
-    1224:	90 e0       	ldi	r25, 0x00	; 0
-    1226:	a9 01       	movw	r20, r18
-    1228:	02 c0       	rjmp	.+4      	; 0x122e <MDIO_getPinValue+0xc2>
-    122a:	55 95       	asr	r21
-    122c:	47 95       	ror	r20
-    122e:	8a 95       	dec	r24
-    1230:	e2 f7       	brpl	.-8      	; 0x122a <MDIO_getPinValue+0xbe>
-    1232:	ca 01       	movw	r24, r20
-    1234:	81 70       	andi	r24, 0x01	; 1
-    1236:	89 83       	std	Y+1, r24	; 0x01
-    1238:	11 c0       	rjmp	.+34     	; 0x125c <MDIO_getPinValue+0xf0>
-			break;
-		case DIO_PORTD:
-			local_PinValue = GET_BIT(PIND_REG,A_pinID);
-    123a:	e0 e3       	ldi	r30, 0x30	; 48
-    123c:	f0 e0       	ldi	r31, 0x00	; 0
-    123e:	80 81       	ld	r24, Z
-    1240:	28 2f       	mov	r18, r24
-    1242:	30 e0       	ldi	r19, 0x00	; 0
-    1244:	8b 81       	ldd	r24, Y+3	; 0x03
-    1246:	88 2f       	mov	r24, r24
-    1248:	90 e0       	ldi	r25, 0x00	; 0
-    124a:	a9 01       	movw	r20, r18
-    124c:	02 c0       	rjmp	.+4      	; 0x1252 <MDIO_getPinValue+0xe6>
-    124e:	55 95       	asr	r21
-    1250:	47 95       	ror	r20
-    1252:	8a 95       	dec	r24
-    1254:	e2 f7       	brpl	.-8      	; 0x124e <MDIO_getPinValue+0xe2>
-    1256:	ca 01       	movw	r24, r20
-    1258:	81 70       	andi	r24, 0x01	; 1
-    125a:	89 83       	std	Y+1, r24	; 0x01
-	{
-		// Do Nothing
-	}
-
-
-	return local_PinValue;
-    125c:	89 81       	ldd	r24, Y+1	; 0x01
-}
-    125e:	0f 90       	pop	r0
-    1260:	0f 90       	pop	r0
-    1262:	0f 90       	pop	r0
-    1264:	0f 90       	pop	r0
-    1266:	0f 90       	pop	r0
-    1268:	cf 91       	pop	r28
-    126a:	df 91       	pop	r29
-    126c:	08 95       	ret
-
-0000126e <MDIO_voidTogglePinValue>:
-
-void MDIO_voidTogglePinValue (DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
-{
-    126e:	df 93       	push	r29
-    1270:	cf 93       	push	r28
-    1272:	00 d0       	rcall	.+0      	; 0x1274 <MDIO_voidTogglePinValue+0x6>
-    1274:	00 d0       	rcall	.+0      	; 0x1276 <MDIO_voidTogglePinValue+0x8>
-    1276:	cd b7       	in	r28, 0x3d	; 61
-    1278:	de b7       	in	r29, 0x3e	; 62
-    127a:	89 83       	std	Y+1, r24	; 0x01
-    127c:	6a 83       	std	Y+2, r22	; 0x02
-	// Input Validation
-	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) )
-    127e:	89 81       	ldd	r24, Y+1	; 0x01
-    1280:	84 30       	cpi	r24, 0x04	; 4
-    1282:	08 f0       	brcs	.+2      	; 0x1286 <MDIO_voidTogglePinValue+0x18>
-    1284:	72 c0       	rjmp	.+228    	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-    1286:	8a 81       	ldd	r24, Y+2	; 0x02
-    1288:	88 30       	cpi	r24, 0x08	; 8
-    128a:	08 f0       	brcs	.+2      	; 0x128e <MDIO_voidTogglePinValue+0x20>
-    128c:	6e c0       	rjmp	.+220    	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-	{
-		switch (A_portID)
-    128e:	89 81       	ldd	r24, Y+1	; 0x01
-    1290:	28 2f       	mov	r18, r24
-    1292:	30 e0       	ldi	r19, 0x00	; 0
-    1294:	3c 83       	std	Y+4, r19	; 0x04
-    1296:	2b 83       	std	Y+3, r18	; 0x03
-    1298:	8b 81       	ldd	r24, Y+3	; 0x03
-    129a:	9c 81       	ldd	r25, Y+4	; 0x04
-    129c:	81 30       	cpi	r24, 0x01	; 1
-    129e:	91 05       	cpc	r25, r1
-    12a0:	49 f1       	breq	.+82     	; 0x12f4 <MDIO_voidTogglePinValue+0x86>
-    12a2:	2b 81       	ldd	r18, Y+3	; 0x03
-    12a4:	3c 81       	ldd	r19, Y+4	; 0x04
-    12a6:	22 30       	cpi	r18, 0x02	; 2
-    12a8:	31 05       	cpc	r19, r1
-    12aa:	2c f4       	brge	.+10     	; 0x12b6 <MDIO_voidTogglePinValue+0x48>
-    12ac:	8b 81       	ldd	r24, Y+3	; 0x03
-    12ae:	9c 81       	ldd	r25, Y+4	; 0x04
-    12b0:	00 97       	sbiw	r24, 0x00	; 0
-    12b2:	61 f0       	breq	.+24     	; 0x12cc <MDIO_voidTogglePinValue+0x5e>
-    12b4:	5a c0       	rjmp	.+180    	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-    12b6:	2b 81       	ldd	r18, Y+3	; 0x03
-    12b8:	3c 81       	ldd	r19, Y+4	; 0x04
-    12ba:	22 30       	cpi	r18, 0x02	; 2
-    12bc:	31 05       	cpc	r19, r1
-    12be:	71 f1       	breq	.+92     	; 0x131c <MDIO_voidTogglePinValue+0xae>
-    12c0:	8b 81       	ldd	r24, Y+3	; 0x03
-    12c2:	9c 81       	ldd	r25, Y+4	; 0x04
-    12c4:	83 30       	cpi	r24, 0x03	; 3
-    12c6:	91 05       	cpc	r25, r1
-    12c8:	e9 f1       	breq	.+122    	; 0x1344 <MDIO_voidTogglePinValue+0xd6>
-    12ca:	4f c0       	rjmp	.+158    	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-		{
-		case DIO_PORTA:
-			TOGGLE_BIT(PORTA_REG,A_pinID);
-    12cc:	ab e3       	ldi	r26, 0x3B	; 59
-    12ce:	b0 e0       	ldi	r27, 0x00	; 0
-    12d0:	eb e3       	ldi	r30, 0x3B	; 59
-    12d2:	f0 e0       	ldi	r31, 0x00	; 0
-    12d4:	80 81       	ld	r24, Z
-    12d6:	48 2f       	mov	r20, r24
-    12d8:	8a 81       	ldd	r24, Y+2	; 0x02
-    12da:	28 2f       	mov	r18, r24
-    12dc:	30 e0       	ldi	r19, 0x00	; 0
-    12de:	81 e0       	ldi	r24, 0x01	; 1
-    12e0:	90 e0       	ldi	r25, 0x00	; 0
-    12e2:	02 2e       	mov	r0, r18
-    12e4:	02 c0       	rjmp	.+4      	; 0x12ea <MDIO_voidTogglePinValue+0x7c>
-    12e6:	88 0f       	add	r24, r24
-    12e8:	99 1f       	adc	r25, r25
-    12ea:	0a 94       	dec	r0
-    12ec:	e2 f7       	brpl	.-8      	; 0x12e6 <MDIO_voidTogglePinValue+0x78>
-    12ee:	84 27       	eor	r24, r20
-    12f0:	8c 93       	st	X, r24
-    12f2:	3b c0       	rjmp	.+118    	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-			break;
-		case DIO_PORTB:
-			TOGGLE_BIT(PORTB_REG,A_pinID);
-    12f4:	a8 e3       	ldi	r26, 0x38	; 56
-    12f6:	b0 e0       	ldi	r27, 0x00	; 0
-    12f8:	e8 e3       	ldi	r30, 0x38	; 56
-    12fa:	f0 e0       	ldi	r31, 0x00	; 0
-    12fc:	80 81       	ld	r24, Z
-    12fe:	48 2f       	mov	r20, r24
-    1300:	8a 81       	ldd	r24, Y+2	; 0x02
-    1302:	28 2f       	mov	r18, r24
-    1304:	30 e0       	ldi	r19, 0x00	; 0
-    1306:	81 e0       	ldi	r24, 0x01	; 1
-    1308:	90 e0       	ldi	r25, 0x00	; 0
-    130a:	02 2e       	mov	r0, r18
-    130c:	02 c0       	rjmp	.+4      	; 0x1312 <MDIO_voidTogglePinValue+0xa4>
-    130e:	88 0f       	add	r24, r24
-    1310:	99 1f       	adc	r25, r25
-    1312:	0a 94       	dec	r0
-    1314:	e2 f7       	brpl	.-8      	; 0x130e <MDIO_voidTogglePinValue+0xa0>
-    1316:	84 27       	eor	r24, r20
-    1318:	8c 93       	st	X, r24
-    131a:	27 c0       	rjmp	.+78     	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-			break;
-		case DIO_PORTC:
-			TOGGLE_BIT(PORTC_REG,A_pinID);
-    131c:	a5 e3       	ldi	r26, 0x35	; 53
-    131e:	b0 e0       	ldi	r27, 0x00	; 0
-    1320:	e5 e3       	ldi	r30, 0x35	; 53
-    1322:	f0 e0       	ldi	r31, 0x00	; 0
-    1324:	80 81       	ld	r24, Z
-    1326:	48 2f       	mov	r20, r24
-    1328:	8a 81       	ldd	r24, Y+2	; 0x02
-    132a:	28 2f       	mov	r18, r24
-    132c:	30 e0       	ldi	r19, 0x00	; 0
-    132e:	81 e0       	ldi	r24, 0x01	; 1
-    1330:	90 e0       	ldi	r25, 0x00	; 0
-    1332:	02 2e       	mov	r0, r18
-    1334:	02 c0       	rjmp	.+4      	; 0x133a <MDIO_voidTogglePinValue+0xcc>
-    1336:	88 0f       	add	r24, r24
-    1338:	99 1f       	adc	r25, r25
-    133a:	0a 94       	dec	r0
-    133c:	e2 f7       	brpl	.-8      	; 0x1336 <MDIO_voidTogglePinValue+0xc8>
-    133e:	84 27       	eor	r24, r20
-    1340:	8c 93       	st	X, r24
-    1342:	13 c0       	rjmp	.+38     	; 0x136a <MDIO_voidTogglePinValue+0xfc>
-			break;
-		case DIO_PORTD:
-			TOGGLE_BIT(PORTD_REG,A_pinID);
-    1344:	a2 e3       	ldi	r26, 0x32	; 50
-    1346:	b0 e0       	ldi	r27, 0x00	; 0
-    1348:	e2 e3       	ldi	r30, 0x32	; 50
-    134a:	f0 e0       	ldi	r31, 0x00	; 0
-    134c:	80 81       	ld	r24, Z
-    134e:	48 2f       	mov	r20, r24
-    1350:	8a 81       	ldd	r24, Y+2	; 0x02
-    1352:	28 2f       	mov	r18, r24
-    1354:	30 e0       	ldi	r19, 0x00	; 0
-    1356:	81 e0       	ldi	r24, 0x01	; 1
-    1358:	90 e0       	ldi	r25, 0x00	; 0
-    135a:	02 2e       	mov	r0, r18
-    135c:	02 c0       	rjmp	.+4      	; 0x1362 <MDIO_voidTogglePinValue+0xf4>
-    135e:	88 0f       	add	r24, r24
-    1360:	99 1f       	adc	r25, r25
-    1362:	0a 94       	dec	r0
-    1364:	e2 f7       	brpl	.-8      	; 0x135e <MDIO_voidTogglePinValue+0xf0>
-    1366:	84 27       	eor	r24, r20
-    1368:	8c 93       	st	X, r24
-	}
-	else
-	{
-		// Do Nothing
-	}
-}
-    136a:	0f 90       	pop	r0
-    136c:	0f 90       	pop	r0
-    136e:	0f 90       	pop	r0
-    1370:	0f 90       	pop	r0
-    1372:	cf 91       	pop	r28
-    1374:	df 91       	pop	r29
-    1376:	08 95       	ret
-
-00001378 <MDIO_voidSetPortDirection>:
-
-
-void MDIO_voidSetPortDirection (DIO_PORT_e A_portID, u8 A_u8PortDirection)
-{
-    1378:	df 93       	push	r29
-    137a:	cf 93       	push	r28
-    137c:	00 d0       	rcall	.+0      	; 0x137e <MDIO_voidSetPortDirection+0x6>
-    137e:	00 d0       	rcall	.+0      	; 0x1380 <MDIO_voidSetPortDirection+0x8>
-    1380:	cd b7       	in	r28, 0x3d	; 61
-    1382:	de b7       	in	r29, 0x3e	; 62
-    1384:	89 83       	std	Y+1, r24	; 0x01
-    1386:	6a 83       	std	Y+2, r22	; 0x02
-	// Input Validation
-	if ( (A_portID <= DIO_PORTD) )
-    1388:	89 81       	ldd	r24, Y+1	; 0x01
-    138a:	84 30       	cpi	r24, 0x04	; 4
-    138c:	90 f5       	brcc	.+100    	; 0x13f2 <MDIO_voidSetPortDirection+0x7a>
-	{
-		switch (A_portID)
-    138e:	89 81       	ldd	r24, Y+1	; 0x01
-    1390:	28 2f       	mov	r18, r24
-    1392:	30 e0       	ldi	r19, 0x00	; 0
-    1394:	3c 83       	std	Y+4, r19	; 0x04
-    1396:	2b 83       	std	Y+3, r18	; 0x03
-    1398:	8b 81       	ldd	r24, Y+3	; 0x03
-    139a:	9c 81       	ldd	r25, Y+4	; 0x04
-    139c:	81 30       	cpi	r24, 0x01	; 1
-    139e:	91 05       	cpc	r25, r1
-    13a0:	d1 f0       	breq	.+52     	; 0x13d6 <MDIO_voidSetPortDirection+0x5e>
-    13a2:	2b 81       	ldd	r18, Y+3	; 0x03
-    13a4:	3c 81       	ldd	r19, Y+4	; 0x04
-    13a6:	22 30       	cpi	r18, 0x02	; 2
-    13a8:	31 05       	cpc	r19, r1
-    13aa:	2c f4       	brge	.+10     	; 0x13b6 <MDIO_voidSetPortDirection+0x3e>
-    13ac:	8b 81       	ldd	r24, Y+3	; 0x03
-    13ae:	9c 81       	ldd	r25, Y+4	; 0x04
-    13b0:	00 97       	sbiw	r24, 0x00	; 0
-    13b2:	61 f0       	breq	.+24     	; 0x13cc <MDIO_voidSetPortDirection+0x54>
-    13b4:	1e c0       	rjmp	.+60     	; 0x13f2 <MDIO_voidSetPortDirection+0x7a>
-    13b6:	2b 81       	ldd	r18, Y+3	; 0x03
-    13b8:	3c 81       	ldd	r19, Y+4	; 0x04
-    13ba:	22 30       	cpi	r18, 0x02	; 2
-    13bc:	31 05       	cpc	r19, r1
-    13be:	81 f0       	breq	.+32     	; 0x13e0 <MDIO_voidSetPortDirection+0x68>
-    13c0:	8b 81       	ldd	r24, Y+3	; 0x03
-    13c2:	9c 81       	ldd	r25, Y+4	; 0x04
-    13c4:	83 30       	cpi	r24, 0x03	; 3
-    13c6:	91 05       	cpc	r25, r1
-    13c8:	81 f0       	breq	.+32     	; 0x13ea <MDIO_voidSetPortDirection+0x72>
-    13ca:	13 c0       	rjmp	.+38     	; 0x13f2 <MDIO_voidSetPortDirection+0x7a>
-		{
-		case DIO_PORTA:
-			DDRA_REG = A_u8PortDirection;
-    13cc:	ea e3       	ldi	r30, 0x3A	; 58
-    13ce:	f0 e0       	ldi	r31, 0x00	; 0
-    13d0:	8a 81       	ldd	r24, Y+2	; 0x02
-    13d2:	80 83       	st	Z, r24
-    13d4:	0e c0       	rjmp	.+28     	; 0x13f2 <MDIO_voidSetPortDirection+0x7a>
-			break;
-		case DIO_PORTB:
-			DDRB_REG = A_u8PortDirection;
-    13d6:	e7 e3       	ldi	r30, 0x37	; 55
-    13d8:	f0 e0       	ldi	r31, 0x00	; 0
-    13da:	8a 81       	ldd	r24, Y+2	; 0x02
-    13dc:	80 83       	st	Z, r24
-    13de:	09 c0       	rjmp	.+18     	; 0x13f2 <MDIO_voidSetPortDirection+0x7a>
-			break;
-		case DIO_PORTC:
-			DDRC_REG = A_u8PortDirection;
-    13e0:	e4 e3       	ldi	r30, 0x34	; 52
-    13e2:	f0 e0       	ldi	r31, 0x00	; 0
-    13e4:	8a 81       	ldd	r24, Y+2	; 0x02
-    13e6:	80 83       	st	Z, r24
-    13e8:	04 c0       	rjmp	.+8      	; 0x13f2 <MDIO_voidSetPortDirection+0x7a>
-			break;
-		case DIO_PORTD:
-			DDRD_REG = A_u8PortDirection;
-    13ea:	e1 e3       	ldi	r30, 0x31	; 49
-    13ec:	f0 e0       	ldi	r31, 0x00	; 0
-    13ee:	8a 81       	ldd	r24, Y+2	; 0x02
-    13f0:	80 83       	st	Z, r24
-	}
-	else
-	{
-		// Do Nothing
-	}
-}
-    13f2:	0f 90       	pop	r0
-    13f4:	0f 90       	pop	r0
-    13f6:	0f 90       	pop	r0
-    13f8:	0f 90       	pop	r0
-    13fa:	cf 91       	pop	r28
-    13fc:	df 91       	pop	r29
-    13fe:	08 95       	ret
-
-00001400 <MDIO_voidSetPortValue>:
-
-void MDIO_voidSetPortValue (DIO_PORT_e A_portID, u8 A_u8PortValue)
-{
-    1400:	df 93       	push	r29
-    1402:	cf 93       	push	r28
-    1404:	00 d0       	rcall	.+0      	; 0x1406 <MDIO_voidSetPortValue+0x6>
-    1406:	00 d0       	rcall	.+0      	; 0x1408 <MDIO_voidSetPortValue+0x8>
-    1408:	cd b7       	in	r28, 0x3d	; 61
-    140a:	de b7       	in	r29, 0x3e	; 62
-    140c:	89 83       	std	Y+1, r24	; 0x01
-    140e:	6a 83       	std	Y+2, r22	; 0x02
-	// Input Validation
-	if ( (A_portID <= DIO_PORTD) )
-    1410:	89 81       	ldd	r24, Y+1	; 0x01
-    1412:	84 30       	cpi	r24, 0x04	; 4
-    1414:	90 f5       	brcc	.+100    	; 0x147a <MDIO_voidSetPortValue+0x7a>
-	{
-		switch (A_portID)
-    1416:	89 81       	ldd	r24, Y+1	; 0x01
-    1418:	28 2f       	mov	r18, r24
-    141a:	30 e0       	ldi	r19, 0x00	; 0
-    141c:	3c 83       	std	Y+4, r19	; 0x04
-    141e:	2b 83       	std	Y+3, r18	; 0x03
-    1420:	8b 81       	ldd	r24, Y+3	; 0x03
-    1422:	9c 81       	ldd	r25, Y+4	; 0x04
-    1424:	81 30       	cpi	r24, 0x01	; 1
-    1426:	91 05       	cpc	r25, r1
-    1428:	d1 f0       	breq	.+52     	; 0x145e <MDIO_voidSetPortValue+0x5e>
-    142a:	2b 81       	ldd	r18, Y+3	; 0x03
-    142c:	3c 81       	ldd	r19, Y+4	; 0x04
-    142e:	22 30       	cpi	r18, 0x02	; 2
-    1430:	31 05       	cpc	r19, r1
-    1432:	2c f4       	brge	.+10     	; 0x143e <MDIO_voidSetPortValue+0x3e>
-    1434:	8b 81       	ldd	r24, Y+3	; 0x03
-    1436:	9c 81       	ldd	r25, Y+4	; 0x04
-    1438:	00 97       	sbiw	r24, 0x00	; 0
-    143a:	61 f0       	breq	.+24     	; 0x1454 <MDIO_voidSetPortValue+0x54>
-    143c:	1e c0       	rjmp	.+60     	; 0x147a <MDIO_voidSetPortValue+0x7a>
-    143e:	2b 81       	ldd	r18, Y+3	; 0x03
-    1440:	3c 81       	ldd	r19, Y+4	; 0x04
-    1442:	22 30       	cpi	r18, 0x02	; 2
-    1444:	31 05       	cpc	r19, r1
-    1446:	81 f0       	breq	.+32     	; 0x1468 <MDIO_voidSetPortValue+0x68>
-    1448:	8b 81       	ldd	r24, Y+3	; 0x03
-    144a:	9c 81       	ldd	r25, Y+4	; 0x04
-    144c:	83 30       	cpi	r24, 0x03	; 3
-    144e:	91 05       	cpc	r25, r1
-    1450:	81 f0       	breq	.+32     	; 0x1472 <MDIO_voidSetPortValue+0x72>
-    1452:	13 c0       	rjmp	.+38     	; 0x147a <MDIO_voidSetPortValue+0x7a>
-		{
-		case DIO_PORTA:
-			PORTA_REG = A_u8PortValue;
-    1454:	eb e3       	ldi	r30, 0x3B	; 59
-    1456:	f0 e0       	ldi	r31, 0x00	; 0
-    1458:	8a 81       	ldd	r24, Y+2	; 0x02
-    145a:	80 83       	st	Z, r24
-    145c:	0e c0       	rjmp	.+28     	; 0x147a <MDIO_voidSetPortValue+0x7a>
-			break;
-		case DIO_PORTB:
-			PORTB_REG = A_u8PortValue;
-    145e:	e8 e3       	ldi	r30, 0x38	; 56
-    1460:	f0 e0       	ldi	r31, 0x00	; 0
-    1462:	8a 81       	ldd	r24, Y+2	; 0x02
-    1464:	80 83       	st	Z, r24
-    1466:	09 c0       	rjmp	.+18     	; 0x147a <MDIO_voidSetPortValue+0x7a>
-			break;
-		case DIO_PORTC:
-			PORTC_REG = A_u8PortValue;
-    1468:	e5 e3       	ldi	r30, 0x35	; 53
-    146a:	f0 e0       	ldi	r31, 0x00	; 0
-    146c:	8a 81       	ldd	r24, Y+2	; 0x02
-    146e:	80 83       	st	Z, r24
-    1470:	04 c0       	rjmp	.+8      	; 0x147a <MDIO_voidSetPortValue+0x7a>
-			break;
-		case DIO_PORTD:
-			PORTD_REG = A_u8PortValue;
-    1472:	e2 e3       	ldi	r30, 0x32	; 50
-    1474:	f0 e0       	ldi	r31, 0x00	; 0
-    1476:	8a 81       	ldd	r24, Y+2	; 0x02
-    1478:	80 83       	st	Z, r24
-	}
-	else
-	{
-		// Do Nothing
-	}
-}
-    147a:	0f 90       	pop	r0
-    147c:	0f 90       	pop	r0
-    147e:	0f 90       	pop	r0
-    1480:	0f 90       	pop	r0
-    1482:	cf 91       	pop	r28
-    1484:	df 91       	pop	r29
-    1486:	08 95       	ret
-
-00001488 <MDIO_voidInit>:
-
-
-void MDIO_voidInit (void)
-{
-    1488:	df 93       	push	r29
-    148a:	cf 93       	push	r28
-    148c:	cd b7       	in	r28, 0x3d	; 61
-    148e:	de b7       	in	r29, 0x3e	; 62
-
-	DDRA_REG = CONC_BIT(PA7_INITIAL_DIRECTION,PA6_INITIAL_DIRECTION,
-    1490:	ea e3       	ldi	r30, 0x3A	; 58
-    1492:	f0 e0       	ldi	r31, 0x00	; 0
-    1494:	10 82       	st	Z, r1
-						PA5_INITIAL_DIRECTION,PA4_INITIAL_DIRECTION,
-						PA3_INITIAL_DIRECTION,PA2_INITIAL_DIRECTION,
-						PA1_INITIAL_DIRECTION,PA0_INITIAL_DIRECTION);
-
-	DDRB_REG = CONC_BIT(PB7_INITIAL_DIRECTION,PB6_INITIAL_DIRECTION,
-    1496:	e7 e3       	ldi	r30, 0x37	; 55
-    1498:	f0 e0       	ldi	r31, 0x00	; 0
-    149a:	10 82       	st	Z, r1
-						PB5_INITIAL_DIRECTION,PB4_INITIAL_DIRECTION,
-						PB3_INITIAL_DIRECTION,PB2_INITIAL_DIRECTION,
-						PB1_INITIAL_DIRECTION,PB0_INITIAL_DIRECTION);
-
-	DDRC_REG = CONC_BIT(PC7_INITIAL_DIRECTION,PC6_INITIAL_DIRECTION,
-    149c:	e4 e3       	ldi	r30, 0x34	; 52
-    149e:	f0 e0       	ldi	r31, 0x00	; 0
-    14a0:	10 82       	st	Z, r1
-						PC5_INITIAL_DIRECTION,PC4_INITIAL_DIRECTION,
-						PC3_INITIAL_DIRECTION,PC2_INITIAL_DIRECTION,
-						PC1_INITIAL_DIRECTION,PC0_INITIAL_DIRECTION);
-
-	DDRD_REG = CONC_BIT(PD7_INITIAL_DIRECTION,PD6_INITIAL_DIRECTION,
-    14a2:	e1 e3       	ldi	r30, 0x31	; 49
-    14a4:	f0 e0       	ldi	r31, 0x00	; 0
-    14a6:	10 82       	st	Z, r1
-						PD3_INITIAL_DIRECTION,PD2_INITIAL_DIRECTION,
-						PD1_INITIAL_DIRECTION,PD0_INITIAL_DIRECTION);
-
-	/**********************************************************************/
-
-	PORTA_REG = CONC_BIT(PA7_INITIAL_VALUE,PA6_INITIAL_VALUE,
-    14a8:	eb e3       	ldi	r30, 0x3B	; 59
-    14aa:	f0 e0       	ldi	r31, 0x00	; 0
-    14ac:	10 82       	st	Z, r1
-						 PA5_INITIAL_VALUE,PA4_INITIAL_VALUE,
-						 PA3_INITIAL_VALUE,PA2_INITIAL_VALUE,
-						 PA1_INITIAL_VALUE,PA0_INITIAL_VALUE);
-
-	PORTB_REG = CONC_BIT(PB7_INITIAL_VALUE,PB6_INITIAL_VALUE,
-    14ae:	e8 e3       	ldi	r30, 0x38	; 56
-    14b0:	f0 e0       	ldi	r31, 0x00	; 0
-    14b2:	10 82       	st	Z, r1
-						 PB5_INITIAL_VALUE,PB4_INITIAL_VALUE,
-						 PB3_INITIAL_VALUE,PB2_INITIAL_VALUE,
-						 PB1_INITIAL_VALUE,PB0_INITIAL_VALUE);
-
-	PORTC_REG = CONC_BIT(PC7_INITIAL_VALUE,PC6_INITIAL_VALUE,
-    14b4:	e5 e3       	ldi	r30, 0x35	; 53
-    14b6:	f0 e0       	ldi	r31, 0x00	; 0
-    14b8:	10 82       	st	Z, r1
-						 PC5_INITIAL_VALUE,PC4_INITIAL_VALUE,
-						 PC3_INITIAL_VALUE,PC2_INITIAL_VALUE,
-						 PC1_INITIAL_VALUE,PC0_INITIAL_VALUE);
-
-	PORTD_REG = CONC_BIT(PD7_INITIAL_VALUE,PD6_INITIAL_VALUE,
-    14ba:	e2 e3       	ldi	r30, 0x32	; 50
-    14bc:	f0 e0       	ldi	r31, 0x00	; 0
-    14be:	10 82       	st	Z, r1
-						 PD5_INITIAL_VALUE,PD4_INITIAL_VALUE,
-						 PD3_INITIAL_VALUE,PD2_INITIAL_VALUE,
-						 PD1_INITIAL_VALUE,PD0_INITIAL_VALUE);
-}
-    14c0:	cf 91       	pop	r28
-    14c2:	df 91       	pop	r29
-    14c4:	08 95       	ret
-
-000014c6 <HLED_voidTurnLEDOn>:
-#include "../Include/HAL/LED/LED_Private.h"
-#include "../Include/HAL/LED/LED_cfg.h"
-
-
-void HLED_voidTurnLEDOn(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
-{
-    14c6:	df 93       	push	r29
-    14c8:	cf 93       	push	r28
-    14ca:	00 d0       	rcall	.+0      	; 0x14cc <HLED_voidTurnLEDOn+0x6>
-    14cc:	cd b7       	in	r28, 0x3d	; 61
-    14ce:	de b7       	in	r29, 0x3e	; 62
-    14d0:	89 83       	std	Y+1, r24	; 0x01
-    14d2:	6a 83       	std	Y+2, r22	; 0x02
-	MDIO_voidSetPinValue(A_portID ,A_pinID , DIO_SET);
-    14d4:	89 81       	ldd	r24, Y+1	; 0x01
-    14d6:	6a 81       	ldd	r22, Y+2	; 0x02
-    14d8:	41 e0       	ldi	r20, 0x01	; 1
-    14da:	0e 94 93 07 	call	0xf26	; 0xf26 <MDIO_voidSetPinValue>
-}
-    14de:	0f 90       	pop	r0
-    14e0:	0f 90       	pop	r0
-    14e2:	cf 91       	pop	r28
-    14e4:	df 91       	pop	r29
-    14e6:	08 95       	ret
-
-000014e8 <HLED_voidTurnLEDOff>:
-void HLED_voidTurnLEDOff(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
-{
-    14e8:	df 93       	push	r29
-    14ea:	cf 93       	push	r28
-    14ec:	00 d0       	rcall	.+0      	; 0x14ee <HLED_voidTurnLEDOff+0x6>
-    14ee:	cd b7       	in	r28, 0x3d	; 61
-    14f0:	de b7       	in	r29, 0x3e	; 62
-    14f2:	89 83       	std	Y+1, r24	; 0x01
-    14f4:	6a 83       	std	Y+2, r22	; 0x02
-	MDIO_voidSetPinValue(A_portID ,A_pinID , DIO_RESET);
-    14f6:	89 81       	ldd	r24, Y+1	; 0x01
-    14f8:	6a 81       	ldd	r22, Y+2	; 0x02
-    14fa:	40 e0       	ldi	r20, 0x00	; 0
-    14fc:	0e 94 93 07 	call	0xf26	; 0xf26 <MDIO_voidSetPinValue>
-}
-    1500:	0f 90       	pop	r0
-    1502:	0f 90       	pop	r0
-    1504:	cf 91       	pop	r28
-    1506:	df 91       	pop	r29
-    1508:	08 95       	ret
-
-0000150a <HLED_voidToggleLED>:
-void HLED_voidToggleLED(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
-{
-    150a:	df 93       	push	r29
-    150c:	cf 93       	push	r28
-    150e:	00 d0       	rcall	.+0      	; 0x1510 <HLED_voidToggleLED+0x6>
-    1510:	cd b7       	in	r28, 0x3d	; 61
-    1512:	de b7       	in	r29, 0x3e	; 62
-    1514:	89 83       	std	Y+1, r24	; 0x01
-    1516:	6a 83       	std	Y+2, r22	; 0x02
-	MDIO_voidTogglePinValue(A_portID,A_pinID);
-    1518:	89 81       	ldd	r24, Y+1	; 0x01
-    151a:	6a 81       	ldd	r22, Y+2	; 0x02
-    151c:	0e 94 37 09 	call	0x126e	; 0x126e <MDIO_voidTogglePinValue>
-}
-    1520:	0f 90       	pop	r0
-    1522:	0f 90       	pop	r0
-    1524:	cf 91       	pop	r28
-    1526:	df 91       	pop	r29
-    1528:	08 95       	ret
-
-0000152a <HSSD_voidDisplayNumber>:
-#include "../Include/MCAL/DIO/DIO_Cfg.h"
-
-#include "../Include/HAL/SSD/SSD_Interface.h"
-
-void HSSD_voidDisplayNumber(DIO_PORT_e A_portID, u8 A_u8NumberValue)
-{
-    152a:	df 93       	push	r29
-    152c:	cf 93       	push	r28
-    152e:	00 d0       	rcall	.+0      	; 0x1530 <HSSD_voidDisplayNumber+0x6>
-    1530:	00 d0       	rcall	.+0      	; 0x1532 <HSSD_voidDisplayNumber+0x8>
-    1532:	cd b7       	in	r28, 0x3d	; 61
-    1534:	de b7       	in	r29, 0x3e	; 62
-    1536:	89 83       	std	Y+1, r24	; 0x01
-    1538:	6a 83       	std	Y+2, r22	; 0x02
-	// Check Input Validation
-	if(A_portID <= DIO_PORTD)
-    153a:	89 81       	ldd	r24, Y+1	; 0x01
-    153c:	84 30       	cpi	r24, 0x04	; 4
-    153e:	08 f0       	brcs	.+2      	; 0x1542 <HSSD_voidDisplayNumber+0x18>
-    1540:	4e c0       	rjmp	.+156    	; 0x15de <HSSD_voidDisplayNumber+0xb4>
-	{
-		switch(A_portID)
-    1542:	89 81       	ldd	r24, Y+1	; 0x01
-    1544:	28 2f       	mov	r18, r24
-    1546:	30 e0       	ldi	r19, 0x00	; 0
-    1548:	3c 83       	std	Y+4, r19	; 0x04
-    154a:	2b 83       	std	Y+3, r18	; 0x03
-    154c:	8b 81       	ldd	r24, Y+3	; 0x03
-    154e:	9c 81       	ldd	r25, Y+4	; 0x04
-    1550:	81 30       	cpi	r24, 0x01	; 1
-    1552:	91 05       	cpc	r25, r1
-    1554:	09 f1       	breq	.+66     	; 0x1598 <HSSD_voidDisplayNumber+0x6e>
-    1556:	2b 81       	ldd	r18, Y+3	; 0x03
-    1558:	3c 81       	ldd	r19, Y+4	; 0x04
-    155a:	22 30       	cpi	r18, 0x02	; 2
-    155c:	31 05       	cpc	r19, r1
-    155e:	2c f4       	brge	.+10     	; 0x156a <HSSD_voidDisplayNumber+0x40>
-    1560:	8b 81       	ldd	r24, Y+3	; 0x03
-    1562:	9c 81       	ldd	r25, Y+4	; 0x04
-    1564:	00 97       	sbiw	r24, 0x00	; 0
-    1566:	61 f0       	breq	.+24     	; 0x1580 <HSSD_voidDisplayNumber+0x56>
-    1568:	3a c0       	rjmp	.+116    	; 0x15de <HSSD_voidDisplayNumber+0xb4>
-    156a:	2b 81       	ldd	r18, Y+3	; 0x03
-    156c:	3c 81       	ldd	r19, Y+4	; 0x04
-    156e:	22 30       	cpi	r18, 0x02	; 2
-    1570:	31 05       	cpc	r19, r1
-    1572:	f1 f0       	breq	.+60     	; 0x15b0 <HSSD_voidDisplayNumber+0x86>
-    1574:	8b 81       	ldd	r24, Y+3	; 0x03
-    1576:	9c 81       	ldd	r25, Y+4	; 0x04
-    1578:	83 30       	cpi	r24, 0x03	; 3
-    157a:	91 05       	cpc	r25, r1
-    157c:	29 f1       	breq	.+74     	; 0x15c8 <HSSD_voidDisplayNumber+0x9e>
-    157e:	2f c0       	rjmp	.+94     	; 0x15de <HSSD_voidDisplayNumber+0xb4>
-		{
-		case DIO_PORTA:
-			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
-    1580:	8a 81       	ldd	r24, Y+2	; 0x02
-    1582:	98 2f       	mov	r25, r24
-    1584:	90 95       	com	r25
-    1586:	89 81       	ldd	r24, Y+1	; 0x01
-    1588:	69 2f       	mov	r22, r25
-    158a:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
-			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
-    158e:	89 81       	ldd	r24, Y+1	; 0x01
-    1590:	6a 81       	ldd	r22, Y+2	; 0x02
-    1592:	0e 94 00 0a 	call	0x1400	; 0x1400 <MDIO_voidSetPortValue>
-    1596:	23 c0       	rjmp	.+70     	; 0x15de <HSSD_voidDisplayNumber+0xb4>
-			break;
-		case DIO_PORTB:
-			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
-    1598:	8a 81       	ldd	r24, Y+2	; 0x02
-    159a:	98 2f       	mov	r25, r24
-    159c:	90 95       	com	r25
-    159e:	89 81       	ldd	r24, Y+1	; 0x01
-    15a0:	69 2f       	mov	r22, r25
-    15a2:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
-			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
-    15a6:	89 81       	ldd	r24, Y+1	; 0x01
-    15a8:	6a 81       	ldd	r22, Y+2	; 0x02
-    15aa:	0e 94 00 0a 	call	0x1400	; 0x1400 <MDIO_voidSetPortValue>
-    15ae:	17 c0       	rjmp	.+46     	; 0x15de <HSSD_voidDisplayNumber+0xb4>
-			break;
-		case DIO_PORTC:
-			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
-    15b0:	8a 81       	ldd	r24, Y+2	; 0x02
-    15b2:	98 2f       	mov	r25, r24
-    15b4:	90 95       	com	r25
-    15b6:	89 81       	ldd	r24, Y+1	; 0x01
-    15b8:	69 2f       	mov	r22, r25
-    15ba:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
-			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
-    15be:	89 81       	ldd	r24, Y+1	; 0x01
-    15c0:	6a 81       	ldd	r22, Y+2	; 0x02
-    15c2:	0e 94 00 0a 	call	0x1400	; 0x1400 <MDIO_voidSetPortValue>
-    15c6:	0b c0       	rjmp	.+22     	; 0x15de <HSSD_voidDisplayNumber+0xb4>
-			break;
-		case DIO_PORTD:
-			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
-    15c8:	8a 81       	ldd	r24, Y+2	; 0x02
-    15ca:	98 2f       	mov	r25, r24
-    15cc:	90 95       	com	r25
-    15ce:	89 81       	ldd	r24, Y+1	; 0x01
-    15d0:	69 2f       	mov	r22, r25
-    15d2:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
-			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
-    15d6:	89 81       	ldd	r24, Y+1	; 0x01
-    15d8:	6a 81       	ldd	r22, Y+2	; 0x02
-    15da:	0e 94 00 0a 	call	0x1400	; 0x1400 <MDIO_voidSetPortValue>
-	}
-	else
-	{
-		// Do Nothing
-	}
-}
-    15de:	0f 90       	pop	r0
-    15e0:	0f 90       	pop	r0
-    15e2:	0f 90       	pop	r0
-    15e4:	0f 90       	pop	r0
-    15e6:	cf 91       	pop	r28
-    15e8:	df 91       	pop	r29
-    15ea:	08 95       	ret
-
-000015ec <HSSD_voidDisplayNumberAscending>:
-
-void HSSD_voidDisplayNumberAscending(DIO_PORT_e A_portID , u16 A_u16TimeToWait)
-{
-    15ec:	df 93       	push	r29
-    15ee:	cf 93       	push	r28
-    15f0:	cd b7       	in	r28, 0x3d	; 61
-    15f2:	de b7       	in	r29, 0x3e	; 62
-    15f4:	a1 97       	sbiw	r28, 0x21	; 33
-    15f6:	0f b6       	in	r0, 0x3f	; 63
-    15f8:	f8 94       	cli
-    15fa:	de bf       	out	0x3e, r29	; 62
-    15fc:	0f be       	out	0x3f, r0	; 63
-    15fe:	cd bf       	out	0x3d, r28	; 61
-    1600:	8a 8f       	std	Y+26, r24	; 0x1a
-    1602:	7c 8f       	std	Y+28, r23	; 0x1c
-    1604:	6b 8f       	std	Y+27, r22	; 0x1b
-	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
-    1606:	ce 01       	movw	r24, r28
-    1608:	40 96       	adiw	r24, 0x10	; 16
-    160a:	9e 8f       	std	Y+30, r25	; 0x1e
-    160c:	8d 8f       	std	Y+29, r24	; 0x1d
-    160e:	e8 e6       	ldi	r30, 0x68	; 104
-    1610:	f1 e0       	ldi	r31, 0x01	; 1
-    1612:	f8 a3       	std	Y+32, r31	; 0x20
-    1614:	ef 8f       	std	Y+31, r30	; 0x1f
-    1616:	fa e0       	ldi	r31, 0x0A	; 10
-    1618:	f9 a3       	std	Y+33, r31	; 0x21
-    161a:	ef 8d       	ldd	r30, Y+31	; 0x1f
-    161c:	f8 a1       	ldd	r31, Y+32	; 0x20
-    161e:	00 80       	ld	r0, Z
-    1620:	8f 8d       	ldd	r24, Y+31	; 0x1f
-    1622:	98 a1       	ldd	r25, Y+32	; 0x20
-    1624:	01 96       	adiw	r24, 0x01	; 1
-    1626:	98 a3       	std	Y+32, r25	; 0x20
-    1628:	8f 8f       	std	Y+31, r24	; 0x1f
-    162a:	ed 8d       	ldd	r30, Y+29	; 0x1d
-    162c:	fe 8d       	ldd	r31, Y+30	; 0x1e
-    162e:	00 82       	st	Z, r0
-    1630:	8d 8d       	ldd	r24, Y+29	; 0x1d
-    1632:	9e 8d       	ldd	r25, Y+30	; 0x1e
-    1634:	01 96       	adiw	r24, 0x01	; 1
-    1636:	9e 8f       	std	Y+30, r25	; 0x1e
-    1638:	8d 8f       	std	Y+29, r24	; 0x1d
-    163a:	99 a1       	ldd	r25, Y+33	; 0x21
-    163c:	91 50       	subi	r25, 0x01	; 1
-    163e:	99 a3       	std	Y+33, r25	; 0x21
-    1640:	e9 a1       	ldd	r30, Y+33	; 0x21
-    1642:	ee 23       	and	r30, r30
-    1644:	51 f7       	brne	.-44     	; 0x161a <HSSD_voidDisplayNumberAscending+0x2e>
-	for(u8 i=0; i<10;i++)
-    1646:	1f 86       	std	Y+15, r1	; 0x0f
-    1648:	9a c0       	rjmp	.+308    	; 0x177e <HSSD_voidDisplayNumberAscending+0x192>
-	{
-		MDIO_voidSetPortDirection(A_portID,~(SSD_arr[i]));
-    164a:	8f 85       	ldd	r24, Y+15	; 0x0f
-    164c:	28 2f       	mov	r18, r24
-    164e:	30 e0       	ldi	r19, 0x00	; 0
-    1650:	ce 01       	movw	r24, r28
-    1652:	40 96       	adiw	r24, 0x10	; 16
-    1654:	fc 01       	movw	r30, r24
-    1656:	e2 0f       	add	r30, r18
-    1658:	f3 1f       	adc	r31, r19
-    165a:	80 81       	ld	r24, Z
-    165c:	98 2f       	mov	r25, r24
-    165e:	90 95       	com	r25
-    1660:	8a 8d       	ldd	r24, Y+26	; 0x1a
-    1662:	69 2f       	mov	r22, r25
-    1664:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
-		MDIO_voidSetPortValue(A_portID,~(SSD_arr[i]));
-    1668:	8f 85       	ldd	r24, Y+15	; 0x0f
-    166a:	28 2f       	mov	r18, r24
-    166c:	30 e0       	ldi	r19, 0x00	; 0
-    166e:	ce 01       	movw	r24, r28
-    1670:	40 96       	adiw	r24, 0x10	; 16
-    1672:	fc 01       	movw	r30, r24
-    1674:	e2 0f       	add	r30, r18
-    1676:	f3 1f       	adc	r31, r19
-    1678:	80 81       	ld	r24, Z
-    167a:	98 2f       	mov	r25, r24
-    167c:	90 95       	com	r25
-    167e:	8a 8d       	ldd	r24, Y+26	; 0x1a
-    1680:	69 2f       	mov	r22, r25
-    1682:	0e 94 00 0a 	call	0x1400	; 0x1400 <MDIO_voidSetPortValue>
-		_delay_ms(A_u16TimeToWait);
-    1686:	8b 8d       	ldd	r24, Y+27	; 0x1b
-    1688:	9c 8d       	ldd	r25, Y+28	; 0x1c
-    168a:	cc 01       	movw	r24, r24
-    168c:	a0 e0       	ldi	r26, 0x00	; 0
-    168e:	b0 e0       	ldi	r27, 0x00	; 0
-    1690:	bc 01       	movw	r22, r24
-    1692:	cd 01       	movw	r24, r26
-    1694:	0e 94 f5 03 	call	0x7ea	; 0x7ea <__floatunsisf>
-    1698:	dc 01       	movw	r26, r24
-    169a:	cb 01       	movw	r24, r22
-    169c:	8b 87       	std	Y+11, r24	; 0x0b
-    169e:	9c 87       	std	Y+12, r25	; 0x0c
-    16a0:	ad 87       	std	Y+13, r26	; 0x0d
-    16a2:	be 87       	std	Y+14, r27	; 0x0e
+				HSSD_voidDisplayNumber(DIO_PORTB,SSD_Arr[1]); // 1
+     da4:	98 a1       	ldd	r25, Y+32	; 0x20
+     da6:	81 e0       	ldi	r24, 0x01	; 1
+     da8:	69 2f       	mov	r22, r25
+     daa:	0e 94 1c 0c 	call	0x1838	; 0x1838 <HSSD_voidDisplayNumber>
+				HSSD_voidDisplayNumber(DIO_PORTA,SSD_Arr[0]); //0
+     dae:	9f 8d       	ldd	r25, Y+31	; 0x1f
+     db0:	80 e0       	ldi	r24, 0x00	; 0
+     db2:	69 2f       	mov	r22, r25
+     db4:	0e 94 1c 0c 	call	0x1838	; 0x1838 <HSSD_voidDisplayNumber>
+     db8:	80 e0       	ldi	r24, 0x00	; 0
+     dba:	90 e0       	ldi	r25, 0x00	; 0
+     dbc:	aa ef       	ldi	r26, 0xFA	; 250
+     dbe:	b3 e4       	ldi	r27, 0x43	; 67
+     dc0:	89 8f       	std	Y+25, r24	; 0x19
+     dc2:	9a 8f       	std	Y+26, r25	; 0x1a
+     dc4:	ab 8f       	std	Y+27, r26	; 0x1b
+     dc6:	bc 8f       	std	Y+28, r27	; 0x1c
  */
 void
 _delay_ms(double __ms)
 {
 	uint16_t __ticks;
 	double __tmp = ((F_CPU) / 4e3) * __ms;
-    16a4:	6b 85       	ldd	r22, Y+11	; 0x0b
-    16a6:	7c 85       	ldd	r23, Y+12	; 0x0c
-    16a8:	8d 85       	ldd	r24, Y+13	; 0x0d
-    16aa:	9e 85       	ldd	r25, Y+14	; 0x0e
-    16ac:	20 e0       	ldi	r18, 0x00	; 0
-    16ae:	30 e0       	ldi	r19, 0x00	; 0
-    16b0:	4a ef       	ldi	r20, 0xFA	; 250
-    16b2:	54 e4       	ldi	r21, 0x44	; 68
-    16b4:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
-    16b8:	dc 01       	movw	r26, r24
-    16ba:	cb 01       	movw	r24, r22
-    16bc:	8f 83       	std	Y+7, r24	; 0x07
-    16be:	98 87       	std	Y+8, r25	; 0x08
-    16c0:	a9 87       	std	Y+9, r26	; 0x09
-    16c2:	ba 87       	std	Y+10, r27	; 0x0a
+     dc8:	69 8d       	ldd	r22, Y+25	; 0x19
+     dca:	7a 8d       	ldd	r23, Y+26	; 0x1a
+     dcc:	8b 8d       	ldd	r24, Y+27	; 0x1b
+     dce:	9c 8d       	ldd	r25, Y+28	; 0x1c
+     dd0:	20 e0       	ldi	r18, 0x00	; 0
+     dd2:	30 e0       	ldi	r19, 0x00	; 0
+     dd4:	4a ef       	ldi	r20, 0xFA	; 250
+     dd6:	54 e4       	ldi	r21, 0x44	; 68
+     dd8:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+     ddc:	dc 01       	movw	r26, r24
+     dde:	cb 01       	movw	r24, r22
+     de0:	8d 8b       	std	Y+21, r24	; 0x15
+     de2:	9e 8b       	std	Y+22, r25	; 0x16
+     de4:	af 8b       	std	Y+23, r26	; 0x17
+     de6:	b8 8f       	std	Y+24, r27	; 0x18
 	if (__tmp < 1.0)
-    16c4:	6f 81       	ldd	r22, Y+7	; 0x07
-    16c6:	78 85       	ldd	r23, Y+8	; 0x08
-    16c8:	89 85       	ldd	r24, Y+9	; 0x09
-    16ca:	9a 85       	ldd	r25, Y+10	; 0x0a
-    16cc:	20 e0       	ldi	r18, 0x00	; 0
-    16ce:	30 e0       	ldi	r19, 0x00	; 0
-    16d0:	40 e8       	ldi	r20, 0x80	; 128
-    16d2:	5f e3       	ldi	r21, 0x3F	; 63
-    16d4:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__ltsf2>
-    16d8:	88 23       	and	r24, r24
-    16da:	2c f4       	brge	.+10     	; 0x16e6 <HSSD_voidDisplayNumberAscending+0xfa>
+     de8:	6d 89       	ldd	r22, Y+21	; 0x15
+     dea:	7e 89       	ldd	r23, Y+22	; 0x16
+     dec:	8f 89       	ldd	r24, Y+23	; 0x17
+     dee:	98 8d       	ldd	r25, Y+24	; 0x18
+     df0:	20 e0       	ldi	r18, 0x00	; 0
+     df2:	30 e0       	ldi	r19, 0x00	; 0
+     df4:	40 e8       	ldi	r20, 0x80	; 128
+     df6:	5f e3       	ldi	r21, 0x3F	; 63
+     df8:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__ltsf2>
+     dfc:	88 23       	and	r24, r24
+     dfe:	2c f4       	brge	.+10     	; 0xe0a <main+0x144>
 		__ticks = 1;
-    16dc:	81 e0       	ldi	r24, 0x01	; 1
-    16de:	90 e0       	ldi	r25, 0x00	; 0
-    16e0:	9e 83       	std	Y+6, r25	; 0x06
-    16e2:	8d 83       	std	Y+5, r24	; 0x05
-    16e4:	3f c0       	rjmp	.+126    	; 0x1764 <HSSD_voidDisplayNumberAscending+0x178>
+     e00:	81 e0       	ldi	r24, 0x01	; 1
+     e02:	90 e0       	ldi	r25, 0x00	; 0
+     e04:	9c 8b       	std	Y+20, r25	; 0x14
+     e06:	8b 8b       	std	Y+19, r24	; 0x13
+     e08:	3f c0       	rjmp	.+126    	; 0xe88 <main+0x1c2>
 	else if (__tmp > 65535)
-    16e6:	6f 81       	ldd	r22, Y+7	; 0x07
-    16e8:	78 85       	ldd	r23, Y+8	; 0x08
-    16ea:	89 85       	ldd	r24, Y+9	; 0x09
-    16ec:	9a 85       	ldd	r25, Y+10	; 0x0a
-    16ee:	20 e0       	ldi	r18, 0x00	; 0
-    16f0:	3f ef       	ldi	r19, 0xFF	; 255
-    16f2:	4f e7       	ldi	r20, 0x7F	; 127
-    16f4:	57 e4       	ldi	r21, 0x47	; 71
-    16f6:	0e 94 11 03 	call	0x622	; 0x622 <__gtsf2>
-    16fa:	18 16       	cp	r1, r24
-    16fc:	4c f5       	brge	.+82     	; 0x1750 <HSSD_voidDisplayNumberAscending+0x164>
+     e0a:	6d 89       	ldd	r22, Y+21	; 0x15
+     e0c:	7e 89       	ldd	r23, Y+22	; 0x16
+     e0e:	8f 89       	ldd	r24, Y+23	; 0x17
+     e10:	98 8d       	ldd	r25, Y+24	; 0x18
+     e12:	20 e0       	ldi	r18, 0x00	; 0
+     e14:	3f ef       	ldi	r19, 0xFF	; 255
+     e16:	4f e7       	ldi	r20, 0x7F	; 127
+     e18:	57 e4       	ldi	r21, 0x47	; 71
+     e1a:	0e 94 11 03 	call	0x622	; 0x622 <__gtsf2>
+     e1e:	18 16       	cp	r1, r24
+     e20:	4c f5       	brge	.+82     	; 0xe74 <main+0x1ae>
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
-    16fe:	6b 85       	ldd	r22, Y+11	; 0x0b
-    1700:	7c 85       	ldd	r23, Y+12	; 0x0c
-    1702:	8d 85       	ldd	r24, Y+13	; 0x0d
-    1704:	9e 85       	ldd	r25, Y+14	; 0x0e
-    1706:	20 e0       	ldi	r18, 0x00	; 0
-    1708:	30 e0       	ldi	r19, 0x00	; 0
-    170a:	40 e2       	ldi	r20, 0x20	; 32
-    170c:	51 e4       	ldi	r21, 0x41	; 65
-    170e:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
-    1712:	dc 01       	movw	r26, r24
-    1714:	cb 01       	movw	r24, r22
-    1716:	bc 01       	movw	r22, r24
-    1718:	cd 01       	movw	r24, r26
-    171a:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
-    171e:	dc 01       	movw	r26, r24
-    1720:	cb 01       	movw	r24, r22
-    1722:	9e 83       	std	Y+6, r25	; 0x06
-    1724:	8d 83       	std	Y+5, r24	; 0x05
-    1726:	0f c0       	rjmp	.+30     	; 0x1746 <HSSD_voidDisplayNumberAscending+0x15a>
-    1728:	88 ec       	ldi	r24, 0xC8	; 200
-    172a:	90 e0       	ldi	r25, 0x00	; 0
-    172c:	9c 83       	std	Y+4, r25	; 0x04
-    172e:	8b 83       	std	Y+3, r24	; 0x03
+     e22:	69 8d       	ldd	r22, Y+25	; 0x19
+     e24:	7a 8d       	ldd	r23, Y+26	; 0x1a
+     e26:	8b 8d       	ldd	r24, Y+27	; 0x1b
+     e28:	9c 8d       	ldd	r25, Y+28	; 0x1c
+     e2a:	20 e0       	ldi	r18, 0x00	; 0
+     e2c:	30 e0       	ldi	r19, 0x00	; 0
+     e2e:	40 e2       	ldi	r20, 0x20	; 32
+     e30:	51 e4       	ldi	r21, 0x41	; 65
+     e32:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+     e36:	dc 01       	movw	r26, r24
+     e38:	cb 01       	movw	r24, r22
+     e3a:	bc 01       	movw	r22, r24
+     e3c:	cd 01       	movw	r24, r26
+     e3e:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+     e42:	dc 01       	movw	r26, r24
+     e44:	cb 01       	movw	r24, r22
+     e46:	9c 8b       	std	Y+20, r25	; 0x14
+     e48:	8b 8b       	std	Y+19, r24	; 0x13
+     e4a:	0f c0       	rjmp	.+30     	; 0xe6a <main+0x1a4>
+     e4c:	88 ec       	ldi	r24, 0xC8	; 200
+     e4e:	90 e0       	ldi	r25, 0x00	; 0
+     e50:	9a 8b       	std	Y+18, r25	; 0x12
+     e52:	89 8b       	std	Y+17, r24	; 0x11
     milliseconds can be achieved.
  */
 void
 _delay_loop_2(uint16_t __count)
 {
 	__asm__ volatile (
-    1730:	8b 81       	ldd	r24, Y+3	; 0x03
-    1732:	9c 81       	ldd	r25, Y+4	; 0x04
-    1734:	01 97       	sbiw	r24, 0x01	; 1
-    1736:	f1 f7       	brne	.-4      	; 0x1734 <HSSD_voidDisplayNumberAscending+0x148>
-    1738:	9c 83       	std	Y+4, r25	; 0x04
-    173a:	8b 83       	std	Y+3, r24	; 0x03
+     e54:	89 89       	ldd	r24, Y+17	; 0x11
+     e56:	9a 89       	ldd	r25, Y+18	; 0x12
+     e58:	01 97       	sbiw	r24, 0x01	; 1
+     e5a:	f1 f7       	brne	.-4      	; 0xe58 <main+0x192>
+     e5c:	9a 8b       	std	Y+18, r25	; 0x12
+     e5e:	89 8b       	std	Y+17, r24	; 0x11
 		while(__ticks)
 		{
 			// wait 1/10 ms
 			_delay_loop_2(((F_CPU) / 4e3) / 10);
 			__ticks --;
-    173c:	8d 81       	ldd	r24, Y+5	; 0x05
-    173e:	9e 81       	ldd	r25, Y+6	; 0x06
-    1740:	01 97       	sbiw	r24, 0x01	; 1
-    1742:	9e 83       	std	Y+6, r25	; 0x06
-    1744:	8d 83       	std	Y+5, r24	; 0x05
+     e60:	8b 89       	ldd	r24, Y+19	; 0x13
+     e62:	9c 89       	ldd	r25, Y+20	; 0x14
+     e64:	01 97       	sbiw	r24, 0x01	; 1
+     e66:	9c 8b       	std	Y+20, r25	; 0x14
+     e68:	8b 8b       	std	Y+19, r24	; 0x13
 		__ticks = 1;
 	else if (__tmp > 65535)
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
-    1746:	8d 81       	ldd	r24, Y+5	; 0x05
-    1748:	9e 81       	ldd	r25, Y+6	; 0x06
-    174a:	00 97       	sbiw	r24, 0x00	; 0
-    174c:	69 f7       	brne	.-38     	; 0x1728 <HSSD_voidDisplayNumberAscending+0x13c>
-    174e:	14 c0       	rjmp	.+40     	; 0x1778 <HSSD_voidDisplayNumberAscending+0x18c>
+     e6a:	8b 89       	ldd	r24, Y+19	; 0x13
+     e6c:	9c 89       	ldd	r25, Y+20	; 0x14
+     e6e:	00 97       	sbiw	r24, 0x00	; 0
+     e70:	69 f7       	brne	.-38     	; 0xe4c <main+0x186>
+     e72:	14 c0       	rjmp	.+40     	; 0xe9c <main+0x1d6>
 			__ticks --;
 		}
 		return;
 	}
 	else
 		__ticks = (uint16_t)__tmp;
-    1750:	6f 81       	ldd	r22, Y+7	; 0x07
-    1752:	78 85       	ldd	r23, Y+8	; 0x08
-    1754:	89 85       	ldd	r24, Y+9	; 0x09
-    1756:	9a 85       	ldd	r25, Y+10	; 0x0a
-    1758:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
-    175c:	dc 01       	movw	r26, r24
-    175e:	cb 01       	movw	r24, r22
-    1760:	9e 83       	std	Y+6, r25	; 0x06
-    1762:	8d 83       	std	Y+5, r24	; 0x05
-    1764:	8d 81       	ldd	r24, Y+5	; 0x05
-    1766:	9e 81       	ldd	r25, Y+6	; 0x06
-    1768:	9a 83       	std	Y+2, r25	; 0x02
-    176a:	89 83       	std	Y+1, r24	; 0x01
-    176c:	89 81       	ldd	r24, Y+1	; 0x01
-    176e:	9a 81       	ldd	r25, Y+2	; 0x02
-    1770:	01 97       	sbiw	r24, 0x01	; 1
-    1772:	f1 f7       	brne	.-4      	; 0x1770 <HSSD_voidDisplayNumberAscending+0x184>
-    1774:	9a 83       	std	Y+2, r25	; 0x02
-    1776:	89 83       	std	Y+1, r24	; 0x01
-}
+     e74:	6d 89       	ldd	r22, Y+21	; 0x15
+     e76:	7e 89       	ldd	r23, Y+22	; 0x16
+     e78:	8f 89       	ldd	r24, Y+23	; 0x17
+     e7a:	98 8d       	ldd	r25, Y+24	; 0x18
+     e7c:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+     e80:	dc 01       	movw	r26, r24
+     e82:	cb 01       	movw	r24, r22
+     e84:	9c 8b       	std	Y+20, r25	; 0x14
+     e86:	8b 8b       	std	Y+19, r24	; 0x13
+     e88:	8b 89       	ldd	r24, Y+19	; 0x13
+     e8a:	9c 89       	ldd	r25, Y+20	; 0x14
+     e8c:	98 8b       	std	Y+16, r25	; 0x10
+     e8e:	8f 87       	std	Y+15, r24	; 0x0f
+     e90:	8f 85       	ldd	r24, Y+15	; 0x0f
+     e92:	98 89       	ldd	r25, Y+16	; 0x10
+     e94:	01 97       	sbiw	r24, 0x01	; 1
+     e96:	f1 f7       	brne	.-4      	; 0xe94 <main+0x1ce>
+     e98:	98 8b       	std	Y+16, r25	; 0x10
+     e9a:	8f 87       	std	Y+15, r24	; 0x0f
+				_delay_ms(500);
+//
+				HSSD_voidDisplayNumber(DIO_PORTB,SSD_Arr[0]); // 0
+     e9c:	9f 8d       	ldd	r25, Y+31	; 0x1f
+     e9e:	81 e0       	ldi	r24, 0x01	; 1
+     ea0:	69 2f       	mov	r22, r25
+     ea2:	0e 94 1c 0c 	call	0x1838	; 0x1838 <HSSD_voidDisplayNumber>
+				HSSD_voidDisplayNumberDescending(DIO_PORTA,500);
+     ea6:	80 e0       	ldi	r24, 0x00	; 0
+     ea8:	64 ef       	ldi	r22, 0xF4	; 244
+     eaa:	71 e0       	ldi	r23, 0x01	; 1
+     eac:	0e 94 25 0d 	call	0x1a4a	; 0x1a4a <HSSD_voidDisplayNumberDescending>
+     eb0:	89 c0       	rjmp	.+274    	; 0xfc4 <main+0x2fe>
+//				_delay_ms(1000);
+			}
 
-void HSSD_voidDisplayNumberAscending(DIO_PORT_e A_portID , u16 A_u16TimeToWait)
-{
-	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
-	for(u8 i=0; i<10;i++)
-    1778:	8f 85       	ldd	r24, Y+15	; 0x0f
-    177a:	8f 5f       	subi	r24, 0xFF	; 255
-    177c:	8f 87       	std	Y+15, r24	; 0x0f
-    177e:	8f 85       	ldd	r24, Y+15	; 0x0f
-    1780:	8a 30       	cpi	r24, 0x0A	; 10
-    1782:	08 f4       	brcc	.+2      	; 0x1786 <HSSD_voidDisplayNumberAscending+0x19a>
-    1784:	62 cf       	rjmp	.-316    	; 0x164a <HSSD_voidDisplayNumberAscending+0x5e>
-	{
-		MDIO_voidSetPortDirection(A_portID,~(SSD_arr[i]));
-		MDIO_voidSetPortValue(A_portID,~(SSD_arr[i]));
-		_delay_ms(A_u16TimeToWait);
-	}
-}
-    1786:	a1 96       	adiw	r28, 0x21	; 33
-    1788:	0f b6       	in	r0, 0x3f	; 63
-    178a:	f8 94       	cli
-    178c:	de bf       	out	0x3e, r29	; 62
-    178e:	0f be       	out	0x3f, r0	; 63
-    1790:	cd bf       	out	0x3d, r28	; 61
-    1792:	cf 91       	pop	r28
-    1794:	df 91       	pop	r29
-    1796:	08 95       	ret
-
-00001798 <HSSD_voidDisplayNumberDescending>:
-
-void HSSD_voidDisplayNumberDescending (DIO_PORT_e A_portID , u16 A_u16TimeToWait)
-{
-    1798:	df 93       	push	r29
-    179a:	cf 93       	push	r28
-    179c:	cd b7       	in	r28, 0x3d	; 61
-    179e:	de b7       	in	r29, 0x3e	; 62
-    17a0:	a1 97       	sbiw	r28, 0x21	; 33
-    17a2:	0f b6       	in	r0, 0x3f	; 63
-    17a4:	f8 94       	cli
-    17a6:	de bf       	out	0x3e, r29	; 62
-    17a8:	0f be       	out	0x3f, r0	; 63
-    17aa:	cd bf       	out	0x3d, r28	; 61
-    17ac:	8a 8f       	std	Y+26, r24	; 0x1a
-    17ae:	7c 8f       	std	Y+28, r23	; 0x1c
-    17b0:	6b 8f       	std	Y+27, r22	; 0x1b
-	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
-    17b2:	ce 01       	movw	r24, r28
-    17b4:	40 96       	adiw	r24, 0x10	; 16
-    17b6:	9e 8f       	std	Y+30, r25	; 0x1e
-    17b8:	8d 8f       	std	Y+29, r24	; 0x1d
-    17ba:	e2 e7       	ldi	r30, 0x72	; 114
-    17bc:	f1 e0       	ldi	r31, 0x01	; 1
-    17be:	f8 a3       	std	Y+32, r31	; 0x20
-    17c0:	ef 8f       	std	Y+31, r30	; 0x1f
-    17c2:	fa e0       	ldi	r31, 0x0A	; 10
-    17c4:	f9 a3       	std	Y+33, r31	; 0x21
-    17c6:	ef 8d       	ldd	r30, Y+31	; 0x1f
-    17c8:	f8 a1       	ldd	r31, Y+32	; 0x20
-    17ca:	00 80       	ld	r0, Z
-    17cc:	8f 8d       	ldd	r24, Y+31	; 0x1f
-    17ce:	98 a1       	ldd	r25, Y+32	; 0x20
-    17d0:	01 96       	adiw	r24, 0x01	; 1
-    17d2:	98 a3       	std	Y+32, r25	; 0x20
-    17d4:	8f 8f       	std	Y+31, r24	; 0x1f
-    17d6:	ed 8d       	ldd	r30, Y+29	; 0x1d
-    17d8:	fe 8d       	ldd	r31, Y+30	; 0x1e
-    17da:	00 82       	st	Z, r0
-    17dc:	8d 8d       	ldd	r24, Y+29	; 0x1d
-    17de:	9e 8d       	ldd	r25, Y+30	; 0x1e
-    17e0:	01 96       	adiw	r24, 0x01	; 1
-    17e2:	9e 8f       	std	Y+30, r25	; 0x1e
-    17e4:	8d 8f       	std	Y+29, r24	; 0x1d
-    17e6:	99 a1       	ldd	r25, Y+33	; 0x21
-    17e8:	91 50       	subi	r25, 0x01	; 1
-    17ea:	99 a3       	std	Y+33, r25	; 0x21
-    17ec:	e9 a1       	ldd	r30, Y+33	; 0x21
-    17ee:	ee 23       	and	r30, r30
-    17f0:	51 f7       	brne	.-44     	; 0x17c6 <HSSD_voidDisplayNumberDescending+0x2e>
-	for(u8 i=9; i>=0;i--)
-    17f2:	89 e0       	ldi	r24, 0x09	; 9
-    17f4:	8f 87       	std	Y+15, r24	; 0x0f
-	{
-		MDIO_voidSetPortDirection(A_portID,~(SSD_arr[i]));
-    17f6:	8f 85       	ldd	r24, Y+15	; 0x0f
-    17f8:	28 2f       	mov	r18, r24
-    17fa:	30 e0       	ldi	r19, 0x00	; 0
-    17fc:	ce 01       	movw	r24, r28
-    17fe:	40 96       	adiw	r24, 0x10	; 16
-    1800:	fc 01       	movw	r30, r24
-    1802:	e2 0f       	add	r30, r18
-    1804:	f3 1f       	adc	r31, r19
-    1806:	80 81       	ld	r24, Z
-    1808:	98 2f       	mov	r25, r24
-    180a:	90 95       	com	r25
-    180c:	8a 8d       	ldd	r24, Y+26	; 0x1a
-    180e:	69 2f       	mov	r22, r25
-    1810:	0e 94 bc 09 	call	0x1378	; 0x1378 <MDIO_voidSetPortDirection>
-		MDIO_voidSetPortValue(A_portID,~(SSD_arr[i]));
-    1814:	8f 85       	ldd	r24, Y+15	; 0x0f
-    1816:	28 2f       	mov	r18, r24
-    1818:	30 e0       	ldi	r19, 0x00	; 0
-    181a:	ce 01       	movw	r24, r28
-    181c:	40 96       	adiw	r24, 0x10	; 16
-    181e:	fc 01       	movw	r30, r24
-    1820:	e2 0f       	add	r30, r18
-    1822:	f3 1f       	adc	r31, r19
-    1824:	80 81       	ld	r24, Z
-    1826:	98 2f       	mov	r25, r24
-    1828:	90 95       	com	r25
-    182a:	8a 8d       	ldd	r24, Y+26	; 0x1a
-    182c:	69 2f       	mov	r22, r25
-    182e:	0e 94 00 0a 	call	0x1400	; 0x1400 <MDIO_voidSetPortValue>
-		_delay_ms(A_u16TimeToWait);
-    1832:	8b 8d       	ldd	r24, Y+27	; 0x1b
-    1834:	9c 8d       	ldd	r25, Y+28	; 0x1c
-    1836:	cc 01       	movw	r24, r24
-    1838:	a0 e0       	ldi	r26, 0x00	; 0
-    183a:	b0 e0       	ldi	r27, 0x00	; 0
-    183c:	bc 01       	movw	r22, r24
-    183e:	cd 01       	movw	r24, r26
-    1840:	0e 94 f5 03 	call	0x7ea	; 0x7ea <__floatunsisf>
-    1844:	dc 01       	movw	r26, r24
-    1846:	cb 01       	movw	r24, r22
-    1848:	8b 87       	std	Y+11, r24	; 0x0b
-    184a:	9c 87       	std	Y+12, r25	; 0x0c
-    184c:	ad 87       	std	Y+13, r26	; 0x0d
-    184e:	be 87       	std	Y+14, r27	; 0x0e
+			else
+			{
+				for(i=3; i>0;i--)
+     eb2:	83 e0       	ldi	r24, 0x03	; 3
+     eb4:	8e 8f       	std	Y+30, r24	; 0x1e
+     eb6:	82 c0       	rjmp	.+260    	; 0xfbc <main+0x2f6>
+				{
+					MDIO_voidSetPortValue(DIO_PORTA,(SSD_Arr[i]));
+     eb8:	8e 8d       	ldd	r24, Y+30	; 0x1e
+     eba:	28 2f       	mov	r18, r24
+     ebc:	30 e0       	ldi	r19, 0x00	; 0
+     ebe:	ce 01       	movw	r24, r28
+     ec0:	4f 96       	adiw	r24, 0x1f	; 31
+     ec2:	fc 01       	movw	r30, r24
+     ec4:	e2 0f       	add	r30, r18
+     ec6:	f3 1f       	adc	r31, r19
+     ec8:	90 81       	ld	r25, Z
+     eca:	80 e0       	ldi	r24, 0x00	; 0
+     ecc:	69 2f       	mov	r22, r25
+     ece:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+     ed2:	80 e0       	ldi	r24, 0x00	; 0
+     ed4:	90 e0       	ldi	r25, 0x00	; 0
+     ed6:	aa ef       	ldi	r26, 0xFA	; 250
+     ed8:	b3 e4       	ldi	r27, 0x43	; 67
+     eda:	8b 87       	std	Y+11, r24	; 0x0b
+     edc:	9c 87       	std	Y+12, r25	; 0x0c
+     ede:	ad 87       	std	Y+13, r26	; 0x0d
+     ee0:	be 87       	std	Y+14, r27	; 0x0e
  */
 void
 _delay_ms(double __ms)
 {
 	uint16_t __ticks;
 	double __tmp = ((F_CPU) / 4e3) * __ms;
-    1850:	6b 85       	ldd	r22, Y+11	; 0x0b
-    1852:	7c 85       	ldd	r23, Y+12	; 0x0c
-    1854:	8d 85       	ldd	r24, Y+13	; 0x0d
-    1856:	9e 85       	ldd	r25, Y+14	; 0x0e
-    1858:	20 e0       	ldi	r18, 0x00	; 0
-    185a:	30 e0       	ldi	r19, 0x00	; 0
-    185c:	4a ef       	ldi	r20, 0xFA	; 250
-    185e:	54 e4       	ldi	r21, 0x44	; 68
-    1860:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
-    1864:	dc 01       	movw	r26, r24
-    1866:	cb 01       	movw	r24, r22
-    1868:	8f 83       	std	Y+7, r24	; 0x07
-    186a:	98 87       	std	Y+8, r25	; 0x08
-    186c:	a9 87       	std	Y+9, r26	; 0x09
-    186e:	ba 87       	std	Y+10, r27	; 0x0a
+     ee2:	6b 85       	ldd	r22, Y+11	; 0x0b
+     ee4:	7c 85       	ldd	r23, Y+12	; 0x0c
+     ee6:	8d 85       	ldd	r24, Y+13	; 0x0d
+     ee8:	9e 85       	ldd	r25, Y+14	; 0x0e
+     eea:	20 e0       	ldi	r18, 0x00	; 0
+     eec:	30 e0       	ldi	r19, 0x00	; 0
+     eee:	4a ef       	ldi	r20, 0xFA	; 250
+     ef0:	54 e4       	ldi	r21, 0x44	; 68
+     ef2:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+     ef6:	dc 01       	movw	r26, r24
+     ef8:	cb 01       	movw	r24, r22
+     efa:	8f 83       	std	Y+7, r24	; 0x07
+     efc:	98 87       	std	Y+8, r25	; 0x08
+     efe:	a9 87       	std	Y+9, r26	; 0x09
+     f00:	ba 87       	std	Y+10, r27	; 0x0a
 	if (__tmp < 1.0)
-    1870:	6f 81       	ldd	r22, Y+7	; 0x07
-    1872:	78 85       	ldd	r23, Y+8	; 0x08
-    1874:	89 85       	ldd	r24, Y+9	; 0x09
-    1876:	9a 85       	ldd	r25, Y+10	; 0x0a
-    1878:	20 e0       	ldi	r18, 0x00	; 0
-    187a:	30 e0       	ldi	r19, 0x00	; 0
-    187c:	40 e8       	ldi	r20, 0x80	; 128
-    187e:	5f e3       	ldi	r21, 0x3F	; 63
-    1880:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__ltsf2>
-    1884:	88 23       	and	r24, r24
-    1886:	2c f4       	brge	.+10     	; 0x1892 <HSSD_voidDisplayNumberDescending+0xfa>
+     f02:	6f 81       	ldd	r22, Y+7	; 0x07
+     f04:	78 85       	ldd	r23, Y+8	; 0x08
+     f06:	89 85       	ldd	r24, Y+9	; 0x09
+     f08:	9a 85       	ldd	r25, Y+10	; 0x0a
+     f0a:	20 e0       	ldi	r18, 0x00	; 0
+     f0c:	30 e0       	ldi	r19, 0x00	; 0
+     f0e:	40 e8       	ldi	r20, 0x80	; 128
+     f10:	5f e3       	ldi	r21, 0x3F	; 63
+     f12:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__ltsf2>
+     f16:	88 23       	and	r24, r24
+     f18:	2c f4       	brge	.+10     	; 0xf24 <main+0x25e>
 		__ticks = 1;
-    1888:	81 e0       	ldi	r24, 0x01	; 1
-    188a:	90 e0       	ldi	r25, 0x00	; 0
-    188c:	9e 83       	std	Y+6, r25	; 0x06
-    188e:	8d 83       	std	Y+5, r24	; 0x05
-    1890:	3f c0       	rjmp	.+126    	; 0x1910 <HSSD_voidDisplayNumberDescending+0x178>
+     f1a:	81 e0       	ldi	r24, 0x01	; 1
+     f1c:	90 e0       	ldi	r25, 0x00	; 0
+     f1e:	9e 83       	std	Y+6, r25	; 0x06
+     f20:	8d 83       	std	Y+5, r24	; 0x05
+     f22:	3f c0       	rjmp	.+126    	; 0xfa2 <main+0x2dc>
 	else if (__tmp > 65535)
-    1892:	6f 81       	ldd	r22, Y+7	; 0x07
-    1894:	78 85       	ldd	r23, Y+8	; 0x08
-    1896:	89 85       	ldd	r24, Y+9	; 0x09
-    1898:	9a 85       	ldd	r25, Y+10	; 0x0a
-    189a:	20 e0       	ldi	r18, 0x00	; 0
-    189c:	3f ef       	ldi	r19, 0xFF	; 255
-    189e:	4f e7       	ldi	r20, 0x7F	; 127
-    18a0:	57 e4       	ldi	r21, 0x47	; 71
-    18a2:	0e 94 11 03 	call	0x622	; 0x622 <__gtsf2>
-    18a6:	18 16       	cp	r1, r24
-    18a8:	4c f5       	brge	.+82     	; 0x18fc <HSSD_voidDisplayNumberDescending+0x164>
+     f24:	6f 81       	ldd	r22, Y+7	; 0x07
+     f26:	78 85       	ldd	r23, Y+8	; 0x08
+     f28:	89 85       	ldd	r24, Y+9	; 0x09
+     f2a:	9a 85       	ldd	r25, Y+10	; 0x0a
+     f2c:	20 e0       	ldi	r18, 0x00	; 0
+     f2e:	3f ef       	ldi	r19, 0xFF	; 255
+     f30:	4f e7       	ldi	r20, 0x7F	; 127
+     f32:	57 e4       	ldi	r21, 0x47	; 71
+     f34:	0e 94 11 03 	call	0x622	; 0x622 <__gtsf2>
+     f38:	18 16       	cp	r1, r24
+     f3a:	4c f5       	brge	.+82     	; 0xf8e <main+0x2c8>
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
-    18aa:	6b 85       	ldd	r22, Y+11	; 0x0b
-    18ac:	7c 85       	ldd	r23, Y+12	; 0x0c
-    18ae:	8d 85       	ldd	r24, Y+13	; 0x0d
-    18b0:	9e 85       	ldd	r25, Y+14	; 0x0e
-    18b2:	20 e0       	ldi	r18, 0x00	; 0
-    18b4:	30 e0       	ldi	r19, 0x00	; 0
-    18b6:	40 e2       	ldi	r20, 0x20	; 32
-    18b8:	51 e4       	ldi	r21, 0x41	; 65
-    18ba:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
-    18be:	dc 01       	movw	r26, r24
-    18c0:	cb 01       	movw	r24, r22
-    18c2:	bc 01       	movw	r22, r24
-    18c4:	cd 01       	movw	r24, r26
-    18c6:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
-    18ca:	dc 01       	movw	r26, r24
-    18cc:	cb 01       	movw	r24, r22
-    18ce:	9e 83       	std	Y+6, r25	; 0x06
-    18d0:	8d 83       	std	Y+5, r24	; 0x05
-    18d2:	0f c0       	rjmp	.+30     	; 0x18f2 <HSSD_voidDisplayNumberDescending+0x15a>
-    18d4:	88 ec       	ldi	r24, 0xC8	; 200
-    18d6:	90 e0       	ldi	r25, 0x00	; 0
-    18d8:	9c 83       	std	Y+4, r25	; 0x04
-    18da:	8b 83       	std	Y+3, r24	; 0x03
-    18dc:	8b 81       	ldd	r24, Y+3	; 0x03
-    18de:	9c 81       	ldd	r25, Y+4	; 0x04
-    18e0:	01 97       	sbiw	r24, 0x01	; 1
-    18e2:	f1 f7       	brne	.-4      	; 0x18e0 <HSSD_voidDisplayNumberDescending+0x148>
-    18e4:	9c 83       	std	Y+4, r25	; 0x04
-    18e6:	8b 83       	std	Y+3, r24	; 0x03
+     f3c:	6b 85       	ldd	r22, Y+11	; 0x0b
+     f3e:	7c 85       	ldd	r23, Y+12	; 0x0c
+     f40:	8d 85       	ldd	r24, Y+13	; 0x0d
+     f42:	9e 85       	ldd	r25, Y+14	; 0x0e
+     f44:	20 e0       	ldi	r18, 0x00	; 0
+     f46:	30 e0       	ldi	r19, 0x00	; 0
+     f48:	40 e2       	ldi	r20, 0x20	; 32
+     f4a:	51 e4       	ldi	r21, 0x41	; 65
+     f4c:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+     f50:	dc 01       	movw	r26, r24
+     f52:	cb 01       	movw	r24, r22
+     f54:	bc 01       	movw	r22, r24
+     f56:	cd 01       	movw	r24, r26
+     f58:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+     f5c:	dc 01       	movw	r26, r24
+     f5e:	cb 01       	movw	r24, r22
+     f60:	9e 83       	std	Y+6, r25	; 0x06
+     f62:	8d 83       	std	Y+5, r24	; 0x05
+     f64:	0f c0       	rjmp	.+30     	; 0xf84 <main+0x2be>
+     f66:	88 ec       	ldi	r24, 0xC8	; 200
+     f68:	90 e0       	ldi	r25, 0x00	; 0
+     f6a:	9c 83       	std	Y+4, r25	; 0x04
+     f6c:	8b 83       	std	Y+3, r24	; 0x03
+     f6e:	8b 81       	ldd	r24, Y+3	; 0x03
+     f70:	9c 81       	ldd	r25, Y+4	; 0x04
+     f72:	01 97       	sbiw	r24, 0x01	; 1
+     f74:	f1 f7       	brne	.-4      	; 0xf72 <main+0x2ac>
+     f76:	9c 83       	std	Y+4, r25	; 0x04
+     f78:	8b 83       	std	Y+3, r24	; 0x03
 		while(__ticks)
 		{
 			// wait 1/10 ms
 			_delay_loop_2(((F_CPU) / 4e3) / 10);
 			__ticks --;
-    18e8:	8d 81       	ldd	r24, Y+5	; 0x05
-    18ea:	9e 81       	ldd	r25, Y+6	; 0x06
-    18ec:	01 97       	sbiw	r24, 0x01	; 1
-    18ee:	9e 83       	std	Y+6, r25	; 0x06
-    18f0:	8d 83       	std	Y+5, r24	; 0x05
+     f7a:	8d 81       	ldd	r24, Y+5	; 0x05
+     f7c:	9e 81       	ldd	r25, Y+6	; 0x06
+     f7e:	01 97       	sbiw	r24, 0x01	; 1
+     f80:	9e 83       	std	Y+6, r25	; 0x06
+     f82:	8d 83       	std	Y+5, r24	; 0x05
 		__ticks = 1;
 	else if (__tmp > 65535)
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
-    18f2:	8d 81       	ldd	r24, Y+5	; 0x05
-    18f4:	9e 81       	ldd	r25, Y+6	; 0x06
-    18f6:	00 97       	sbiw	r24, 0x00	; 0
-    18f8:	69 f7       	brne	.-38     	; 0x18d4 <HSSD_voidDisplayNumberDescending+0x13c>
-    18fa:	14 c0       	rjmp	.+40     	; 0x1924 <HSSD_voidDisplayNumberDescending+0x18c>
+     f84:	8d 81       	ldd	r24, Y+5	; 0x05
+     f86:	9e 81       	ldd	r25, Y+6	; 0x06
+     f88:	00 97       	sbiw	r24, 0x00	; 0
+     f8a:	69 f7       	brne	.-38     	; 0xf66 <main+0x2a0>
+     f8c:	14 c0       	rjmp	.+40     	; 0xfb6 <main+0x2f0>
 			__ticks --;
 		}
 		return;
 	}
 	else
 		__ticks = (uint16_t)__tmp;
-    18fc:	6f 81       	ldd	r22, Y+7	; 0x07
-    18fe:	78 85       	ldd	r23, Y+8	; 0x08
-    1900:	89 85       	ldd	r24, Y+9	; 0x09
-    1902:	9a 85       	ldd	r25, Y+10	; 0x0a
-    1904:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
-    1908:	dc 01       	movw	r26, r24
-    190a:	cb 01       	movw	r24, r22
-    190c:	9e 83       	std	Y+6, r25	; 0x06
-    190e:	8d 83       	std	Y+5, r24	; 0x05
-    1910:	8d 81       	ldd	r24, Y+5	; 0x05
-    1912:	9e 81       	ldd	r25, Y+6	; 0x06
-    1914:	9a 83       	std	Y+2, r25	; 0x02
-    1916:	89 83       	std	Y+1, r24	; 0x01
-    1918:	89 81       	ldd	r24, Y+1	; 0x01
-    191a:	9a 81       	ldd	r25, Y+2	; 0x02
-    191c:	01 97       	sbiw	r24, 0x01	; 1
-    191e:	f1 f7       	brne	.-4      	; 0x191c <HSSD_voidDisplayNumberDescending+0x184>
-    1920:	9a 83       	std	Y+2, r25	; 0x02
-    1922:	89 83       	std	Y+1, r24	; 0x01
+     f8e:	6f 81       	ldd	r22, Y+7	; 0x07
+     f90:	78 85       	ldd	r23, Y+8	; 0x08
+     f92:	89 85       	ldd	r24, Y+9	; 0x09
+     f94:	9a 85       	ldd	r25, Y+10	; 0x0a
+     f96:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+     f9a:	dc 01       	movw	r26, r24
+     f9c:	cb 01       	movw	r24, r22
+     f9e:	9e 83       	std	Y+6, r25	; 0x06
+     fa0:	8d 83       	std	Y+5, r24	; 0x05
+     fa2:	8d 81       	ldd	r24, Y+5	; 0x05
+     fa4:	9e 81       	ldd	r25, Y+6	; 0x06
+     fa6:	9a 83       	std	Y+2, r25	; 0x02
+     fa8:	89 83       	std	Y+1, r24	; 0x01
+     faa:	89 81       	ldd	r24, Y+1	; 0x01
+     fac:	9a 81       	ldd	r25, Y+2	; 0x02
+     fae:	01 97       	sbiw	r24, 0x01	; 1
+     fb0:	f1 f7       	brne	.-4      	; 0xfae <main+0x2e8>
+     fb2:	9a 83       	std	Y+2, r25	; 0x02
+     fb4:	89 83       	std	Y+1, r24	; 0x01
+//				_delay_ms(1000);
+			}
+
+			else
+			{
+				for(i=3; i>0;i--)
+     fb6:	8e 8d       	ldd	r24, Y+30	; 0x1e
+     fb8:	81 50       	subi	r24, 0x01	; 1
+     fba:	8e 8f       	std	Y+30, r24	; 0x1e
+     fbc:	8e 8d       	ldd	r24, Y+30	; 0x1e
+     fbe:	88 23       	and	r24, r24
+     fc0:	09 f0       	breq	.+2      	; 0xfc4 <main+0x2fe>
+     fc2:	7a cf       	rjmp	.-268    	; 0xeb8 <main+0x1f2>
+				{
+					MDIO_voidSetPortValue(DIO_PORTA,(SSD_Arr[i]));
+					_delay_ms(500);
+				}
+			}
+			HLED_voidTurnLEDOff(DIO_PORTC,LED_Arr[j]);
+     fc4:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     fc6:	28 2f       	mov	r18, r24
+     fc8:	30 e0       	ldi	r19, 0x00	; 0
+     fca:	ce 01       	movw	r24, r28
+     fcc:	89 96       	adiw	r24, 0x29	; 41
+     fce:	fc 01       	movw	r30, r24
+     fd0:	e2 0f       	add	r30, r18
+     fd2:	f3 1f       	adc	r31, r19
+     fd4:	90 81       	ld	r25, Z
+     fd6:	82 e0       	ldi	r24, 0x02	; 2
+     fd8:	69 2f       	mov	r22, r25
+     fda:	0e 94 fb 0b 	call	0x17f6	; 0x17f6 <HLED_voidTurnLEDOff>
+	u8 LED_Arr[3]={GREEN,YELLOW ,RED};
+	u8 i=3;
+	u8 j=0;
+	while(1)
+	{
+		for(j=0; j<3;j++)
+     fde:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     fe0:	8f 5f       	subi	r24, 0xFF	; 255
+     fe2:	8d 8f       	std	Y+29, r24	; 0x1d
+     fe4:	8d 8d       	ldd	r24, Y+29	; 0x1d
+     fe6:	83 30       	cpi	r24, 0x03	; 3
+     fe8:	08 f4       	brcc	.+2      	; 0xfec <main+0x326>
+     fea:	c8 ce       	rjmp	.-624    	; 0xd7c <main+0xb6>
+     fec:	c5 ce       	rjmp	.-630    	; 0xd78 <main+0xb2>
+
+00000fee <MDIO_voidSetPinDirection>:
+
+
+// MDIO_voidSetPinDirection(DIO_PORTA, PIN0, DIO_OUTPUT);
+
+void MDIO_voidSetPinDirection(DIO_PORT_e A_portID, DIO_PIN_e A_pinID, DIO_DIRECTION_e A_pinDirection)
+{
+     fee:	df 93       	push	r29
+     ff0:	cf 93       	push	r28
+     ff2:	cd b7       	in	r28, 0x3d	; 61
+     ff4:	de b7       	in	r29, 0x3e	; 62
+     ff6:	2d 97       	sbiw	r28, 0x0d	; 13
+     ff8:	0f b6       	in	r0, 0x3f	; 63
+     ffa:	f8 94       	cli
+     ffc:	de bf       	out	0x3e, r29	; 62
+     ffe:	0f be       	out	0x3f, r0	; 63
+    1000:	cd bf       	out	0x3d, r28	; 61
+    1002:	89 83       	std	Y+1, r24	; 0x01
+    1004:	6a 83       	std	Y+2, r22	; 0x02
+    1006:	4b 83       	std	Y+3, r20	; 0x03
+	// Input Validation
+	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) && (A_pinDirection <= DIO_OUTPUT) )
+    1008:	89 81       	ldd	r24, Y+1	; 0x01
+    100a:	84 30       	cpi	r24, 0x04	; 4
+    100c:	08 f0       	brcs	.+2      	; 0x1010 <MDIO_voidSetPinDirection+0x22>
+    100e:	09 c1       	rjmp	.+530    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+    1010:	8a 81       	ldd	r24, Y+2	; 0x02
+    1012:	88 30       	cpi	r24, 0x08	; 8
+    1014:	08 f0       	brcs	.+2      	; 0x1018 <MDIO_voidSetPinDirection+0x2a>
+    1016:	05 c1       	rjmp	.+522    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+    1018:	8b 81       	ldd	r24, Y+3	; 0x03
+    101a:	82 30       	cpi	r24, 0x02	; 2
+    101c:	08 f0       	brcs	.+2      	; 0x1020 <MDIO_voidSetPinDirection+0x32>
+    101e:	01 c1       	rjmp	.+514    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+	{
+		switch (A_portID)
+    1020:	89 81       	ldd	r24, Y+1	; 0x01
+    1022:	28 2f       	mov	r18, r24
+    1024:	30 e0       	ldi	r19, 0x00	; 0
+    1026:	3d 87       	std	Y+13, r19	; 0x0d
+    1028:	2c 87       	std	Y+12, r18	; 0x0c
+    102a:	8c 85       	ldd	r24, Y+12	; 0x0c
+    102c:	9d 85       	ldd	r25, Y+13	; 0x0d
+    102e:	81 30       	cpi	r24, 0x01	; 1
+    1030:	91 05       	cpc	r25, r1
+    1032:	09 f4       	brne	.+2      	; 0x1036 <MDIO_voidSetPinDirection+0x48>
+    1034:	4f c0       	rjmp	.+158    	; 0x10d4 <MDIO_voidSetPinDirection+0xe6>
+    1036:	2c 85       	ldd	r18, Y+12	; 0x0c
+    1038:	3d 85       	ldd	r19, Y+13	; 0x0d
+    103a:	22 30       	cpi	r18, 0x02	; 2
+    103c:	31 05       	cpc	r19, r1
+    103e:	2c f4       	brge	.+10     	; 0x104a <MDIO_voidSetPinDirection+0x5c>
+    1040:	8c 85       	ldd	r24, Y+12	; 0x0c
+    1042:	9d 85       	ldd	r25, Y+13	; 0x0d
+    1044:	00 97       	sbiw	r24, 0x00	; 0
+    1046:	71 f0       	breq	.+28     	; 0x1064 <MDIO_voidSetPinDirection+0x76>
+    1048:	ec c0       	rjmp	.+472    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+    104a:	2c 85       	ldd	r18, Y+12	; 0x0c
+    104c:	3d 85       	ldd	r19, Y+13	; 0x0d
+    104e:	22 30       	cpi	r18, 0x02	; 2
+    1050:	31 05       	cpc	r19, r1
+    1052:	09 f4       	brne	.+2      	; 0x1056 <MDIO_voidSetPinDirection+0x68>
+    1054:	77 c0       	rjmp	.+238    	; 0x1144 <MDIO_voidSetPinDirection+0x156>
+    1056:	8c 85       	ldd	r24, Y+12	; 0x0c
+    1058:	9d 85       	ldd	r25, Y+13	; 0x0d
+    105a:	83 30       	cpi	r24, 0x03	; 3
+    105c:	91 05       	cpc	r25, r1
+    105e:	09 f4       	brne	.+2      	; 0x1062 <MDIO_voidSetPinDirection+0x74>
+    1060:	a9 c0       	rjmp	.+338    	; 0x11b4 <MDIO_voidSetPinDirection+0x1c6>
+    1062:	df c0       	rjmp	.+446    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+		{
+		case DIO_PORTA:
+			switch (A_pinDirection)
+    1064:	8b 81       	ldd	r24, Y+3	; 0x03
+    1066:	28 2f       	mov	r18, r24
+    1068:	30 e0       	ldi	r19, 0x00	; 0
+    106a:	3b 87       	std	Y+11, r19	; 0x0b
+    106c:	2a 87       	std	Y+10, r18	; 0x0a
+    106e:	8a 85       	ldd	r24, Y+10	; 0x0a
+    1070:	9b 85       	ldd	r25, Y+11	; 0x0b
+    1072:	00 97       	sbiw	r24, 0x00	; 0
+    1074:	31 f0       	breq	.+12     	; 0x1082 <MDIO_voidSetPinDirection+0x94>
+    1076:	2a 85       	ldd	r18, Y+10	; 0x0a
+    1078:	3b 85       	ldd	r19, Y+11	; 0x0b
+    107a:	21 30       	cpi	r18, 0x01	; 1
+    107c:	31 05       	cpc	r19, r1
+    107e:	b1 f0       	breq	.+44     	; 0x10ac <MDIO_voidSetPinDirection+0xbe>
+    1080:	d0 c0       	rjmp	.+416    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+			{
+			case DIO_INPUT:
+				CLR_BIT(DDRA_REG,A_pinID);
+    1082:	aa e3       	ldi	r26, 0x3A	; 58
+    1084:	b0 e0       	ldi	r27, 0x00	; 0
+    1086:	ea e3       	ldi	r30, 0x3A	; 58
+    1088:	f0 e0       	ldi	r31, 0x00	; 0
+    108a:	80 81       	ld	r24, Z
+    108c:	48 2f       	mov	r20, r24
+    108e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1090:	28 2f       	mov	r18, r24
+    1092:	30 e0       	ldi	r19, 0x00	; 0
+    1094:	81 e0       	ldi	r24, 0x01	; 1
+    1096:	90 e0       	ldi	r25, 0x00	; 0
+    1098:	02 2e       	mov	r0, r18
+    109a:	02 c0       	rjmp	.+4      	; 0x10a0 <MDIO_voidSetPinDirection+0xb2>
+    109c:	88 0f       	add	r24, r24
+    109e:	99 1f       	adc	r25, r25
+    10a0:	0a 94       	dec	r0
+    10a2:	e2 f7       	brpl	.-8      	; 0x109c <MDIO_voidSetPinDirection+0xae>
+    10a4:	80 95       	com	r24
+    10a6:	84 23       	and	r24, r20
+    10a8:	8c 93       	st	X, r24
+    10aa:	bb c0       	rjmp	.+374    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			case DIO_OUTPUT:
+				SET_BIT(DDRA_REG,A_pinID);
+    10ac:	aa e3       	ldi	r26, 0x3A	; 58
+    10ae:	b0 e0       	ldi	r27, 0x00	; 0
+    10b0:	ea e3       	ldi	r30, 0x3A	; 58
+    10b2:	f0 e0       	ldi	r31, 0x00	; 0
+    10b4:	80 81       	ld	r24, Z
+    10b6:	48 2f       	mov	r20, r24
+    10b8:	8a 81       	ldd	r24, Y+2	; 0x02
+    10ba:	28 2f       	mov	r18, r24
+    10bc:	30 e0       	ldi	r19, 0x00	; 0
+    10be:	81 e0       	ldi	r24, 0x01	; 1
+    10c0:	90 e0       	ldi	r25, 0x00	; 0
+    10c2:	02 2e       	mov	r0, r18
+    10c4:	02 c0       	rjmp	.+4      	; 0x10ca <MDIO_voidSetPinDirection+0xdc>
+    10c6:	88 0f       	add	r24, r24
+    10c8:	99 1f       	adc	r25, r25
+    10ca:	0a 94       	dec	r0
+    10cc:	e2 f7       	brpl	.-8      	; 0x10c6 <MDIO_voidSetPinDirection+0xd8>
+    10ce:	84 2b       	or	r24, r20
+    10d0:	8c 93       	st	X, r24
+    10d2:	a7 c0       	rjmp	.+334    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			}
+			break;
+		case DIO_PORTB:
+			switch (A_pinDirection)
+    10d4:	8b 81       	ldd	r24, Y+3	; 0x03
+    10d6:	28 2f       	mov	r18, r24
+    10d8:	30 e0       	ldi	r19, 0x00	; 0
+    10da:	39 87       	std	Y+9, r19	; 0x09
+    10dc:	28 87       	std	Y+8, r18	; 0x08
+    10de:	88 85       	ldd	r24, Y+8	; 0x08
+    10e0:	99 85       	ldd	r25, Y+9	; 0x09
+    10e2:	00 97       	sbiw	r24, 0x00	; 0
+    10e4:	31 f0       	breq	.+12     	; 0x10f2 <MDIO_voidSetPinDirection+0x104>
+    10e6:	28 85       	ldd	r18, Y+8	; 0x08
+    10e8:	39 85       	ldd	r19, Y+9	; 0x09
+    10ea:	21 30       	cpi	r18, 0x01	; 1
+    10ec:	31 05       	cpc	r19, r1
+    10ee:	b1 f0       	breq	.+44     	; 0x111c <MDIO_voidSetPinDirection+0x12e>
+    10f0:	98 c0       	rjmp	.+304    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+			{
+			case DIO_INPUT:
+				CLR_BIT(DDRB_REG,A_pinID);
+    10f2:	a7 e3       	ldi	r26, 0x37	; 55
+    10f4:	b0 e0       	ldi	r27, 0x00	; 0
+    10f6:	e7 e3       	ldi	r30, 0x37	; 55
+    10f8:	f0 e0       	ldi	r31, 0x00	; 0
+    10fa:	80 81       	ld	r24, Z
+    10fc:	48 2f       	mov	r20, r24
+    10fe:	8a 81       	ldd	r24, Y+2	; 0x02
+    1100:	28 2f       	mov	r18, r24
+    1102:	30 e0       	ldi	r19, 0x00	; 0
+    1104:	81 e0       	ldi	r24, 0x01	; 1
+    1106:	90 e0       	ldi	r25, 0x00	; 0
+    1108:	02 2e       	mov	r0, r18
+    110a:	02 c0       	rjmp	.+4      	; 0x1110 <MDIO_voidSetPinDirection+0x122>
+    110c:	88 0f       	add	r24, r24
+    110e:	99 1f       	adc	r25, r25
+    1110:	0a 94       	dec	r0
+    1112:	e2 f7       	brpl	.-8      	; 0x110c <MDIO_voidSetPinDirection+0x11e>
+    1114:	80 95       	com	r24
+    1116:	84 23       	and	r24, r20
+    1118:	8c 93       	st	X, r24
+    111a:	83 c0       	rjmp	.+262    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			case DIO_OUTPUT:
+				SET_BIT(DDRB_REG,A_pinID);
+    111c:	a7 e3       	ldi	r26, 0x37	; 55
+    111e:	b0 e0       	ldi	r27, 0x00	; 0
+    1120:	e7 e3       	ldi	r30, 0x37	; 55
+    1122:	f0 e0       	ldi	r31, 0x00	; 0
+    1124:	80 81       	ld	r24, Z
+    1126:	48 2f       	mov	r20, r24
+    1128:	8a 81       	ldd	r24, Y+2	; 0x02
+    112a:	28 2f       	mov	r18, r24
+    112c:	30 e0       	ldi	r19, 0x00	; 0
+    112e:	81 e0       	ldi	r24, 0x01	; 1
+    1130:	90 e0       	ldi	r25, 0x00	; 0
+    1132:	02 2e       	mov	r0, r18
+    1134:	02 c0       	rjmp	.+4      	; 0x113a <MDIO_voidSetPinDirection+0x14c>
+    1136:	88 0f       	add	r24, r24
+    1138:	99 1f       	adc	r25, r25
+    113a:	0a 94       	dec	r0
+    113c:	e2 f7       	brpl	.-8      	; 0x1136 <MDIO_voidSetPinDirection+0x148>
+    113e:	84 2b       	or	r24, r20
+    1140:	8c 93       	st	X, r24
+    1142:	6f c0       	rjmp	.+222    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			}
+			break;
+		case DIO_PORTC:
+			switch (A_pinDirection)
+    1144:	8b 81       	ldd	r24, Y+3	; 0x03
+    1146:	28 2f       	mov	r18, r24
+    1148:	30 e0       	ldi	r19, 0x00	; 0
+    114a:	3f 83       	std	Y+7, r19	; 0x07
+    114c:	2e 83       	std	Y+6, r18	; 0x06
+    114e:	8e 81       	ldd	r24, Y+6	; 0x06
+    1150:	9f 81       	ldd	r25, Y+7	; 0x07
+    1152:	00 97       	sbiw	r24, 0x00	; 0
+    1154:	31 f0       	breq	.+12     	; 0x1162 <MDIO_voidSetPinDirection+0x174>
+    1156:	2e 81       	ldd	r18, Y+6	; 0x06
+    1158:	3f 81       	ldd	r19, Y+7	; 0x07
+    115a:	21 30       	cpi	r18, 0x01	; 1
+    115c:	31 05       	cpc	r19, r1
+    115e:	b1 f0       	breq	.+44     	; 0x118c <MDIO_voidSetPinDirection+0x19e>
+    1160:	60 c0       	rjmp	.+192    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+			{
+			case DIO_INPUT:
+				CLR_BIT(DDRC_REG,A_pinID);
+    1162:	a4 e3       	ldi	r26, 0x34	; 52
+    1164:	b0 e0       	ldi	r27, 0x00	; 0
+    1166:	e4 e3       	ldi	r30, 0x34	; 52
+    1168:	f0 e0       	ldi	r31, 0x00	; 0
+    116a:	80 81       	ld	r24, Z
+    116c:	48 2f       	mov	r20, r24
+    116e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1170:	28 2f       	mov	r18, r24
+    1172:	30 e0       	ldi	r19, 0x00	; 0
+    1174:	81 e0       	ldi	r24, 0x01	; 1
+    1176:	90 e0       	ldi	r25, 0x00	; 0
+    1178:	02 2e       	mov	r0, r18
+    117a:	02 c0       	rjmp	.+4      	; 0x1180 <MDIO_voidSetPinDirection+0x192>
+    117c:	88 0f       	add	r24, r24
+    117e:	99 1f       	adc	r25, r25
+    1180:	0a 94       	dec	r0
+    1182:	e2 f7       	brpl	.-8      	; 0x117c <MDIO_voidSetPinDirection+0x18e>
+    1184:	80 95       	com	r24
+    1186:	84 23       	and	r24, r20
+    1188:	8c 93       	st	X, r24
+    118a:	4b c0       	rjmp	.+150    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			case DIO_OUTPUT:
+				SET_BIT(DDRC_REG,A_pinID);
+    118c:	a4 e3       	ldi	r26, 0x34	; 52
+    118e:	b0 e0       	ldi	r27, 0x00	; 0
+    1190:	e4 e3       	ldi	r30, 0x34	; 52
+    1192:	f0 e0       	ldi	r31, 0x00	; 0
+    1194:	80 81       	ld	r24, Z
+    1196:	48 2f       	mov	r20, r24
+    1198:	8a 81       	ldd	r24, Y+2	; 0x02
+    119a:	28 2f       	mov	r18, r24
+    119c:	30 e0       	ldi	r19, 0x00	; 0
+    119e:	81 e0       	ldi	r24, 0x01	; 1
+    11a0:	90 e0       	ldi	r25, 0x00	; 0
+    11a2:	02 2e       	mov	r0, r18
+    11a4:	02 c0       	rjmp	.+4      	; 0x11aa <MDIO_voidSetPinDirection+0x1bc>
+    11a6:	88 0f       	add	r24, r24
+    11a8:	99 1f       	adc	r25, r25
+    11aa:	0a 94       	dec	r0
+    11ac:	e2 f7       	brpl	.-8      	; 0x11a6 <MDIO_voidSetPinDirection+0x1b8>
+    11ae:	84 2b       	or	r24, r20
+    11b0:	8c 93       	st	X, r24
+    11b2:	37 c0       	rjmp	.+110    	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			}
+			break;
+		case DIO_PORTD:
+			switch (A_pinDirection)
+    11b4:	8b 81       	ldd	r24, Y+3	; 0x03
+    11b6:	28 2f       	mov	r18, r24
+    11b8:	30 e0       	ldi	r19, 0x00	; 0
+    11ba:	3d 83       	std	Y+5, r19	; 0x05
+    11bc:	2c 83       	std	Y+4, r18	; 0x04
+    11be:	8c 81       	ldd	r24, Y+4	; 0x04
+    11c0:	9d 81       	ldd	r25, Y+5	; 0x05
+    11c2:	00 97       	sbiw	r24, 0x00	; 0
+    11c4:	31 f0       	breq	.+12     	; 0x11d2 <MDIO_voidSetPinDirection+0x1e4>
+    11c6:	2c 81       	ldd	r18, Y+4	; 0x04
+    11c8:	3d 81       	ldd	r19, Y+5	; 0x05
+    11ca:	21 30       	cpi	r18, 0x01	; 1
+    11cc:	31 05       	cpc	r19, r1
+    11ce:	b1 f0       	breq	.+44     	; 0x11fc <MDIO_voidSetPinDirection+0x20e>
+    11d0:	28 c0       	rjmp	.+80     	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+			{
+			case DIO_INPUT:
+				CLR_BIT(DDRD_REG,A_pinID);
+    11d2:	a1 e3       	ldi	r26, 0x31	; 49
+    11d4:	b0 e0       	ldi	r27, 0x00	; 0
+    11d6:	e1 e3       	ldi	r30, 0x31	; 49
+    11d8:	f0 e0       	ldi	r31, 0x00	; 0
+    11da:	80 81       	ld	r24, Z
+    11dc:	48 2f       	mov	r20, r24
+    11de:	8a 81       	ldd	r24, Y+2	; 0x02
+    11e0:	28 2f       	mov	r18, r24
+    11e2:	30 e0       	ldi	r19, 0x00	; 0
+    11e4:	81 e0       	ldi	r24, 0x01	; 1
+    11e6:	90 e0       	ldi	r25, 0x00	; 0
+    11e8:	02 2e       	mov	r0, r18
+    11ea:	02 c0       	rjmp	.+4      	; 0x11f0 <MDIO_voidSetPinDirection+0x202>
+    11ec:	88 0f       	add	r24, r24
+    11ee:	99 1f       	adc	r25, r25
+    11f0:	0a 94       	dec	r0
+    11f2:	e2 f7       	brpl	.-8      	; 0x11ec <MDIO_voidSetPinDirection+0x1fe>
+    11f4:	80 95       	com	r24
+    11f6:	84 23       	and	r24, r20
+    11f8:	8c 93       	st	X, r24
+    11fa:	13 c0       	rjmp	.+38     	; 0x1222 <MDIO_voidSetPinDirection+0x234>
+				break;
+			case DIO_OUTPUT:
+				SET_BIT(DDRD_REG,A_pinID);
+    11fc:	a1 e3       	ldi	r26, 0x31	; 49
+    11fe:	b0 e0       	ldi	r27, 0x00	; 0
+    1200:	e1 e3       	ldi	r30, 0x31	; 49
+    1202:	f0 e0       	ldi	r31, 0x00	; 0
+    1204:	80 81       	ld	r24, Z
+    1206:	48 2f       	mov	r20, r24
+    1208:	8a 81       	ldd	r24, Y+2	; 0x02
+    120a:	28 2f       	mov	r18, r24
+    120c:	30 e0       	ldi	r19, 0x00	; 0
+    120e:	81 e0       	ldi	r24, 0x01	; 1
+    1210:	90 e0       	ldi	r25, 0x00	; 0
+    1212:	02 2e       	mov	r0, r18
+    1214:	02 c0       	rjmp	.+4      	; 0x121a <MDIO_voidSetPinDirection+0x22c>
+    1216:	88 0f       	add	r24, r24
+    1218:	99 1f       	adc	r25, r25
+    121a:	0a 94       	dec	r0
+    121c:	e2 f7       	brpl	.-8      	; 0x1216 <MDIO_voidSetPinDirection+0x228>
+    121e:	84 2b       	or	r24, r20
+    1220:	8c 93       	st	X, r24
+	}
+	else
+	{
+		// Do Nothing
+	}
+}
+    1222:	2d 96       	adiw	r28, 0x0d	; 13
+    1224:	0f b6       	in	r0, 0x3f	; 63
+    1226:	f8 94       	cli
+    1228:	de bf       	out	0x3e, r29	; 62
+    122a:	0f be       	out	0x3f, r0	; 63
+    122c:	cd bf       	out	0x3d, r28	; 61
+    122e:	cf 91       	pop	r28
+    1230:	df 91       	pop	r29
+    1232:	08 95       	ret
+
+00001234 <MDIO_voidSetPinValue>:
+
+
+void MDIO_voidSetPinValue(DIO_PORT_e A_portID, DIO_PIN_e A_pinID, DIO_VALUE_e A_pinValue)
+{
+    1234:	df 93       	push	r29
+    1236:	cf 93       	push	r28
+    1238:	cd b7       	in	r28, 0x3d	; 61
+    123a:	de b7       	in	r29, 0x3e	; 62
+    123c:	2d 97       	sbiw	r28, 0x0d	; 13
+    123e:	0f b6       	in	r0, 0x3f	; 63
+    1240:	f8 94       	cli
+    1242:	de bf       	out	0x3e, r29	; 62
+    1244:	0f be       	out	0x3f, r0	; 63
+    1246:	cd bf       	out	0x3d, r28	; 61
+    1248:	89 83       	std	Y+1, r24	; 0x01
+    124a:	6a 83       	std	Y+2, r22	; 0x02
+    124c:	4b 83       	std	Y+3, r20	; 0x03
+	// Input Validation
+	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) && (A_pinValue <= DIO_SET) )
+    124e:	89 81       	ldd	r24, Y+1	; 0x01
+    1250:	84 30       	cpi	r24, 0x04	; 4
+    1252:	08 f0       	brcs	.+2      	; 0x1256 <MDIO_voidSetPinValue+0x22>
+    1254:	09 c1       	rjmp	.+530    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+    1256:	8a 81       	ldd	r24, Y+2	; 0x02
+    1258:	88 30       	cpi	r24, 0x08	; 8
+    125a:	08 f0       	brcs	.+2      	; 0x125e <MDIO_voidSetPinValue+0x2a>
+    125c:	05 c1       	rjmp	.+522    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+    125e:	8b 81       	ldd	r24, Y+3	; 0x03
+    1260:	82 30       	cpi	r24, 0x02	; 2
+    1262:	08 f0       	brcs	.+2      	; 0x1266 <MDIO_voidSetPinValue+0x32>
+    1264:	01 c1       	rjmp	.+514    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+	{
+		switch (A_portID)
+    1266:	89 81       	ldd	r24, Y+1	; 0x01
+    1268:	28 2f       	mov	r18, r24
+    126a:	30 e0       	ldi	r19, 0x00	; 0
+    126c:	3d 87       	std	Y+13, r19	; 0x0d
+    126e:	2c 87       	std	Y+12, r18	; 0x0c
+    1270:	8c 85       	ldd	r24, Y+12	; 0x0c
+    1272:	9d 85       	ldd	r25, Y+13	; 0x0d
+    1274:	81 30       	cpi	r24, 0x01	; 1
+    1276:	91 05       	cpc	r25, r1
+    1278:	09 f4       	brne	.+2      	; 0x127c <MDIO_voidSetPinValue+0x48>
+    127a:	4f c0       	rjmp	.+158    	; 0x131a <MDIO_voidSetPinValue+0xe6>
+    127c:	2c 85       	ldd	r18, Y+12	; 0x0c
+    127e:	3d 85       	ldd	r19, Y+13	; 0x0d
+    1280:	22 30       	cpi	r18, 0x02	; 2
+    1282:	31 05       	cpc	r19, r1
+    1284:	2c f4       	brge	.+10     	; 0x1290 <MDIO_voidSetPinValue+0x5c>
+    1286:	8c 85       	ldd	r24, Y+12	; 0x0c
+    1288:	9d 85       	ldd	r25, Y+13	; 0x0d
+    128a:	00 97       	sbiw	r24, 0x00	; 0
+    128c:	71 f0       	breq	.+28     	; 0x12aa <MDIO_voidSetPinValue+0x76>
+    128e:	ec c0       	rjmp	.+472    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+    1290:	2c 85       	ldd	r18, Y+12	; 0x0c
+    1292:	3d 85       	ldd	r19, Y+13	; 0x0d
+    1294:	22 30       	cpi	r18, 0x02	; 2
+    1296:	31 05       	cpc	r19, r1
+    1298:	09 f4       	brne	.+2      	; 0x129c <MDIO_voidSetPinValue+0x68>
+    129a:	77 c0       	rjmp	.+238    	; 0x138a <MDIO_voidSetPinValue+0x156>
+    129c:	8c 85       	ldd	r24, Y+12	; 0x0c
+    129e:	9d 85       	ldd	r25, Y+13	; 0x0d
+    12a0:	83 30       	cpi	r24, 0x03	; 3
+    12a2:	91 05       	cpc	r25, r1
+    12a4:	09 f4       	brne	.+2      	; 0x12a8 <MDIO_voidSetPinValue+0x74>
+    12a6:	a9 c0       	rjmp	.+338    	; 0x13fa <MDIO_voidSetPinValue+0x1c6>
+    12a8:	df c0       	rjmp	.+446    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+		{
+		case DIO_PORTA:
+			switch (A_pinValue)
+    12aa:	8b 81       	ldd	r24, Y+3	; 0x03
+    12ac:	28 2f       	mov	r18, r24
+    12ae:	30 e0       	ldi	r19, 0x00	; 0
+    12b0:	3b 87       	std	Y+11, r19	; 0x0b
+    12b2:	2a 87       	std	Y+10, r18	; 0x0a
+    12b4:	8a 85       	ldd	r24, Y+10	; 0x0a
+    12b6:	9b 85       	ldd	r25, Y+11	; 0x0b
+    12b8:	00 97       	sbiw	r24, 0x00	; 0
+    12ba:	31 f0       	breq	.+12     	; 0x12c8 <MDIO_voidSetPinValue+0x94>
+    12bc:	2a 85       	ldd	r18, Y+10	; 0x0a
+    12be:	3b 85       	ldd	r19, Y+11	; 0x0b
+    12c0:	21 30       	cpi	r18, 0x01	; 1
+    12c2:	31 05       	cpc	r19, r1
+    12c4:	b1 f0       	breq	.+44     	; 0x12f2 <MDIO_voidSetPinValue+0xbe>
+    12c6:	d0 c0       	rjmp	.+416    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+			{
+			case DIO_RESET:
+				CLR_BIT(PORTA_REG,A_pinID);
+    12c8:	ab e3       	ldi	r26, 0x3B	; 59
+    12ca:	b0 e0       	ldi	r27, 0x00	; 0
+    12cc:	eb e3       	ldi	r30, 0x3B	; 59
+    12ce:	f0 e0       	ldi	r31, 0x00	; 0
+    12d0:	80 81       	ld	r24, Z
+    12d2:	48 2f       	mov	r20, r24
+    12d4:	8a 81       	ldd	r24, Y+2	; 0x02
+    12d6:	28 2f       	mov	r18, r24
+    12d8:	30 e0       	ldi	r19, 0x00	; 0
+    12da:	81 e0       	ldi	r24, 0x01	; 1
+    12dc:	90 e0       	ldi	r25, 0x00	; 0
+    12de:	02 2e       	mov	r0, r18
+    12e0:	02 c0       	rjmp	.+4      	; 0x12e6 <MDIO_voidSetPinValue+0xb2>
+    12e2:	88 0f       	add	r24, r24
+    12e4:	99 1f       	adc	r25, r25
+    12e6:	0a 94       	dec	r0
+    12e8:	e2 f7       	brpl	.-8      	; 0x12e2 <MDIO_voidSetPinValue+0xae>
+    12ea:	80 95       	com	r24
+    12ec:	84 23       	and	r24, r20
+    12ee:	8c 93       	st	X, r24
+    12f0:	bb c0       	rjmp	.+374    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			case DIO_SET:
+				SET_BIT(PORTA_REG,A_pinID);
+    12f2:	ab e3       	ldi	r26, 0x3B	; 59
+    12f4:	b0 e0       	ldi	r27, 0x00	; 0
+    12f6:	eb e3       	ldi	r30, 0x3B	; 59
+    12f8:	f0 e0       	ldi	r31, 0x00	; 0
+    12fa:	80 81       	ld	r24, Z
+    12fc:	48 2f       	mov	r20, r24
+    12fe:	8a 81       	ldd	r24, Y+2	; 0x02
+    1300:	28 2f       	mov	r18, r24
+    1302:	30 e0       	ldi	r19, 0x00	; 0
+    1304:	81 e0       	ldi	r24, 0x01	; 1
+    1306:	90 e0       	ldi	r25, 0x00	; 0
+    1308:	02 2e       	mov	r0, r18
+    130a:	02 c0       	rjmp	.+4      	; 0x1310 <MDIO_voidSetPinValue+0xdc>
+    130c:	88 0f       	add	r24, r24
+    130e:	99 1f       	adc	r25, r25
+    1310:	0a 94       	dec	r0
+    1312:	e2 f7       	brpl	.-8      	; 0x130c <MDIO_voidSetPinValue+0xd8>
+    1314:	84 2b       	or	r24, r20
+    1316:	8c 93       	st	X, r24
+    1318:	a7 c0       	rjmp	.+334    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			}
+			break;
+		case DIO_PORTB:
+			switch (A_pinValue)
+    131a:	8b 81       	ldd	r24, Y+3	; 0x03
+    131c:	28 2f       	mov	r18, r24
+    131e:	30 e0       	ldi	r19, 0x00	; 0
+    1320:	39 87       	std	Y+9, r19	; 0x09
+    1322:	28 87       	std	Y+8, r18	; 0x08
+    1324:	88 85       	ldd	r24, Y+8	; 0x08
+    1326:	99 85       	ldd	r25, Y+9	; 0x09
+    1328:	00 97       	sbiw	r24, 0x00	; 0
+    132a:	31 f0       	breq	.+12     	; 0x1338 <MDIO_voidSetPinValue+0x104>
+    132c:	28 85       	ldd	r18, Y+8	; 0x08
+    132e:	39 85       	ldd	r19, Y+9	; 0x09
+    1330:	21 30       	cpi	r18, 0x01	; 1
+    1332:	31 05       	cpc	r19, r1
+    1334:	b1 f0       	breq	.+44     	; 0x1362 <MDIO_voidSetPinValue+0x12e>
+    1336:	98 c0       	rjmp	.+304    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+			{
+			case DIO_RESET:
+				CLR_BIT(PORTB_REG,A_pinID);
+    1338:	a8 e3       	ldi	r26, 0x38	; 56
+    133a:	b0 e0       	ldi	r27, 0x00	; 0
+    133c:	e8 e3       	ldi	r30, 0x38	; 56
+    133e:	f0 e0       	ldi	r31, 0x00	; 0
+    1340:	80 81       	ld	r24, Z
+    1342:	48 2f       	mov	r20, r24
+    1344:	8a 81       	ldd	r24, Y+2	; 0x02
+    1346:	28 2f       	mov	r18, r24
+    1348:	30 e0       	ldi	r19, 0x00	; 0
+    134a:	81 e0       	ldi	r24, 0x01	; 1
+    134c:	90 e0       	ldi	r25, 0x00	; 0
+    134e:	02 2e       	mov	r0, r18
+    1350:	02 c0       	rjmp	.+4      	; 0x1356 <MDIO_voidSetPinValue+0x122>
+    1352:	88 0f       	add	r24, r24
+    1354:	99 1f       	adc	r25, r25
+    1356:	0a 94       	dec	r0
+    1358:	e2 f7       	brpl	.-8      	; 0x1352 <MDIO_voidSetPinValue+0x11e>
+    135a:	80 95       	com	r24
+    135c:	84 23       	and	r24, r20
+    135e:	8c 93       	st	X, r24
+    1360:	83 c0       	rjmp	.+262    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			case DIO_SET:
+				SET_BIT(PORTB_REG,A_pinID);
+    1362:	a8 e3       	ldi	r26, 0x38	; 56
+    1364:	b0 e0       	ldi	r27, 0x00	; 0
+    1366:	e8 e3       	ldi	r30, 0x38	; 56
+    1368:	f0 e0       	ldi	r31, 0x00	; 0
+    136a:	80 81       	ld	r24, Z
+    136c:	48 2f       	mov	r20, r24
+    136e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1370:	28 2f       	mov	r18, r24
+    1372:	30 e0       	ldi	r19, 0x00	; 0
+    1374:	81 e0       	ldi	r24, 0x01	; 1
+    1376:	90 e0       	ldi	r25, 0x00	; 0
+    1378:	02 2e       	mov	r0, r18
+    137a:	02 c0       	rjmp	.+4      	; 0x1380 <MDIO_voidSetPinValue+0x14c>
+    137c:	88 0f       	add	r24, r24
+    137e:	99 1f       	adc	r25, r25
+    1380:	0a 94       	dec	r0
+    1382:	e2 f7       	brpl	.-8      	; 0x137c <MDIO_voidSetPinValue+0x148>
+    1384:	84 2b       	or	r24, r20
+    1386:	8c 93       	st	X, r24
+    1388:	6f c0       	rjmp	.+222    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			}
+			break;
+		case DIO_PORTC:
+			switch (A_pinValue)
+    138a:	8b 81       	ldd	r24, Y+3	; 0x03
+    138c:	28 2f       	mov	r18, r24
+    138e:	30 e0       	ldi	r19, 0x00	; 0
+    1390:	3f 83       	std	Y+7, r19	; 0x07
+    1392:	2e 83       	std	Y+6, r18	; 0x06
+    1394:	8e 81       	ldd	r24, Y+6	; 0x06
+    1396:	9f 81       	ldd	r25, Y+7	; 0x07
+    1398:	00 97       	sbiw	r24, 0x00	; 0
+    139a:	31 f0       	breq	.+12     	; 0x13a8 <MDIO_voidSetPinValue+0x174>
+    139c:	2e 81       	ldd	r18, Y+6	; 0x06
+    139e:	3f 81       	ldd	r19, Y+7	; 0x07
+    13a0:	21 30       	cpi	r18, 0x01	; 1
+    13a2:	31 05       	cpc	r19, r1
+    13a4:	b1 f0       	breq	.+44     	; 0x13d2 <MDIO_voidSetPinValue+0x19e>
+    13a6:	60 c0       	rjmp	.+192    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+			{
+			case DIO_RESET:
+				CLR_BIT(PORTC_REG,A_pinID);
+    13a8:	a5 e3       	ldi	r26, 0x35	; 53
+    13aa:	b0 e0       	ldi	r27, 0x00	; 0
+    13ac:	e5 e3       	ldi	r30, 0x35	; 53
+    13ae:	f0 e0       	ldi	r31, 0x00	; 0
+    13b0:	80 81       	ld	r24, Z
+    13b2:	48 2f       	mov	r20, r24
+    13b4:	8a 81       	ldd	r24, Y+2	; 0x02
+    13b6:	28 2f       	mov	r18, r24
+    13b8:	30 e0       	ldi	r19, 0x00	; 0
+    13ba:	81 e0       	ldi	r24, 0x01	; 1
+    13bc:	90 e0       	ldi	r25, 0x00	; 0
+    13be:	02 2e       	mov	r0, r18
+    13c0:	02 c0       	rjmp	.+4      	; 0x13c6 <MDIO_voidSetPinValue+0x192>
+    13c2:	88 0f       	add	r24, r24
+    13c4:	99 1f       	adc	r25, r25
+    13c6:	0a 94       	dec	r0
+    13c8:	e2 f7       	brpl	.-8      	; 0x13c2 <MDIO_voidSetPinValue+0x18e>
+    13ca:	80 95       	com	r24
+    13cc:	84 23       	and	r24, r20
+    13ce:	8c 93       	st	X, r24
+    13d0:	4b c0       	rjmp	.+150    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			case DIO_SET:
+				SET_BIT(PORTC_REG,A_pinID);
+    13d2:	a5 e3       	ldi	r26, 0x35	; 53
+    13d4:	b0 e0       	ldi	r27, 0x00	; 0
+    13d6:	e5 e3       	ldi	r30, 0x35	; 53
+    13d8:	f0 e0       	ldi	r31, 0x00	; 0
+    13da:	80 81       	ld	r24, Z
+    13dc:	48 2f       	mov	r20, r24
+    13de:	8a 81       	ldd	r24, Y+2	; 0x02
+    13e0:	28 2f       	mov	r18, r24
+    13e2:	30 e0       	ldi	r19, 0x00	; 0
+    13e4:	81 e0       	ldi	r24, 0x01	; 1
+    13e6:	90 e0       	ldi	r25, 0x00	; 0
+    13e8:	02 2e       	mov	r0, r18
+    13ea:	02 c0       	rjmp	.+4      	; 0x13f0 <MDIO_voidSetPinValue+0x1bc>
+    13ec:	88 0f       	add	r24, r24
+    13ee:	99 1f       	adc	r25, r25
+    13f0:	0a 94       	dec	r0
+    13f2:	e2 f7       	brpl	.-8      	; 0x13ec <MDIO_voidSetPinValue+0x1b8>
+    13f4:	84 2b       	or	r24, r20
+    13f6:	8c 93       	st	X, r24
+    13f8:	37 c0       	rjmp	.+110    	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			}
+			break;
+		case DIO_PORTD:
+			switch (A_pinValue)
+    13fa:	8b 81       	ldd	r24, Y+3	; 0x03
+    13fc:	28 2f       	mov	r18, r24
+    13fe:	30 e0       	ldi	r19, 0x00	; 0
+    1400:	3d 83       	std	Y+5, r19	; 0x05
+    1402:	2c 83       	std	Y+4, r18	; 0x04
+    1404:	8c 81       	ldd	r24, Y+4	; 0x04
+    1406:	9d 81       	ldd	r25, Y+5	; 0x05
+    1408:	00 97       	sbiw	r24, 0x00	; 0
+    140a:	31 f0       	breq	.+12     	; 0x1418 <MDIO_voidSetPinValue+0x1e4>
+    140c:	2c 81       	ldd	r18, Y+4	; 0x04
+    140e:	3d 81       	ldd	r19, Y+5	; 0x05
+    1410:	21 30       	cpi	r18, 0x01	; 1
+    1412:	31 05       	cpc	r19, r1
+    1414:	b1 f0       	breq	.+44     	; 0x1442 <MDIO_voidSetPinValue+0x20e>
+    1416:	28 c0       	rjmp	.+80     	; 0x1468 <MDIO_voidSetPinValue+0x234>
+			{
+			case DIO_RESET:
+				CLR_BIT(PORTD_REG,A_pinID);
+    1418:	a2 e3       	ldi	r26, 0x32	; 50
+    141a:	b0 e0       	ldi	r27, 0x00	; 0
+    141c:	e2 e3       	ldi	r30, 0x32	; 50
+    141e:	f0 e0       	ldi	r31, 0x00	; 0
+    1420:	80 81       	ld	r24, Z
+    1422:	48 2f       	mov	r20, r24
+    1424:	8a 81       	ldd	r24, Y+2	; 0x02
+    1426:	28 2f       	mov	r18, r24
+    1428:	30 e0       	ldi	r19, 0x00	; 0
+    142a:	81 e0       	ldi	r24, 0x01	; 1
+    142c:	90 e0       	ldi	r25, 0x00	; 0
+    142e:	02 2e       	mov	r0, r18
+    1430:	02 c0       	rjmp	.+4      	; 0x1436 <MDIO_voidSetPinValue+0x202>
+    1432:	88 0f       	add	r24, r24
+    1434:	99 1f       	adc	r25, r25
+    1436:	0a 94       	dec	r0
+    1438:	e2 f7       	brpl	.-8      	; 0x1432 <MDIO_voidSetPinValue+0x1fe>
+    143a:	80 95       	com	r24
+    143c:	84 23       	and	r24, r20
+    143e:	8c 93       	st	X, r24
+    1440:	13 c0       	rjmp	.+38     	; 0x1468 <MDIO_voidSetPinValue+0x234>
+				break;
+			case DIO_SET:
+				SET_BIT(PORTD_REG,A_pinID);
+    1442:	a2 e3       	ldi	r26, 0x32	; 50
+    1444:	b0 e0       	ldi	r27, 0x00	; 0
+    1446:	e2 e3       	ldi	r30, 0x32	; 50
+    1448:	f0 e0       	ldi	r31, 0x00	; 0
+    144a:	80 81       	ld	r24, Z
+    144c:	48 2f       	mov	r20, r24
+    144e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1450:	28 2f       	mov	r18, r24
+    1452:	30 e0       	ldi	r19, 0x00	; 0
+    1454:	81 e0       	ldi	r24, 0x01	; 1
+    1456:	90 e0       	ldi	r25, 0x00	; 0
+    1458:	02 2e       	mov	r0, r18
+    145a:	02 c0       	rjmp	.+4      	; 0x1460 <MDIO_voidSetPinValue+0x22c>
+    145c:	88 0f       	add	r24, r24
+    145e:	99 1f       	adc	r25, r25
+    1460:	0a 94       	dec	r0
+    1462:	e2 f7       	brpl	.-8      	; 0x145c <MDIO_voidSetPinValue+0x228>
+    1464:	84 2b       	or	r24, r20
+    1466:	8c 93       	st	X, r24
+	}
+	else
+	{
+		// Do Nothing
+	}
+}
+    1468:	2d 96       	adiw	r28, 0x0d	; 13
+    146a:	0f b6       	in	r0, 0x3f	; 63
+    146c:	f8 94       	cli
+    146e:	de bf       	out	0x3e, r29	; 62
+    1470:	0f be       	out	0x3f, r0	; 63
+    1472:	cd bf       	out	0x3d, r28	; 61
+    1474:	cf 91       	pop	r28
+    1476:	df 91       	pop	r29
+    1478:	08 95       	ret
+
+0000147a <MDIO_getPinValue>:
+
+
+
+
+DIO_VALUE_e MDIO_getPinValue(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
+{
+    147a:	df 93       	push	r29
+    147c:	cf 93       	push	r28
+    147e:	00 d0       	rcall	.+0      	; 0x1480 <MDIO_getPinValue+0x6>
+    1480:	00 d0       	rcall	.+0      	; 0x1482 <MDIO_getPinValue+0x8>
+    1482:	0f 92       	push	r0
+    1484:	cd b7       	in	r28, 0x3d	; 61
+    1486:	de b7       	in	r29, 0x3e	; 62
+    1488:	8a 83       	std	Y+2, r24	; 0x02
+    148a:	6b 83       	std	Y+3, r22	; 0x03
+	DIO_VALUE_e local_PinValue;
+
+	// Input Validation
+	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) )
+    148c:	8a 81       	ldd	r24, Y+2	; 0x02
+    148e:	84 30       	cpi	r24, 0x04	; 4
+    1490:	08 f0       	brcs	.+2      	; 0x1494 <MDIO_getPinValue+0x1a>
+    1492:	6b c0       	rjmp	.+214    	; 0x156a <MDIO_getPinValue+0xf0>
+    1494:	8b 81       	ldd	r24, Y+3	; 0x03
+    1496:	88 30       	cpi	r24, 0x08	; 8
+    1498:	08 f0       	brcs	.+2      	; 0x149c <MDIO_getPinValue+0x22>
+    149a:	67 c0       	rjmp	.+206    	; 0x156a <MDIO_getPinValue+0xf0>
+	{
+		switch (A_portID)
+    149c:	8a 81       	ldd	r24, Y+2	; 0x02
+    149e:	28 2f       	mov	r18, r24
+    14a0:	30 e0       	ldi	r19, 0x00	; 0
+    14a2:	3d 83       	std	Y+5, r19	; 0x05
+    14a4:	2c 83       	std	Y+4, r18	; 0x04
+    14a6:	4c 81       	ldd	r20, Y+4	; 0x04
+    14a8:	5d 81       	ldd	r21, Y+5	; 0x05
+    14aa:	41 30       	cpi	r20, 0x01	; 1
+    14ac:	51 05       	cpc	r21, r1
+    14ae:	41 f1       	breq	.+80     	; 0x1500 <MDIO_getPinValue+0x86>
+    14b0:	8c 81       	ldd	r24, Y+4	; 0x04
+    14b2:	9d 81       	ldd	r25, Y+5	; 0x05
+    14b4:	82 30       	cpi	r24, 0x02	; 2
+    14b6:	91 05       	cpc	r25, r1
+    14b8:	34 f4       	brge	.+12     	; 0x14c6 <MDIO_getPinValue+0x4c>
+    14ba:	2c 81       	ldd	r18, Y+4	; 0x04
+    14bc:	3d 81       	ldd	r19, Y+5	; 0x05
+    14be:	21 15       	cp	r18, r1
+    14c0:	31 05       	cpc	r19, r1
+    14c2:	61 f0       	breq	.+24     	; 0x14dc <MDIO_getPinValue+0x62>
+    14c4:	52 c0       	rjmp	.+164    	; 0x156a <MDIO_getPinValue+0xf0>
+    14c6:	4c 81       	ldd	r20, Y+4	; 0x04
+    14c8:	5d 81       	ldd	r21, Y+5	; 0x05
+    14ca:	42 30       	cpi	r20, 0x02	; 2
+    14cc:	51 05       	cpc	r21, r1
+    14ce:	51 f1       	breq	.+84     	; 0x1524 <MDIO_getPinValue+0xaa>
+    14d0:	8c 81       	ldd	r24, Y+4	; 0x04
+    14d2:	9d 81       	ldd	r25, Y+5	; 0x05
+    14d4:	83 30       	cpi	r24, 0x03	; 3
+    14d6:	91 05       	cpc	r25, r1
+    14d8:	b9 f1       	breq	.+110    	; 0x1548 <MDIO_getPinValue+0xce>
+    14da:	47 c0       	rjmp	.+142    	; 0x156a <MDIO_getPinValue+0xf0>
+		{
+		case DIO_PORTA:
+			local_PinValue = GET_BIT(PINA_REG,A_pinID);
+    14dc:	e9 e3       	ldi	r30, 0x39	; 57
+    14de:	f0 e0       	ldi	r31, 0x00	; 0
+    14e0:	80 81       	ld	r24, Z
+    14e2:	28 2f       	mov	r18, r24
+    14e4:	30 e0       	ldi	r19, 0x00	; 0
+    14e6:	8b 81       	ldd	r24, Y+3	; 0x03
+    14e8:	88 2f       	mov	r24, r24
+    14ea:	90 e0       	ldi	r25, 0x00	; 0
+    14ec:	a9 01       	movw	r20, r18
+    14ee:	02 c0       	rjmp	.+4      	; 0x14f4 <MDIO_getPinValue+0x7a>
+    14f0:	55 95       	asr	r21
+    14f2:	47 95       	ror	r20
+    14f4:	8a 95       	dec	r24
+    14f6:	e2 f7       	brpl	.-8      	; 0x14f0 <MDIO_getPinValue+0x76>
+    14f8:	ca 01       	movw	r24, r20
+    14fa:	81 70       	andi	r24, 0x01	; 1
+    14fc:	89 83       	std	Y+1, r24	; 0x01
+    14fe:	35 c0       	rjmp	.+106    	; 0x156a <MDIO_getPinValue+0xf0>
+			break;
+		case DIO_PORTB:
+			local_PinValue = GET_BIT(PINB_REG,A_pinID);
+    1500:	e6 e3       	ldi	r30, 0x36	; 54
+    1502:	f0 e0       	ldi	r31, 0x00	; 0
+    1504:	80 81       	ld	r24, Z
+    1506:	28 2f       	mov	r18, r24
+    1508:	30 e0       	ldi	r19, 0x00	; 0
+    150a:	8b 81       	ldd	r24, Y+3	; 0x03
+    150c:	88 2f       	mov	r24, r24
+    150e:	90 e0       	ldi	r25, 0x00	; 0
+    1510:	a9 01       	movw	r20, r18
+    1512:	02 c0       	rjmp	.+4      	; 0x1518 <MDIO_getPinValue+0x9e>
+    1514:	55 95       	asr	r21
+    1516:	47 95       	ror	r20
+    1518:	8a 95       	dec	r24
+    151a:	e2 f7       	brpl	.-8      	; 0x1514 <MDIO_getPinValue+0x9a>
+    151c:	ca 01       	movw	r24, r20
+    151e:	81 70       	andi	r24, 0x01	; 1
+    1520:	89 83       	std	Y+1, r24	; 0x01
+    1522:	23 c0       	rjmp	.+70     	; 0x156a <MDIO_getPinValue+0xf0>
+			break;
+		case DIO_PORTC:
+			local_PinValue = GET_BIT(PINC_REG,A_pinID);
+    1524:	e3 e3       	ldi	r30, 0x33	; 51
+    1526:	f0 e0       	ldi	r31, 0x00	; 0
+    1528:	80 81       	ld	r24, Z
+    152a:	28 2f       	mov	r18, r24
+    152c:	30 e0       	ldi	r19, 0x00	; 0
+    152e:	8b 81       	ldd	r24, Y+3	; 0x03
+    1530:	88 2f       	mov	r24, r24
+    1532:	90 e0       	ldi	r25, 0x00	; 0
+    1534:	a9 01       	movw	r20, r18
+    1536:	02 c0       	rjmp	.+4      	; 0x153c <MDIO_getPinValue+0xc2>
+    1538:	55 95       	asr	r21
+    153a:	47 95       	ror	r20
+    153c:	8a 95       	dec	r24
+    153e:	e2 f7       	brpl	.-8      	; 0x1538 <MDIO_getPinValue+0xbe>
+    1540:	ca 01       	movw	r24, r20
+    1542:	81 70       	andi	r24, 0x01	; 1
+    1544:	89 83       	std	Y+1, r24	; 0x01
+    1546:	11 c0       	rjmp	.+34     	; 0x156a <MDIO_getPinValue+0xf0>
+			break;
+		case DIO_PORTD:
+			local_PinValue = GET_BIT(PIND_REG,A_pinID);
+    1548:	e0 e3       	ldi	r30, 0x30	; 48
+    154a:	f0 e0       	ldi	r31, 0x00	; 0
+    154c:	80 81       	ld	r24, Z
+    154e:	28 2f       	mov	r18, r24
+    1550:	30 e0       	ldi	r19, 0x00	; 0
+    1552:	8b 81       	ldd	r24, Y+3	; 0x03
+    1554:	88 2f       	mov	r24, r24
+    1556:	90 e0       	ldi	r25, 0x00	; 0
+    1558:	a9 01       	movw	r20, r18
+    155a:	02 c0       	rjmp	.+4      	; 0x1560 <MDIO_getPinValue+0xe6>
+    155c:	55 95       	asr	r21
+    155e:	47 95       	ror	r20
+    1560:	8a 95       	dec	r24
+    1562:	e2 f7       	brpl	.-8      	; 0x155c <MDIO_getPinValue+0xe2>
+    1564:	ca 01       	movw	r24, r20
+    1566:	81 70       	andi	r24, 0x01	; 1
+    1568:	89 83       	std	Y+1, r24	; 0x01
+	{
+		// Do Nothing
+	}
+
+
+	return local_PinValue;
+    156a:	89 81       	ldd	r24, Y+1	; 0x01
+}
+    156c:	0f 90       	pop	r0
+    156e:	0f 90       	pop	r0
+    1570:	0f 90       	pop	r0
+    1572:	0f 90       	pop	r0
+    1574:	0f 90       	pop	r0
+    1576:	cf 91       	pop	r28
+    1578:	df 91       	pop	r29
+    157a:	08 95       	ret
+
+0000157c <MDIO_voidTogglePinValue>:
+
+void MDIO_voidTogglePinValue (DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
+{
+    157c:	df 93       	push	r29
+    157e:	cf 93       	push	r28
+    1580:	00 d0       	rcall	.+0      	; 0x1582 <MDIO_voidTogglePinValue+0x6>
+    1582:	00 d0       	rcall	.+0      	; 0x1584 <MDIO_voidTogglePinValue+0x8>
+    1584:	cd b7       	in	r28, 0x3d	; 61
+    1586:	de b7       	in	r29, 0x3e	; 62
+    1588:	89 83       	std	Y+1, r24	; 0x01
+    158a:	6a 83       	std	Y+2, r22	; 0x02
+	// Input Validation
+	if ( (A_portID <= DIO_PORTD) && (A_pinID <= PIN7) )
+    158c:	89 81       	ldd	r24, Y+1	; 0x01
+    158e:	84 30       	cpi	r24, 0x04	; 4
+    1590:	08 f0       	brcs	.+2      	; 0x1594 <MDIO_voidTogglePinValue+0x18>
+    1592:	72 c0       	rjmp	.+228    	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+    1594:	8a 81       	ldd	r24, Y+2	; 0x02
+    1596:	88 30       	cpi	r24, 0x08	; 8
+    1598:	08 f0       	brcs	.+2      	; 0x159c <MDIO_voidTogglePinValue+0x20>
+    159a:	6e c0       	rjmp	.+220    	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+	{
+		switch (A_portID)
+    159c:	89 81       	ldd	r24, Y+1	; 0x01
+    159e:	28 2f       	mov	r18, r24
+    15a0:	30 e0       	ldi	r19, 0x00	; 0
+    15a2:	3c 83       	std	Y+4, r19	; 0x04
+    15a4:	2b 83       	std	Y+3, r18	; 0x03
+    15a6:	8b 81       	ldd	r24, Y+3	; 0x03
+    15a8:	9c 81       	ldd	r25, Y+4	; 0x04
+    15aa:	81 30       	cpi	r24, 0x01	; 1
+    15ac:	91 05       	cpc	r25, r1
+    15ae:	49 f1       	breq	.+82     	; 0x1602 <MDIO_voidTogglePinValue+0x86>
+    15b0:	2b 81       	ldd	r18, Y+3	; 0x03
+    15b2:	3c 81       	ldd	r19, Y+4	; 0x04
+    15b4:	22 30       	cpi	r18, 0x02	; 2
+    15b6:	31 05       	cpc	r19, r1
+    15b8:	2c f4       	brge	.+10     	; 0x15c4 <MDIO_voidTogglePinValue+0x48>
+    15ba:	8b 81       	ldd	r24, Y+3	; 0x03
+    15bc:	9c 81       	ldd	r25, Y+4	; 0x04
+    15be:	00 97       	sbiw	r24, 0x00	; 0
+    15c0:	61 f0       	breq	.+24     	; 0x15da <MDIO_voidTogglePinValue+0x5e>
+    15c2:	5a c0       	rjmp	.+180    	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+    15c4:	2b 81       	ldd	r18, Y+3	; 0x03
+    15c6:	3c 81       	ldd	r19, Y+4	; 0x04
+    15c8:	22 30       	cpi	r18, 0x02	; 2
+    15ca:	31 05       	cpc	r19, r1
+    15cc:	71 f1       	breq	.+92     	; 0x162a <MDIO_voidTogglePinValue+0xae>
+    15ce:	8b 81       	ldd	r24, Y+3	; 0x03
+    15d0:	9c 81       	ldd	r25, Y+4	; 0x04
+    15d2:	83 30       	cpi	r24, 0x03	; 3
+    15d4:	91 05       	cpc	r25, r1
+    15d6:	e9 f1       	breq	.+122    	; 0x1652 <MDIO_voidTogglePinValue+0xd6>
+    15d8:	4f c0       	rjmp	.+158    	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+		{
+		case DIO_PORTA:
+			TOGGLE_BIT(PORTA_REG,A_pinID);
+    15da:	ab e3       	ldi	r26, 0x3B	; 59
+    15dc:	b0 e0       	ldi	r27, 0x00	; 0
+    15de:	eb e3       	ldi	r30, 0x3B	; 59
+    15e0:	f0 e0       	ldi	r31, 0x00	; 0
+    15e2:	80 81       	ld	r24, Z
+    15e4:	48 2f       	mov	r20, r24
+    15e6:	8a 81       	ldd	r24, Y+2	; 0x02
+    15e8:	28 2f       	mov	r18, r24
+    15ea:	30 e0       	ldi	r19, 0x00	; 0
+    15ec:	81 e0       	ldi	r24, 0x01	; 1
+    15ee:	90 e0       	ldi	r25, 0x00	; 0
+    15f0:	02 2e       	mov	r0, r18
+    15f2:	02 c0       	rjmp	.+4      	; 0x15f8 <MDIO_voidTogglePinValue+0x7c>
+    15f4:	88 0f       	add	r24, r24
+    15f6:	99 1f       	adc	r25, r25
+    15f8:	0a 94       	dec	r0
+    15fa:	e2 f7       	brpl	.-8      	; 0x15f4 <MDIO_voidTogglePinValue+0x78>
+    15fc:	84 27       	eor	r24, r20
+    15fe:	8c 93       	st	X, r24
+    1600:	3b c0       	rjmp	.+118    	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+			break;
+		case DIO_PORTB:
+			TOGGLE_BIT(PORTB_REG,A_pinID);
+    1602:	a8 e3       	ldi	r26, 0x38	; 56
+    1604:	b0 e0       	ldi	r27, 0x00	; 0
+    1606:	e8 e3       	ldi	r30, 0x38	; 56
+    1608:	f0 e0       	ldi	r31, 0x00	; 0
+    160a:	80 81       	ld	r24, Z
+    160c:	48 2f       	mov	r20, r24
+    160e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1610:	28 2f       	mov	r18, r24
+    1612:	30 e0       	ldi	r19, 0x00	; 0
+    1614:	81 e0       	ldi	r24, 0x01	; 1
+    1616:	90 e0       	ldi	r25, 0x00	; 0
+    1618:	02 2e       	mov	r0, r18
+    161a:	02 c0       	rjmp	.+4      	; 0x1620 <MDIO_voidTogglePinValue+0xa4>
+    161c:	88 0f       	add	r24, r24
+    161e:	99 1f       	adc	r25, r25
+    1620:	0a 94       	dec	r0
+    1622:	e2 f7       	brpl	.-8      	; 0x161c <MDIO_voidTogglePinValue+0xa0>
+    1624:	84 27       	eor	r24, r20
+    1626:	8c 93       	st	X, r24
+    1628:	27 c0       	rjmp	.+78     	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+			break;
+		case DIO_PORTC:
+			TOGGLE_BIT(PORTC_REG,A_pinID);
+    162a:	a5 e3       	ldi	r26, 0x35	; 53
+    162c:	b0 e0       	ldi	r27, 0x00	; 0
+    162e:	e5 e3       	ldi	r30, 0x35	; 53
+    1630:	f0 e0       	ldi	r31, 0x00	; 0
+    1632:	80 81       	ld	r24, Z
+    1634:	48 2f       	mov	r20, r24
+    1636:	8a 81       	ldd	r24, Y+2	; 0x02
+    1638:	28 2f       	mov	r18, r24
+    163a:	30 e0       	ldi	r19, 0x00	; 0
+    163c:	81 e0       	ldi	r24, 0x01	; 1
+    163e:	90 e0       	ldi	r25, 0x00	; 0
+    1640:	02 2e       	mov	r0, r18
+    1642:	02 c0       	rjmp	.+4      	; 0x1648 <MDIO_voidTogglePinValue+0xcc>
+    1644:	88 0f       	add	r24, r24
+    1646:	99 1f       	adc	r25, r25
+    1648:	0a 94       	dec	r0
+    164a:	e2 f7       	brpl	.-8      	; 0x1644 <MDIO_voidTogglePinValue+0xc8>
+    164c:	84 27       	eor	r24, r20
+    164e:	8c 93       	st	X, r24
+    1650:	13 c0       	rjmp	.+38     	; 0x1678 <MDIO_voidTogglePinValue+0xfc>
+			break;
+		case DIO_PORTD:
+			TOGGLE_BIT(PORTD_REG,A_pinID);
+    1652:	a2 e3       	ldi	r26, 0x32	; 50
+    1654:	b0 e0       	ldi	r27, 0x00	; 0
+    1656:	e2 e3       	ldi	r30, 0x32	; 50
+    1658:	f0 e0       	ldi	r31, 0x00	; 0
+    165a:	80 81       	ld	r24, Z
+    165c:	48 2f       	mov	r20, r24
+    165e:	8a 81       	ldd	r24, Y+2	; 0x02
+    1660:	28 2f       	mov	r18, r24
+    1662:	30 e0       	ldi	r19, 0x00	; 0
+    1664:	81 e0       	ldi	r24, 0x01	; 1
+    1666:	90 e0       	ldi	r25, 0x00	; 0
+    1668:	02 2e       	mov	r0, r18
+    166a:	02 c0       	rjmp	.+4      	; 0x1670 <MDIO_voidTogglePinValue+0xf4>
+    166c:	88 0f       	add	r24, r24
+    166e:	99 1f       	adc	r25, r25
+    1670:	0a 94       	dec	r0
+    1672:	e2 f7       	brpl	.-8      	; 0x166c <MDIO_voidTogglePinValue+0xf0>
+    1674:	84 27       	eor	r24, r20
+    1676:	8c 93       	st	X, r24
+	}
+	else
+	{
+		// Do Nothing
+	}
+}
+    1678:	0f 90       	pop	r0
+    167a:	0f 90       	pop	r0
+    167c:	0f 90       	pop	r0
+    167e:	0f 90       	pop	r0
+    1680:	cf 91       	pop	r28
+    1682:	df 91       	pop	r29
+    1684:	08 95       	ret
+
+00001686 <MDIO_voidSetPortDirection>:
+
+
+void MDIO_voidSetPortDirection (DIO_PORT_e A_portID, u8 A_u8PortDirection)
+{
+    1686:	df 93       	push	r29
+    1688:	cf 93       	push	r28
+    168a:	00 d0       	rcall	.+0      	; 0x168c <MDIO_voidSetPortDirection+0x6>
+    168c:	00 d0       	rcall	.+0      	; 0x168e <MDIO_voidSetPortDirection+0x8>
+    168e:	cd b7       	in	r28, 0x3d	; 61
+    1690:	de b7       	in	r29, 0x3e	; 62
+    1692:	89 83       	std	Y+1, r24	; 0x01
+    1694:	6a 83       	std	Y+2, r22	; 0x02
+	// Input Validation
+	if ( (A_portID <= DIO_PORTD) )
+    1696:	89 81       	ldd	r24, Y+1	; 0x01
+    1698:	84 30       	cpi	r24, 0x04	; 4
+    169a:	90 f5       	brcc	.+100    	; 0x1700 <MDIO_voidSetPortDirection+0x7a>
+	{
+		switch (A_portID)
+    169c:	89 81       	ldd	r24, Y+1	; 0x01
+    169e:	28 2f       	mov	r18, r24
+    16a0:	30 e0       	ldi	r19, 0x00	; 0
+    16a2:	3c 83       	std	Y+4, r19	; 0x04
+    16a4:	2b 83       	std	Y+3, r18	; 0x03
+    16a6:	8b 81       	ldd	r24, Y+3	; 0x03
+    16a8:	9c 81       	ldd	r25, Y+4	; 0x04
+    16aa:	81 30       	cpi	r24, 0x01	; 1
+    16ac:	91 05       	cpc	r25, r1
+    16ae:	d1 f0       	breq	.+52     	; 0x16e4 <MDIO_voidSetPortDirection+0x5e>
+    16b0:	2b 81       	ldd	r18, Y+3	; 0x03
+    16b2:	3c 81       	ldd	r19, Y+4	; 0x04
+    16b4:	22 30       	cpi	r18, 0x02	; 2
+    16b6:	31 05       	cpc	r19, r1
+    16b8:	2c f4       	brge	.+10     	; 0x16c4 <MDIO_voidSetPortDirection+0x3e>
+    16ba:	8b 81       	ldd	r24, Y+3	; 0x03
+    16bc:	9c 81       	ldd	r25, Y+4	; 0x04
+    16be:	00 97       	sbiw	r24, 0x00	; 0
+    16c0:	61 f0       	breq	.+24     	; 0x16da <MDIO_voidSetPortDirection+0x54>
+    16c2:	1e c0       	rjmp	.+60     	; 0x1700 <MDIO_voidSetPortDirection+0x7a>
+    16c4:	2b 81       	ldd	r18, Y+3	; 0x03
+    16c6:	3c 81       	ldd	r19, Y+4	; 0x04
+    16c8:	22 30       	cpi	r18, 0x02	; 2
+    16ca:	31 05       	cpc	r19, r1
+    16cc:	81 f0       	breq	.+32     	; 0x16ee <MDIO_voidSetPortDirection+0x68>
+    16ce:	8b 81       	ldd	r24, Y+3	; 0x03
+    16d0:	9c 81       	ldd	r25, Y+4	; 0x04
+    16d2:	83 30       	cpi	r24, 0x03	; 3
+    16d4:	91 05       	cpc	r25, r1
+    16d6:	81 f0       	breq	.+32     	; 0x16f8 <MDIO_voidSetPortDirection+0x72>
+    16d8:	13 c0       	rjmp	.+38     	; 0x1700 <MDIO_voidSetPortDirection+0x7a>
+		{
+		case DIO_PORTA:
+			DDRA_REG = A_u8PortDirection;
+    16da:	ea e3       	ldi	r30, 0x3A	; 58
+    16dc:	f0 e0       	ldi	r31, 0x00	; 0
+    16de:	8a 81       	ldd	r24, Y+2	; 0x02
+    16e0:	80 83       	st	Z, r24
+    16e2:	0e c0       	rjmp	.+28     	; 0x1700 <MDIO_voidSetPortDirection+0x7a>
+			break;
+		case DIO_PORTB:
+			DDRB_REG = A_u8PortDirection;
+    16e4:	e7 e3       	ldi	r30, 0x37	; 55
+    16e6:	f0 e0       	ldi	r31, 0x00	; 0
+    16e8:	8a 81       	ldd	r24, Y+2	; 0x02
+    16ea:	80 83       	st	Z, r24
+    16ec:	09 c0       	rjmp	.+18     	; 0x1700 <MDIO_voidSetPortDirection+0x7a>
+			break;
+		case DIO_PORTC:
+			DDRC_REG = A_u8PortDirection;
+    16ee:	e4 e3       	ldi	r30, 0x34	; 52
+    16f0:	f0 e0       	ldi	r31, 0x00	; 0
+    16f2:	8a 81       	ldd	r24, Y+2	; 0x02
+    16f4:	80 83       	st	Z, r24
+    16f6:	04 c0       	rjmp	.+8      	; 0x1700 <MDIO_voidSetPortDirection+0x7a>
+			break;
+		case DIO_PORTD:
+			DDRD_REG = A_u8PortDirection;
+    16f8:	e1 e3       	ldi	r30, 0x31	; 49
+    16fa:	f0 e0       	ldi	r31, 0x00	; 0
+    16fc:	8a 81       	ldd	r24, Y+2	; 0x02
+    16fe:	80 83       	st	Z, r24
+	}
+	else
+	{
+		// Do Nothing
+	}
+}
+    1700:	0f 90       	pop	r0
+    1702:	0f 90       	pop	r0
+    1704:	0f 90       	pop	r0
+    1706:	0f 90       	pop	r0
+    1708:	cf 91       	pop	r28
+    170a:	df 91       	pop	r29
+    170c:	08 95       	ret
+
+0000170e <MDIO_voidSetPortValue>:
+
+void MDIO_voidSetPortValue (DIO_PORT_e A_portID, u8 A_u8PortValue)
+{
+    170e:	df 93       	push	r29
+    1710:	cf 93       	push	r28
+    1712:	00 d0       	rcall	.+0      	; 0x1714 <MDIO_voidSetPortValue+0x6>
+    1714:	00 d0       	rcall	.+0      	; 0x1716 <MDIO_voidSetPortValue+0x8>
+    1716:	cd b7       	in	r28, 0x3d	; 61
+    1718:	de b7       	in	r29, 0x3e	; 62
+    171a:	89 83       	std	Y+1, r24	; 0x01
+    171c:	6a 83       	std	Y+2, r22	; 0x02
+	// Input Validation
+	if ( (A_portID <= DIO_PORTD) )
+    171e:	89 81       	ldd	r24, Y+1	; 0x01
+    1720:	84 30       	cpi	r24, 0x04	; 4
+    1722:	90 f5       	brcc	.+100    	; 0x1788 <MDIO_voidSetPortValue+0x7a>
+	{
+		switch (A_portID)
+    1724:	89 81       	ldd	r24, Y+1	; 0x01
+    1726:	28 2f       	mov	r18, r24
+    1728:	30 e0       	ldi	r19, 0x00	; 0
+    172a:	3c 83       	std	Y+4, r19	; 0x04
+    172c:	2b 83       	std	Y+3, r18	; 0x03
+    172e:	8b 81       	ldd	r24, Y+3	; 0x03
+    1730:	9c 81       	ldd	r25, Y+4	; 0x04
+    1732:	81 30       	cpi	r24, 0x01	; 1
+    1734:	91 05       	cpc	r25, r1
+    1736:	d1 f0       	breq	.+52     	; 0x176c <MDIO_voidSetPortValue+0x5e>
+    1738:	2b 81       	ldd	r18, Y+3	; 0x03
+    173a:	3c 81       	ldd	r19, Y+4	; 0x04
+    173c:	22 30       	cpi	r18, 0x02	; 2
+    173e:	31 05       	cpc	r19, r1
+    1740:	2c f4       	brge	.+10     	; 0x174c <MDIO_voidSetPortValue+0x3e>
+    1742:	8b 81       	ldd	r24, Y+3	; 0x03
+    1744:	9c 81       	ldd	r25, Y+4	; 0x04
+    1746:	00 97       	sbiw	r24, 0x00	; 0
+    1748:	61 f0       	breq	.+24     	; 0x1762 <MDIO_voidSetPortValue+0x54>
+    174a:	1e c0       	rjmp	.+60     	; 0x1788 <MDIO_voidSetPortValue+0x7a>
+    174c:	2b 81       	ldd	r18, Y+3	; 0x03
+    174e:	3c 81       	ldd	r19, Y+4	; 0x04
+    1750:	22 30       	cpi	r18, 0x02	; 2
+    1752:	31 05       	cpc	r19, r1
+    1754:	81 f0       	breq	.+32     	; 0x1776 <MDIO_voidSetPortValue+0x68>
+    1756:	8b 81       	ldd	r24, Y+3	; 0x03
+    1758:	9c 81       	ldd	r25, Y+4	; 0x04
+    175a:	83 30       	cpi	r24, 0x03	; 3
+    175c:	91 05       	cpc	r25, r1
+    175e:	81 f0       	breq	.+32     	; 0x1780 <MDIO_voidSetPortValue+0x72>
+    1760:	13 c0       	rjmp	.+38     	; 0x1788 <MDIO_voidSetPortValue+0x7a>
+		{
+		case DIO_PORTA:
+			PORTA_REG = A_u8PortValue;
+    1762:	eb e3       	ldi	r30, 0x3B	; 59
+    1764:	f0 e0       	ldi	r31, 0x00	; 0
+    1766:	8a 81       	ldd	r24, Y+2	; 0x02
+    1768:	80 83       	st	Z, r24
+    176a:	0e c0       	rjmp	.+28     	; 0x1788 <MDIO_voidSetPortValue+0x7a>
+			break;
+		case DIO_PORTB:
+			PORTB_REG = A_u8PortValue;
+    176c:	e8 e3       	ldi	r30, 0x38	; 56
+    176e:	f0 e0       	ldi	r31, 0x00	; 0
+    1770:	8a 81       	ldd	r24, Y+2	; 0x02
+    1772:	80 83       	st	Z, r24
+    1774:	09 c0       	rjmp	.+18     	; 0x1788 <MDIO_voidSetPortValue+0x7a>
+			break;
+		case DIO_PORTC:
+			PORTC_REG = A_u8PortValue;
+    1776:	e5 e3       	ldi	r30, 0x35	; 53
+    1778:	f0 e0       	ldi	r31, 0x00	; 0
+    177a:	8a 81       	ldd	r24, Y+2	; 0x02
+    177c:	80 83       	st	Z, r24
+    177e:	04 c0       	rjmp	.+8      	; 0x1788 <MDIO_voidSetPortValue+0x7a>
+			break;
+		case DIO_PORTD:
+			PORTD_REG = A_u8PortValue;
+    1780:	e2 e3       	ldi	r30, 0x32	; 50
+    1782:	f0 e0       	ldi	r31, 0x00	; 0
+    1784:	8a 81       	ldd	r24, Y+2	; 0x02
+    1786:	80 83       	st	Z, r24
+	}
+	else
+	{
+		// Do Nothing
+	}
+}
+    1788:	0f 90       	pop	r0
+    178a:	0f 90       	pop	r0
+    178c:	0f 90       	pop	r0
+    178e:	0f 90       	pop	r0
+    1790:	cf 91       	pop	r28
+    1792:	df 91       	pop	r29
+    1794:	08 95       	ret
+
+00001796 <MDIO_voidInit>:
+
+
+void MDIO_voidInit (void)
+{
+    1796:	df 93       	push	r29
+    1798:	cf 93       	push	r28
+    179a:	cd b7       	in	r28, 0x3d	; 61
+    179c:	de b7       	in	r29, 0x3e	; 62
+
+	DDRA_REG = CONC_BIT(PA7_INITIAL_DIRECTION,PA6_INITIAL_DIRECTION,
+    179e:	ea e3       	ldi	r30, 0x3A	; 58
+    17a0:	f0 e0       	ldi	r31, 0x00	; 0
+    17a2:	10 82       	st	Z, r1
+						PA5_INITIAL_DIRECTION,PA4_INITIAL_DIRECTION,
+						PA3_INITIAL_DIRECTION,PA2_INITIAL_DIRECTION,
+						PA1_INITIAL_DIRECTION,PA0_INITIAL_DIRECTION);
+
+	DDRB_REG = CONC_BIT(PB7_INITIAL_DIRECTION,PB6_INITIAL_DIRECTION,
+    17a4:	e7 e3       	ldi	r30, 0x37	; 55
+    17a6:	f0 e0       	ldi	r31, 0x00	; 0
+    17a8:	10 82       	st	Z, r1
+						PB5_INITIAL_DIRECTION,PB4_INITIAL_DIRECTION,
+						PB3_INITIAL_DIRECTION,PB2_INITIAL_DIRECTION,
+						PB1_INITIAL_DIRECTION,PB0_INITIAL_DIRECTION);
+
+	DDRC_REG = CONC_BIT(PC7_INITIAL_DIRECTION,PC6_INITIAL_DIRECTION,
+    17aa:	e4 e3       	ldi	r30, 0x34	; 52
+    17ac:	f0 e0       	ldi	r31, 0x00	; 0
+    17ae:	10 82       	st	Z, r1
+						PC5_INITIAL_DIRECTION,PC4_INITIAL_DIRECTION,
+						PC3_INITIAL_DIRECTION,PC2_INITIAL_DIRECTION,
+						PC1_INITIAL_DIRECTION,PC0_INITIAL_DIRECTION);
+
+	DDRD_REG = CONC_BIT(PD7_INITIAL_DIRECTION,PD6_INITIAL_DIRECTION,
+    17b0:	e1 e3       	ldi	r30, 0x31	; 49
+    17b2:	f0 e0       	ldi	r31, 0x00	; 0
+    17b4:	10 82       	st	Z, r1
+						PD3_INITIAL_DIRECTION,PD2_INITIAL_DIRECTION,
+						PD1_INITIAL_DIRECTION,PD0_INITIAL_DIRECTION);
+
+	/**********************************************************************/
+
+	PORTA_REG = CONC_BIT(PA7_INITIAL_VALUE,PA6_INITIAL_VALUE,
+    17b6:	eb e3       	ldi	r30, 0x3B	; 59
+    17b8:	f0 e0       	ldi	r31, 0x00	; 0
+    17ba:	10 82       	st	Z, r1
+						 PA5_INITIAL_VALUE,PA4_INITIAL_VALUE,
+						 PA3_INITIAL_VALUE,PA2_INITIAL_VALUE,
+						 PA1_INITIAL_VALUE,PA0_INITIAL_VALUE);
+
+	PORTB_REG = CONC_BIT(PB7_INITIAL_VALUE,PB6_INITIAL_VALUE,
+    17bc:	e8 e3       	ldi	r30, 0x38	; 56
+    17be:	f0 e0       	ldi	r31, 0x00	; 0
+    17c0:	10 82       	st	Z, r1
+						 PB5_INITIAL_VALUE,PB4_INITIAL_VALUE,
+						 PB3_INITIAL_VALUE,PB2_INITIAL_VALUE,
+						 PB1_INITIAL_VALUE,PB0_INITIAL_VALUE);
+
+	PORTC_REG = CONC_BIT(PC7_INITIAL_VALUE,PC6_INITIAL_VALUE,
+    17c2:	e5 e3       	ldi	r30, 0x35	; 53
+    17c4:	f0 e0       	ldi	r31, 0x00	; 0
+    17c6:	10 82       	st	Z, r1
+						 PC5_INITIAL_VALUE,PC4_INITIAL_VALUE,
+						 PC3_INITIAL_VALUE,PC2_INITIAL_VALUE,
+						 PC1_INITIAL_VALUE,PC0_INITIAL_VALUE);
+
+	PORTD_REG = CONC_BIT(PD7_INITIAL_VALUE,PD6_INITIAL_VALUE,
+    17c8:	e2 e3       	ldi	r30, 0x32	; 50
+    17ca:	f0 e0       	ldi	r31, 0x00	; 0
+    17cc:	10 82       	st	Z, r1
+						 PD5_INITIAL_VALUE,PD4_INITIAL_VALUE,
+						 PD3_INITIAL_VALUE,PD2_INITIAL_VALUE,
+						 PD1_INITIAL_VALUE,PD0_INITIAL_VALUE);
+}
+    17ce:	cf 91       	pop	r28
+    17d0:	df 91       	pop	r29
+    17d2:	08 95       	ret
+
+000017d4 <HLED_voidTurnLEDOn>:
+#include "../Include/HAL/LED/LED_Private.h"
+#include "../Include/HAL/LED/LED_cfg.h"
+
+
+void HLED_voidTurnLEDOn(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
+{
+    17d4:	df 93       	push	r29
+    17d6:	cf 93       	push	r28
+    17d8:	00 d0       	rcall	.+0      	; 0x17da <HLED_voidTurnLEDOn+0x6>
+    17da:	cd b7       	in	r28, 0x3d	; 61
+    17dc:	de b7       	in	r29, 0x3e	; 62
+    17de:	89 83       	std	Y+1, r24	; 0x01
+    17e0:	6a 83       	std	Y+2, r22	; 0x02
+	MDIO_voidSetPinValue(A_portID ,A_pinID , DIO_SET);
+    17e2:	89 81       	ldd	r24, Y+1	; 0x01
+    17e4:	6a 81       	ldd	r22, Y+2	; 0x02
+    17e6:	41 e0       	ldi	r20, 0x01	; 1
+    17e8:	0e 94 1a 09 	call	0x1234	; 0x1234 <MDIO_voidSetPinValue>
+}
+    17ec:	0f 90       	pop	r0
+    17ee:	0f 90       	pop	r0
+    17f0:	cf 91       	pop	r28
+    17f2:	df 91       	pop	r29
+    17f4:	08 95       	ret
+
+000017f6 <HLED_voidTurnLEDOff>:
+void HLED_voidTurnLEDOff(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
+{
+    17f6:	df 93       	push	r29
+    17f8:	cf 93       	push	r28
+    17fa:	00 d0       	rcall	.+0      	; 0x17fc <HLED_voidTurnLEDOff+0x6>
+    17fc:	cd b7       	in	r28, 0x3d	; 61
+    17fe:	de b7       	in	r29, 0x3e	; 62
+    1800:	89 83       	std	Y+1, r24	; 0x01
+    1802:	6a 83       	std	Y+2, r22	; 0x02
+	MDIO_voidSetPinValue(A_portID ,A_pinID , DIO_RESET);
+    1804:	89 81       	ldd	r24, Y+1	; 0x01
+    1806:	6a 81       	ldd	r22, Y+2	; 0x02
+    1808:	40 e0       	ldi	r20, 0x00	; 0
+    180a:	0e 94 1a 09 	call	0x1234	; 0x1234 <MDIO_voidSetPinValue>
+}
+    180e:	0f 90       	pop	r0
+    1810:	0f 90       	pop	r0
+    1812:	cf 91       	pop	r28
+    1814:	df 91       	pop	r29
+    1816:	08 95       	ret
+
+00001818 <HLED_voidToggleLED>:
+void HLED_voidToggleLED(DIO_PORT_e A_portID, DIO_PIN_e A_pinID)
+{
+    1818:	df 93       	push	r29
+    181a:	cf 93       	push	r28
+    181c:	00 d0       	rcall	.+0      	; 0x181e <HLED_voidToggleLED+0x6>
+    181e:	cd b7       	in	r28, 0x3d	; 61
+    1820:	de b7       	in	r29, 0x3e	; 62
+    1822:	89 83       	std	Y+1, r24	; 0x01
+    1824:	6a 83       	std	Y+2, r22	; 0x02
+	MDIO_voidTogglePinValue(A_portID,A_pinID);
+    1826:	89 81       	ldd	r24, Y+1	; 0x01
+    1828:	6a 81       	ldd	r22, Y+2	; 0x02
+    182a:	0e 94 be 0a 	call	0x157c	; 0x157c <MDIO_voidTogglePinValue>
+}
+    182e:	0f 90       	pop	r0
+    1830:	0f 90       	pop	r0
+    1832:	cf 91       	pop	r28
+    1834:	df 91       	pop	r29
+    1836:	08 95       	ret
+
+00001838 <HSSD_voidDisplayNumber>:
+
+
+#include "../Include/HAL/SSD/SSD_Interface.h"
+
+void HSSD_voidDisplayNumber(DIO_PORT_e A_portID, u8 A_u8NumberValue)
+{
+    1838:	df 93       	push	r29
+    183a:	cf 93       	push	r28
+    183c:	00 d0       	rcall	.+0      	; 0x183e <HSSD_voidDisplayNumber+0x6>
+    183e:	00 d0       	rcall	.+0      	; 0x1840 <HSSD_voidDisplayNumber+0x8>
+    1840:	cd b7       	in	r28, 0x3d	; 61
+    1842:	de b7       	in	r29, 0x3e	; 62
+    1844:	89 83       	std	Y+1, r24	; 0x01
+    1846:	6a 83       	std	Y+2, r22	; 0x02
+	// Check Input Validation
+	if(A_portID <= DIO_PORTD)
+    1848:	89 81       	ldd	r24, Y+1	; 0x01
+    184a:	84 30       	cpi	r24, 0x04	; 4
+    184c:	90 f5       	brcc	.+100    	; 0x18b2 <HSSD_voidDisplayNumber+0x7a>
+	{
+		switch(A_portID)
+    184e:	89 81       	ldd	r24, Y+1	; 0x01
+    1850:	28 2f       	mov	r18, r24
+    1852:	30 e0       	ldi	r19, 0x00	; 0
+    1854:	3c 83       	std	Y+4, r19	; 0x04
+    1856:	2b 83       	std	Y+3, r18	; 0x03
+    1858:	8b 81       	ldd	r24, Y+3	; 0x03
+    185a:	9c 81       	ldd	r25, Y+4	; 0x04
+    185c:	81 30       	cpi	r24, 0x01	; 1
+    185e:	91 05       	cpc	r25, r1
+    1860:	d1 f0       	breq	.+52     	; 0x1896 <HSSD_voidDisplayNumber+0x5e>
+    1862:	2b 81       	ldd	r18, Y+3	; 0x03
+    1864:	3c 81       	ldd	r19, Y+4	; 0x04
+    1866:	22 30       	cpi	r18, 0x02	; 2
+    1868:	31 05       	cpc	r19, r1
+    186a:	2c f4       	brge	.+10     	; 0x1876 <HSSD_voidDisplayNumber+0x3e>
+    186c:	8b 81       	ldd	r24, Y+3	; 0x03
+    186e:	9c 81       	ldd	r25, Y+4	; 0x04
+    1870:	00 97       	sbiw	r24, 0x00	; 0
+    1872:	61 f0       	breq	.+24     	; 0x188c <HSSD_voidDisplayNumber+0x54>
+    1874:	1e c0       	rjmp	.+60     	; 0x18b2 <HSSD_voidDisplayNumber+0x7a>
+    1876:	2b 81       	ldd	r18, Y+3	; 0x03
+    1878:	3c 81       	ldd	r19, Y+4	; 0x04
+    187a:	22 30       	cpi	r18, 0x02	; 2
+    187c:	31 05       	cpc	r19, r1
+    187e:	81 f0       	breq	.+32     	; 0x18a0 <HSSD_voidDisplayNumber+0x68>
+    1880:	8b 81       	ldd	r24, Y+3	; 0x03
+    1882:	9c 81       	ldd	r25, Y+4	; 0x04
+    1884:	83 30       	cpi	r24, 0x03	; 3
+    1886:	91 05       	cpc	r25, r1
+    1888:	81 f0       	breq	.+32     	; 0x18aa <HSSD_voidDisplayNumber+0x72>
+    188a:	13 c0       	rjmp	.+38     	; 0x18b2 <HSSD_voidDisplayNumber+0x7a>
+		{
+		case DIO_PORTA:
+//			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
+			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
+    188c:	89 81       	ldd	r24, Y+1	; 0x01
+    188e:	6a 81       	ldd	r22, Y+2	; 0x02
+    1890:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+    1894:	0e c0       	rjmp	.+28     	; 0x18b2 <HSSD_voidDisplayNumber+0x7a>
+			break;
+		case DIO_PORTB:
+//			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
+			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
+    1896:	89 81       	ldd	r24, Y+1	; 0x01
+    1898:	6a 81       	ldd	r22, Y+2	; 0x02
+    189a:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+    189e:	09 c0       	rjmp	.+18     	; 0x18b2 <HSSD_voidDisplayNumber+0x7a>
+			break;
+		case DIO_PORTC:
+//			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
+			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
+    18a0:	89 81       	ldd	r24, Y+1	; 0x01
+    18a2:	6a 81       	ldd	r22, Y+2	; 0x02
+    18a4:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+    18a8:	04 c0       	rjmp	.+8      	; 0x18b2 <HSSD_voidDisplayNumber+0x7a>
+			break;
+		case DIO_PORTD:
+//			MDIO_voidSetPortDirection(A_portID,~(A_u8NumberValue));
+			MDIO_voidSetPortValue(A_portID,(A_u8NumberValue));
+    18aa:	89 81       	ldd	r24, Y+1	; 0x01
+    18ac:	6a 81       	ldd	r22, Y+2	; 0x02
+    18ae:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+	}
+	else
+	{
+		// Do Nothing
+	}
+}
+    18b2:	0f 90       	pop	r0
+    18b4:	0f 90       	pop	r0
+    18b6:	0f 90       	pop	r0
+    18b8:	0f 90       	pop	r0
+    18ba:	cf 91       	pop	r28
+    18bc:	df 91       	pop	r29
+    18be:	08 95       	ret
+
+000018c0 <HSSD_voidDisplayNumberAscending>:
+
+void HSSD_voidDisplayNumberAscending(DIO_PORT_e A_portID , u16 A_u16TimeToWait)
+{
+    18c0:	df 93       	push	r29
+    18c2:	cf 93       	push	r28
+    18c4:	cd b7       	in	r28, 0x3d	; 61
+    18c6:	de b7       	in	r29, 0x3e	; 62
+    18c8:	a1 97       	sbiw	r28, 0x21	; 33
+    18ca:	0f b6       	in	r0, 0x3f	; 63
+    18cc:	f8 94       	cli
+    18ce:	de bf       	out	0x3e, r29	; 62
+    18d0:	0f be       	out	0x3f, r0	; 63
+    18d2:	cd bf       	out	0x3d, r28	; 61
+    18d4:	8a 8f       	std	Y+26, r24	; 0x1a
+    18d6:	7c 8f       	std	Y+28, r23	; 0x1c
+    18d8:	6b 8f       	std	Y+27, r22	; 0x1b
+	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
+    18da:	ce 01       	movw	r24, r28
+    18dc:	40 96       	adiw	r24, 0x10	; 16
+    18de:	9e 8f       	std	Y+30, r25	; 0x1e
+    18e0:	8d 8f       	std	Y+29, r24	; 0x1d
+    18e2:	e5 e7       	ldi	r30, 0x75	; 117
+    18e4:	f1 e0       	ldi	r31, 0x01	; 1
+    18e6:	f8 a3       	std	Y+32, r31	; 0x20
+    18e8:	ef 8f       	std	Y+31, r30	; 0x1f
+    18ea:	fa e0       	ldi	r31, 0x0A	; 10
+    18ec:	f9 a3       	std	Y+33, r31	; 0x21
+    18ee:	ef 8d       	ldd	r30, Y+31	; 0x1f
+    18f0:	f8 a1       	ldd	r31, Y+32	; 0x20
+    18f2:	00 80       	ld	r0, Z
+    18f4:	8f 8d       	ldd	r24, Y+31	; 0x1f
+    18f6:	98 a1       	ldd	r25, Y+32	; 0x20
+    18f8:	01 96       	adiw	r24, 0x01	; 1
+    18fa:	98 a3       	std	Y+32, r25	; 0x20
+    18fc:	8f 8f       	std	Y+31, r24	; 0x1f
+    18fe:	ed 8d       	ldd	r30, Y+29	; 0x1d
+    1900:	fe 8d       	ldd	r31, Y+30	; 0x1e
+    1902:	00 82       	st	Z, r0
+    1904:	8d 8d       	ldd	r24, Y+29	; 0x1d
+    1906:	9e 8d       	ldd	r25, Y+30	; 0x1e
+    1908:	01 96       	adiw	r24, 0x01	; 1
+    190a:	9e 8f       	std	Y+30, r25	; 0x1e
+    190c:	8d 8f       	std	Y+29, r24	; 0x1d
+    190e:	99 a1       	ldd	r25, Y+33	; 0x21
+    1910:	91 50       	subi	r25, 0x01	; 1
+    1912:	99 a3       	std	Y+33, r25	; 0x21
+    1914:	e9 a1       	ldd	r30, Y+33	; 0x21
+    1916:	ee 23       	and	r30, r30
+    1918:	51 f7       	brne	.-44     	; 0x18ee <HSSD_voidDisplayNumberAscending+0x2e>
+	for(u8 i=0; i<=9;i++)
+    191a:	1f 86       	std	Y+15, r1	; 0x0f
+    191c:	89 c0       	rjmp	.+274    	; 0x1a30 <HSSD_voidDisplayNumberAscending+0x170>
+	{
+//		MDIO_voidSetPortDirection(A_portID,~(SSD_arr[i]));
+		MDIO_voidSetPortValue(A_portID,(SSD_arr[i]));
+    191e:	8f 85       	ldd	r24, Y+15	; 0x0f
+    1920:	28 2f       	mov	r18, r24
+    1922:	30 e0       	ldi	r19, 0x00	; 0
+    1924:	ce 01       	movw	r24, r28
+    1926:	40 96       	adiw	r24, 0x10	; 16
+    1928:	fc 01       	movw	r30, r24
+    192a:	e2 0f       	add	r30, r18
+    192c:	f3 1f       	adc	r31, r19
+    192e:	90 81       	ld	r25, Z
+    1930:	8a 8d       	ldd	r24, Y+26	; 0x1a
+    1932:	69 2f       	mov	r22, r25
+    1934:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+		_delay_ms(A_u16TimeToWait);
+    1938:	8b 8d       	ldd	r24, Y+27	; 0x1b
+    193a:	9c 8d       	ldd	r25, Y+28	; 0x1c
+    193c:	cc 01       	movw	r24, r24
+    193e:	a0 e0       	ldi	r26, 0x00	; 0
+    1940:	b0 e0       	ldi	r27, 0x00	; 0
+    1942:	bc 01       	movw	r22, r24
+    1944:	cd 01       	movw	r24, r26
+    1946:	0e 94 f5 03 	call	0x7ea	; 0x7ea <__floatunsisf>
+    194a:	dc 01       	movw	r26, r24
+    194c:	cb 01       	movw	r24, r22
+    194e:	8b 87       	std	Y+11, r24	; 0x0b
+    1950:	9c 87       	std	Y+12, r25	; 0x0c
+    1952:	ad 87       	std	Y+13, r26	; 0x0d
+    1954:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+    1956:	6b 85       	ldd	r22, Y+11	; 0x0b
+    1958:	7c 85       	ldd	r23, Y+12	; 0x0c
+    195a:	8d 85       	ldd	r24, Y+13	; 0x0d
+    195c:	9e 85       	ldd	r25, Y+14	; 0x0e
+    195e:	20 e0       	ldi	r18, 0x00	; 0
+    1960:	30 e0       	ldi	r19, 0x00	; 0
+    1962:	4a ef       	ldi	r20, 0xFA	; 250
+    1964:	54 e4       	ldi	r21, 0x44	; 68
+    1966:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+    196a:	dc 01       	movw	r26, r24
+    196c:	cb 01       	movw	r24, r22
+    196e:	8f 83       	std	Y+7, r24	; 0x07
+    1970:	98 87       	std	Y+8, r25	; 0x08
+    1972:	a9 87       	std	Y+9, r26	; 0x09
+    1974:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+    1976:	6f 81       	ldd	r22, Y+7	; 0x07
+    1978:	78 85       	ldd	r23, Y+8	; 0x08
+    197a:	89 85       	ldd	r24, Y+9	; 0x09
+    197c:	9a 85       	ldd	r25, Y+10	; 0x0a
+    197e:	20 e0       	ldi	r18, 0x00	; 0
+    1980:	30 e0       	ldi	r19, 0x00	; 0
+    1982:	40 e8       	ldi	r20, 0x80	; 128
+    1984:	5f e3       	ldi	r21, 0x3F	; 63
+    1986:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__ltsf2>
+    198a:	88 23       	and	r24, r24
+    198c:	2c f4       	brge	.+10     	; 0x1998 <HSSD_voidDisplayNumberAscending+0xd8>
+		__ticks = 1;
+    198e:	81 e0       	ldi	r24, 0x01	; 1
+    1990:	90 e0       	ldi	r25, 0x00	; 0
+    1992:	9e 83       	std	Y+6, r25	; 0x06
+    1994:	8d 83       	std	Y+5, r24	; 0x05
+    1996:	3f c0       	rjmp	.+126    	; 0x1a16 <HSSD_voidDisplayNumberAscending+0x156>
+	else if (__tmp > 65535)
+    1998:	6f 81       	ldd	r22, Y+7	; 0x07
+    199a:	78 85       	ldd	r23, Y+8	; 0x08
+    199c:	89 85       	ldd	r24, Y+9	; 0x09
+    199e:	9a 85       	ldd	r25, Y+10	; 0x0a
+    19a0:	20 e0       	ldi	r18, 0x00	; 0
+    19a2:	3f ef       	ldi	r19, 0xFF	; 255
+    19a4:	4f e7       	ldi	r20, 0x7F	; 127
+    19a6:	57 e4       	ldi	r21, 0x47	; 71
+    19a8:	0e 94 11 03 	call	0x622	; 0x622 <__gtsf2>
+    19ac:	18 16       	cp	r1, r24
+    19ae:	4c f5       	brge	.+82     	; 0x1a02 <HSSD_voidDisplayNumberAscending+0x142>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+    19b0:	6b 85       	ldd	r22, Y+11	; 0x0b
+    19b2:	7c 85       	ldd	r23, Y+12	; 0x0c
+    19b4:	8d 85       	ldd	r24, Y+13	; 0x0d
+    19b6:	9e 85       	ldd	r25, Y+14	; 0x0e
+    19b8:	20 e0       	ldi	r18, 0x00	; 0
+    19ba:	30 e0       	ldi	r19, 0x00	; 0
+    19bc:	40 e2       	ldi	r20, 0x20	; 32
+    19be:	51 e4       	ldi	r21, 0x41	; 65
+    19c0:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+    19c4:	dc 01       	movw	r26, r24
+    19c6:	cb 01       	movw	r24, r22
+    19c8:	bc 01       	movw	r22, r24
+    19ca:	cd 01       	movw	r24, r26
+    19cc:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+    19d0:	dc 01       	movw	r26, r24
+    19d2:	cb 01       	movw	r24, r22
+    19d4:	9e 83       	std	Y+6, r25	; 0x06
+    19d6:	8d 83       	std	Y+5, r24	; 0x05
+    19d8:	0f c0       	rjmp	.+30     	; 0x19f8 <HSSD_voidDisplayNumberAscending+0x138>
+    19da:	88 ec       	ldi	r24, 0xC8	; 200
+    19dc:	90 e0       	ldi	r25, 0x00	; 0
+    19de:	9c 83       	std	Y+4, r25	; 0x04
+    19e0:	8b 83       	std	Y+3, r24	; 0x03
+    19e2:	8b 81       	ldd	r24, Y+3	; 0x03
+    19e4:	9c 81       	ldd	r25, Y+4	; 0x04
+    19e6:	01 97       	sbiw	r24, 0x01	; 1
+    19e8:	f1 f7       	brne	.-4      	; 0x19e6 <HSSD_voidDisplayNumberAscending+0x126>
+    19ea:	9c 83       	std	Y+4, r25	; 0x04
+    19ec:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+    19ee:	8d 81       	ldd	r24, Y+5	; 0x05
+    19f0:	9e 81       	ldd	r25, Y+6	; 0x06
+    19f2:	01 97       	sbiw	r24, 0x01	; 1
+    19f4:	9e 83       	std	Y+6, r25	; 0x06
+    19f6:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+    19f8:	8d 81       	ldd	r24, Y+5	; 0x05
+    19fa:	9e 81       	ldd	r25, Y+6	; 0x06
+    19fc:	00 97       	sbiw	r24, 0x00	; 0
+    19fe:	69 f7       	brne	.-38     	; 0x19da <HSSD_voidDisplayNumberAscending+0x11a>
+    1a00:	14 c0       	rjmp	.+40     	; 0x1a2a <HSSD_voidDisplayNumberAscending+0x16a>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+    1a02:	6f 81       	ldd	r22, Y+7	; 0x07
+    1a04:	78 85       	ldd	r23, Y+8	; 0x08
+    1a06:	89 85       	ldd	r24, Y+9	; 0x09
+    1a08:	9a 85       	ldd	r25, Y+10	; 0x0a
+    1a0a:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+    1a0e:	dc 01       	movw	r26, r24
+    1a10:	cb 01       	movw	r24, r22
+    1a12:	9e 83       	std	Y+6, r25	; 0x06
+    1a14:	8d 83       	std	Y+5, r24	; 0x05
+    1a16:	8d 81       	ldd	r24, Y+5	; 0x05
+    1a18:	9e 81       	ldd	r25, Y+6	; 0x06
+    1a1a:	9a 83       	std	Y+2, r25	; 0x02
+    1a1c:	89 83       	std	Y+1, r24	; 0x01
+    1a1e:	89 81       	ldd	r24, Y+1	; 0x01
+    1a20:	9a 81       	ldd	r25, Y+2	; 0x02
+    1a22:	01 97       	sbiw	r24, 0x01	; 1
+    1a24:	f1 f7       	brne	.-4      	; 0x1a22 <HSSD_voidDisplayNumberAscending+0x162>
+    1a26:	9a 83       	std	Y+2, r25	; 0x02
+    1a28:	89 83       	std	Y+1, r24	; 0x01
+}
+
+void HSSD_voidDisplayNumberAscending(DIO_PORT_e A_portID , u16 A_u16TimeToWait)
+{
+	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
+	for(u8 i=0; i<=9;i++)
+    1a2a:	8f 85       	ldd	r24, Y+15	; 0x0f
+    1a2c:	8f 5f       	subi	r24, 0xFF	; 255
+    1a2e:	8f 87       	std	Y+15, r24	; 0x0f
+    1a30:	8f 85       	ldd	r24, Y+15	; 0x0f
+    1a32:	8a 30       	cpi	r24, 0x0A	; 10
+    1a34:	08 f4       	brcc	.+2      	; 0x1a38 <HSSD_voidDisplayNumberAscending+0x178>
+    1a36:	73 cf       	rjmp	.-282    	; 0x191e <HSSD_voidDisplayNumberAscending+0x5e>
+	{
+//		MDIO_voidSetPortDirection(A_portID,~(SSD_arr[i]));
+		MDIO_voidSetPortValue(A_portID,(SSD_arr[i]));
+		_delay_ms(A_u16TimeToWait);
+	}
+}
+    1a38:	a1 96       	adiw	r28, 0x21	; 33
+    1a3a:	0f b6       	in	r0, 0x3f	; 63
+    1a3c:	f8 94       	cli
+    1a3e:	de bf       	out	0x3e, r29	; 62
+    1a40:	0f be       	out	0x3f, r0	; 63
+    1a42:	cd bf       	out	0x3d, r28	; 61
+    1a44:	cf 91       	pop	r28
+    1a46:	df 91       	pop	r29
+    1a48:	08 95       	ret
+
+00001a4a <HSSD_voidDisplayNumberDescending>:
+
+void HSSD_voidDisplayNumberDescending (DIO_PORT_e A_portID , u16 A_u16TimeToWait)
+{
+    1a4a:	df 93       	push	r29
+    1a4c:	cf 93       	push	r28
+    1a4e:	cd b7       	in	r28, 0x3d	; 61
+    1a50:	de b7       	in	r29, 0x3e	; 62
+    1a52:	a1 97       	sbiw	r28, 0x21	; 33
+    1a54:	0f b6       	in	r0, 0x3f	; 63
+    1a56:	f8 94       	cli
+    1a58:	de bf       	out	0x3e, r29	; 62
+    1a5a:	0f be       	out	0x3f, r0	; 63
+    1a5c:	cd bf       	out	0x3d, r28	; 61
+    1a5e:	8a 8f       	std	Y+26, r24	; 0x1a
+    1a60:	7c 8f       	std	Y+28, r23	; 0x1c
+    1a62:	6b 8f       	std	Y+27, r22	; 0x1b
+	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
+    1a64:	ce 01       	movw	r24, r28
+    1a66:	40 96       	adiw	r24, 0x10	; 16
+    1a68:	9e 8f       	std	Y+30, r25	; 0x1e
+    1a6a:	8d 8f       	std	Y+29, r24	; 0x1d
+    1a6c:	ef e7       	ldi	r30, 0x7F	; 127
+    1a6e:	f1 e0       	ldi	r31, 0x01	; 1
+    1a70:	f8 a3       	std	Y+32, r31	; 0x20
+    1a72:	ef 8f       	std	Y+31, r30	; 0x1f
+    1a74:	fa e0       	ldi	r31, 0x0A	; 10
+    1a76:	f9 a3       	std	Y+33, r31	; 0x21
+    1a78:	ef 8d       	ldd	r30, Y+31	; 0x1f
+    1a7a:	f8 a1       	ldd	r31, Y+32	; 0x20
+    1a7c:	00 80       	ld	r0, Z
+    1a7e:	8f 8d       	ldd	r24, Y+31	; 0x1f
+    1a80:	98 a1       	ldd	r25, Y+32	; 0x20
+    1a82:	01 96       	adiw	r24, 0x01	; 1
+    1a84:	98 a3       	std	Y+32, r25	; 0x20
+    1a86:	8f 8f       	std	Y+31, r24	; 0x1f
+    1a88:	ed 8d       	ldd	r30, Y+29	; 0x1d
+    1a8a:	fe 8d       	ldd	r31, Y+30	; 0x1e
+    1a8c:	00 82       	st	Z, r0
+    1a8e:	8d 8d       	ldd	r24, Y+29	; 0x1d
+    1a90:	9e 8d       	ldd	r25, Y+30	; 0x1e
+    1a92:	01 96       	adiw	r24, 0x01	; 1
+    1a94:	9e 8f       	std	Y+30, r25	; 0x1e
+    1a96:	8d 8f       	std	Y+29, r24	; 0x1d
+    1a98:	99 a1       	ldd	r25, Y+33	; 0x21
+    1a9a:	91 50       	subi	r25, 0x01	; 1
+    1a9c:	99 a3       	std	Y+33, r25	; 0x21
+    1a9e:	e9 a1       	ldd	r30, Y+33	; 0x21
+    1aa0:	ee 23       	and	r30, r30
+    1aa2:	51 f7       	brne	.-44     	; 0x1a78 <HSSD_voidDisplayNumberDescending+0x2e>
+	for(u8 i=9; i>=0;i--)
+    1aa4:	89 e0       	ldi	r24, 0x09	; 9
+    1aa6:	8f 87       	std	Y+15, r24	; 0x0f
+	{
+//		MDIO_voidSetPortDirection(A_portID,~(SSD_arr[i]));
+		MDIO_voidSetPortValue(A_portID,(SSD_arr[i]));
+    1aa8:	8f 85       	ldd	r24, Y+15	; 0x0f
+    1aaa:	28 2f       	mov	r18, r24
+    1aac:	30 e0       	ldi	r19, 0x00	; 0
+    1aae:	ce 01       	movw	r24, r28
+    1ab0:	40 96       	adiw	r24, 0x10	; 16
+    1ab2:	fc 01       	movw	r30, r24
+    1ab4:	e2 0f       	add	r30, r18
+    1ab6:	f3 1f       	adc	r31, r19
+    1ab8:	90 81       	ld	r25, Z
+    1aba:	8a 8d       	ldd	r24, Y+26	; 0x1a
+    1abc:	69 2f       	mov	r22, r25
+    1abe:	0e 94 87 0b 	call	0x170e	; 0x170e <MDIO_voidSetPortValue>
+		_delay_ms(A_u16TimeToWait);
+    1ac2:	8b 8d       	ldd	r24, Y+27	; 0x1b
+    1ac4:	9c 8d       	ldd	r25, Y+28	; 0x1c
+    1ac6:	cc 01       	movw	r24, r24
+    1ac8:	a0 e0       	ldi	r26, 0x00	; 0
+    1aca:	b0 e0       	ldi	r27, 0x00	; 0
+    1acc:	bc 01       	movw	r22, r24
+    1ace:	cd 01       	movw	r24, r26
+    1ad0:	0e 94 f5 03 	call	0x7ea	; 0x7ea <__floatunsisf>
+    1ad4:	dc 01       	movw	r26, r24
+    1ad6:	cb 01       	movw	r24, r22
+    1ad8:	8b 87       	std	Y+11, r24	; 0x0b
+    1ada:	9c 87       	std	Y+12, r25	; 0x0c
+    1adc:	ad 87       	std	Y+13, r26	; 0x0d
+    1ade:	be 87       	std	Y+14, r27	; 0x0e
+ */
+void
+_delay_ms(double __ms)
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+    1ae0:	6b 85       	ldd	r22, Y+11	; 0x0b
+    1ae2:	7c 85       	ldd	r23, Y+12	; 0x0c
+    1ae4:	8d 85       	ldd	r24, Y+13	; 0x0d
+    1ae6:	9e 85       	ldd	r25, Y+14	; 0x0e
+    1ae8:	20 e0       	ldi	r18, 0x00	; 0
+    1aea:	30 e0       	ldi	r19, 0x00	; 0
+    1aec:	4a ef       	ldi	r20, 0xFA	; 250
+    1aee:	54 e4       	ldi	r21, 0x44	; 68
+    1af0:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+    1af4:	dc 01       	movw	r26, r24
+    1af6:	cb 01       	movw	r24, r22
+    1af8:	8f 83       	std	Y+7, r24	; 0x07
+    1afa:	98 87       	std	Y+8, r25	; 0x08
+    1afc:	a9 87       	std	Y+9, r26	; 0x09
+    1afe:	ba 87       	std	Y+10, r27	; 0x0a
+	if (__tmp < 1.0)
+    1b00:	6f 81       	ldd	r22, Y+7	; 0x07
+    1b02:	78 85       	ldd	r23, Y+8	; 0x08
+    1b04:	89 85       	ldd	r24, Y+9	; 0x09
+    1b06:	9a 85       	ldd	r25, Y+10	; 0x0a
+    1b08:	20 e0       	ldi	r18, 0x00	; 0
+    1b0a:	30 e0       	ldi	r19, 0x00	; 0
+    1b0c:	40 e8       	ldi	r20, 0x80	; 128
+    1b0e:	5f e3       	ldi	r21, 0x3F	; 63
+    1b10:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__ltsf2>
+    1b14:	88 23       	and	r24, r24
+    1b16:	2c f4       	brge	.+10     	; 0x1b22 <HSSD_voidDisplayNumberDescending+0xd8>
+		__ticks = 1;
+    1b18:	81 e0       	ldi	r24, 0x01	; 1
+    1b1a:	90 e0       	ldi	r25, 0x00	; 0
+    1b1c:	9e 83       	std	Y+6, r25	; 0x06
+    1b1e:	8d 83       	std	Y+5, r24	; 0x05
+    1b20:	3f c0       	rjmp	.+126    	; 0x1ba0 <HSSD_voidDisplayNumberDescending+0x156>
+	else if (__tmp > 65535)
+    1b22:	6f 81       	ldd	r22, Y+7	; 0x07
+    1b24:	78 85       	ldd	r23, Y+8	; 0x08
+    1b26:	89 85       	ldd	r24, Y+9	; 0x09
+    1b28:	9a 85       	ldd	r25, Y+10	; 0x0a
+    1b2a:	20 e0       	ldi	r18, 0x00	; 0
+    1b2c:	3f ef       	ldi	r19, 0xFF	; 255
+    1b2e:	4f e7       	ldi	r20, 0x7F	; 127
+    1b30:	57 e4       	ldi	r21, 0x47	; 71
+    1b32:	0e 94 11 03 	call	0x622	; 0x622 <__gtsf2>
+    1b36:	18 16       	cp	r1, r24
+    1b38:	4c f5       	brge	.+82     	; 0x1b8c <HSSD_voidDisplayNumberDescending+0x142>
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+    1b3a:	6b 85       	ldd	r22, Y+11	; 0x0b
+    1b3c:	7c 85       	ldd	r23, Y+12	; 0x0c
+    1b3e:	8d 85       	ldd	r24, Y+13	; 0x0d
+    1b40:	9e 85       	ldd	r25, Y+14	; 0x0e
+    1b42:	20 e0       	ldi	r18, 0x00	; 0
+    1b44:	30 e0       	ldi	r19, 0x00	; 0
+    1b46:	40 e2       	ldi	r20, 0x20	; 32
+    1b48:	51 e4       	ldi	r21, 0x41	; 65
+    1b4a:	0e 94 17 02 	call	0x42e	; 0x42e <__mulsf3>
+    1b4e:	dc 01       	movw	r26, r24
+    1b50:	cb 01       	movw	r24, r22
+    1b52:	bc 01       	movw	r22, r24
+    1b54:	cd 01       	movw	r24, r26
+    1b56:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+    1b5a:	dc 01       	movw	r26, r24
+    1b5c:	cb 01       	movw	r24, r22
+    1b5e:	9e 83       	std	Y+6, r25	; 0x06
+    1b60:	8d 83       	std	Y+5, r24	; 0x05
+    1b62:	0f c0       	rjmp	.+30     	; 0x1b82 <HSSD_voidDisplayNumberDescending+0x138>
+    1b64:	88 ec       	ldi	r24, 0xC8	; 200
+    1b66:	90 e0       	ldi	r25, 0x00	; 0
+    1b68:	9c 83       	std	Y+4, r25	; 0x04
+    1b6a:	8b 83       	std	Y+3, r24	; 0x03
+    1b6c:	8b 81       	ldd	r24, Y+3	; 0x03
+    1b6e:	9c 81       	ldd	r25, Y+4	; 0x04
+    1b70:	01 97       	sbiw	r24, 0x01	; 1
+    1b72:	f1 f7       	brne	.-4      	; 0x1b70 <HSSD_voidDisplayNumberDescending+0x126>
+    1b74:	9c 83       	std	Y+4, r25	; 0x04
+    1b76:	8b 83       	std	Y+3, r24	; 0x03
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+    1b78:	8d 81       	ldd	r24, Y+5	; 0x05
+    1b7a:	9e 81       	ldd	r25, Y+6	; 0x06
+    1b7c:	01 97       	sbiw	r24, 0x01	; 1
+    1b7e:	9e 83       	std	Y+6, r25	; 0x06
+    1b80:	8d 83       	std	Y+5, r24	; 0x05
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+    1b82:	8d 81       	ldd	r24, Y+5	; 0x05
+    1b84:	9e 81       	ldd	r25, Y+6	; 0x06
+    1b86:	00 97       	sbiw	r24, 0x00	; 0
+    1b88:	69 f7       	brne	.-38     	; 0x1b64 <HSSD_voidDisplayNumberDescending+0x11a>
+    1b8a:	14 c0       	rjmp	.+40     	; 0x1bb4 <HSSD_voidDisplayNumberDescending+0x16a>
+			__ticks --;
+		}
+		return;
+	}
+	else
+		__ticks = (uint16_t)__tmp;
+    1b8c:	6f 81       	ldd	r22, Y+7	; 0x07
+    1b8e:	78 85       	ldd	r23, Y+8	; 0x08
+    1b90:	89 85       	ldd	r24, Y+9	; 0x09
+    1b92:	9a 85       	ldd	r25, Y+10	; 0x0a
+    1b94:	0e 94 41 00 	call	0x82	; 0x82 <__fixunssfsi>
+    1b98:	dc 01       	movw	r26, r24
+    1b9a:	cb 01       	movw	r24, r22
+    1b9c:	9e 83       	std	Y+6, r25	; 0x06
+    1b9e:	8d 83       	std	Y+5, r24	; 0x05
+    1ba0:	8d 81       	ldd	r24, Y+5	; 0x05
+    1ba2:	9e 81       	ldd	r25, Y+6	; 0x06
+    1ba4:	9a 83       	std	Y+2, r25	; 0x02
+    1ba6:	89 83       	std	Y+1, r24	; 0x01
+    1ba8:	89 81       	ldd	r24, Y+1	; 0x01
+    1baa:	9a 81       	ldd	r25, Y+2	; 0x02
+    1bac:	01 97       	sbiw	r24, 0x01	; 1
+    1bae:	f1 f7       	brne	.-4      	; 0x1bac <HSSD_voidDisplayNumberDescending+0x162>
+    1bb0:	9a 83       	std	Y+2, r25	; 0x02
+    1bb2:	89 83       	std	Y+1, r24	; 0x01
 }
 
 void HSSD_voidDisplayNumberDescending (DIO_PORT_e A_portID , u16 A_u16TimeToWait)
 {
 	u8 SSD_arr[10]={ZERO,ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE};
 	for(u8 i=9; i>=0;i--)
-    1924:	8f 85       	ldd	r24, Y+15	; 0x0f
-    1926:	81 50       	subi	r24, 0x01	; 1
-    1928:	8f 87       	std	Y+15, r24	; 0x0f
-    192a:	65 cf       	rjmp	.-310    	; 0x17f6 <HSSD_voidDisplayNumberDescending+0x5e>
+    1bb4:	8f 85       	ldd	r24, Y+15	; 0x0f
+    1bb6:	81 50       	subi	r24, 0x01	; 1
+    1bb8:	8f 87       	std	Y+15, r24	; 0x0f
+    1bba:	76 cf       	rjmp	.-276    	; 0x1aa8 <HSSD_voidDisplayNumberDescending+0x5e>
 
-0000192c <__prologue_saves__>:
-    192c:	2f 92       	push	r2
-    192e:	3f 92       	push	r3
-    1930:	4f 92       	push	r4
-    1932:	5f 92       	push	r5
-    1934:	6f 92       	push	r6
-    1936:	7f 92       	push	r7
-    1938:	8f 92       	push	r8
-    193a:	9f 92       	push	r9
-    193c:	af 92       	push	r10
-    193e:	bf 92       	push	r11
-    1940:	cf 92       	push	r12
-    1942:	df 92       	push	r13
-    1944:	ef 92       	push	r14
-    1946:	ff 92       	push	r15
-    1948:	0f 93       	push	r16
-    194a:	1f 93       	push	r17
-    194c:	cf 93       	push	r28
-    194e:	df 93       	push	r29
-    1950:	cd b7       	in	r28, 0x3d	; 61
-    1952:	de b7       	in	r29, 0x3e	; 62
-    1954:	ca 1b       	sub	r28, r26
-    1956:	db 0b       	sbc	r29, r27
-    1958:	0f b6       	in	r0, 0x3f	; 63
-    195a:	f8 94       	cli
-    195c:	de bf       	out	0x3e, r29	; 62
-    195e:	0f be       	out	0x3f, r0	; 63
-    1960:	cd bf       	out	0x3d, r28	; 61
-    1962:	09 94       	ijmp
+00001bbc <__prologue_saves__>:
+    1bbc:	2f 92       	push	r2
+    1bbe:	3f 92       	push	r3
+    1bc0:	4f 92       	push	r4
+    1bc2:	5f 92       	push	r5
+    1bc4:	6f 92       	push	r6
+    1bc6:	7f 92       	push	r7
+    1bc8:	8f 92       	push	r8
+    1bca:	9f 92       	push	r9
+    1bcc:	af 92       	push	r10
+    1bce:	bf 92       	push	r11
+    1bd0:	cf 92       	push	r12
+    1bd2:	df 92       	push	r13
+    1bd4:	ef 92       	push	r14
+    1bd6:	ff 92       	push	r15
+    1bd8:	0f 93       	push	r16
+    1bda:	1f 93       	push	r17
+    1bdc:	cf 93       	push	r28
+    1bde:	df 93       	push	r29
+    1be0:	cd b7       	in	r28, 0x3d	; 61
+    1be2:	de b7       	in	r29, 0x3e	; 62
+    1be4:	ca 1b       	sub	r28, r26
+    1be6:	db 0b       	sbc	r29, r27
+    1be8:	0f b6       	in	r0, 0x3f	; 63
+    1bea:	f8 94       	cli
+    1bec:	de bf       	out	0x3e, r29	; 62
+    1bee:	0f be       	out	0x3f, r0	; 63
+    1bf0:	cd bf       	out	0x3d, r28	; 61
+    1bf2:	09 94       	ijmp
 
-00001964 <__epilogue_restores__>:
-    1964:	2a 88       	ldd	r2, Y+18	; 0x12
-    1966:	39 88       	ldd	r3, Y+17	; 0x11
-    1968:	48 88       	ldd	r4, Y+16	; 0x10
-    196a:	5f 84       	ldd	r5, Y+15	; 0x0f
-    196c:	6e 84       	ldd	r6, Y+14	; 0x0e
-    196e:	7d 84       	ldd	r7, Y+13	; 0x0d
-    1970:	8c 84       	ldd	r8, Y+12	; 0x0c
-    1972:	9b 84       	ldd	r9, Y+11	; 0x0b
-    1974:	aa 84       	ldd	r10, Y+10	; 0x0a
-    1976:	b9 84       	ldd	r11, Y+9	; 0x09
-    1978:	c8 84       	ldd	r12, Y+8	; 0x08
-    197a:	df 80       	ldd	r13, Y+7	; 0x07
-    197c:	ee 80       	ldd	r14, Y+6	; 0x06
-    197e:	fd 80       	ldd	r15, Y+5	; 0x05
-    1980:	0c 81       	ldd	r16, Y+4	; 0x04
-    1982:	1b 81       	ldd	r17, Y+3	; 0x03
-    1984:	aa 81       	ldd	r26, Y+2	; 0x02
-    1986:	b9 81       	ldd	r27, Y+1	; 0x01
-    1988:	ce 0f       	add	r28, r30
-    198a:	d1 1d       	adc	r29, r1
-    198c:	0f b6       	in	r0, 0x3f	; 63
-    198e:	f8 94       	cli
-    1990:	de bf       	out	0x3e, r29	; 62
-    1992:	0f be       	out	0x3f, r0	; 63
-    1994:	cd bf       	out	0x3d, r28	; 61
-    1996:	ed 01       	movw	r28, r26
-    1998:	08 95       	ret
+00001bf4 <__epilogue_restores__>:
+    1bf4:	2a 88       	ldd	r2, Y+18	; 0x12
+    1bf6:	39 88       	ldd	r3, Y+17	; 0x11
+    1bf8:	48 88       	ldd	r4, Y+16	; 0x10
+    1bfa:	5f 84       	ldd	r5, Y+15	; 0x0f
+    1bfc:	6e 84       	ldd	r6, Y+14	; 0x0e
+    1bfe:	7d 84       	ldd	r7, Y+13	; 0x0d
+    1c00:	8c 84       	ldd	r8, Y+12	; 0x0c
+    1c02:	9b 84       	ldd	r9, Y+11	; 0x0b
+    1c04:	aa 84       	ldd	r10, Y+10	; 0x0a
+    1c06:	b9 84       	ldd	r11, Y+9	; 0x09
+    1c08:	c8 84       	ldd	r12, Y+8	; 0x08
+    1c0a:	df 80       	ldd	r13, Y+7	; 0x07
+    1c0c:	ee 80       	ldd	r14, Y+6	; 0x06
+    1c0e:	fd 80       	ldd	r15, Y+5	; 0x05
+    1c10:	0c 81       	ldd	r16, Y+4	; 0x04
+    1c12:	1b 81       	ldd	r17, Y+3	; 0x03
+    1c14:	aa 81       	ldd	r26, Y+2	; 0x02
+    1c16:	b9 81       	ldd	r27, Y+1	; 0x01
+    1c18:	ce 0f       	add	r28, r30
+    1c1a:	d1 1d       	adc	r29, r1
+    1c1c:	0f b6       	in	r0, 0x3f	; 63
+    1c1e:	f8 94       	cli
+    1c20:	de bf       	out	0x3e, r29	; 62
+    1c22:	0f be       	out	0x3f, r0	; 63
+    1c24:	cd bf       	out	0x3d, r28	; 61
+    1c26:	ed 01       	movw	r28, r26
+    1c28:	08 95       	ret
 
-0000199a <_exit>:
-    199a:	f8 94       	cli
+00001c2a <_exit>:
+    1c2a:	f8 94       	cli
 
-0000199c <__stop_program>:
-    199c:	ff cf       	rjmp	.-2      	; 0x199c <__stop_program>
+00001c2c <__stop_program>:
+    1c2c:	ff cf       	rjmp	.-2      	; 0x1c2c <__stop_program>
